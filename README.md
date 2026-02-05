@@ -83,3 +83,4 @@ Use backticks around the code, like `inline_code`.
 
 - SEO: per-page metadata, OpenGraph, sitemap, and robots.txt are included.
 - Markdown supports tables, blockquotes, inline code, and syntax highlighting.
+- Dependency updates: prefer bumping within the same major version. Avoid `npm audit fix --force` unless you intend to upgrade majors and verify Node/build compatibility.
