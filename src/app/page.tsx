@@ -1,25 +1,31 @@
 import Link from "next/link";
+import { SubmergedRidge, FaultLineDivider, SedimentLayers } from "@/components/illustrations";
 
 export default function HomePage() {
   return (
     <div className="container-narrow">
       <section className="section">
-        <div className="flex flex-col gap-6">
-          <p className="text-sm uppercase tracking-[0.35em] text-slate-300">Deadwater.ai</p>
-          <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
-          <h2 className="text-xl text-slate-200">Content OS for an AI-first world.</h2>
-          <p className="text-lg text-slate-300">
-            We build AI-native content systems that stay coherent under pressure. If your stack depends on fragile
-            prompts or endless manual updates, it is not done yet. Deadwater replaces that drift with structure agents
-            can trust.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/read" className="focus-ring rounded-full border border-accent-blue px-6 py-3 text-sm uppercase tracking-[0.2em] text-white">
-              Explore Read
-            </Link>
-            <Link href="/contact" className="focus-ring rounded-full border border-ink-700 px-6 py-3 text-sm uppercase tracking-[0.2em] text-slate-300 hover:text-white">
-              Contact
-            </Link>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
+          <div className="flex flex-col gap-6">
+            <p className="eyebrow">Deadwater.ai</p>
+            <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
+            <h2 className="text-xl text-slate-200">Content OS for an AI-first world.</h2>
+            <p className="text-lg text-slate-300">
+              We build AI-native content systems that stay coherent under pressure. If your stack depends on fragile
+              prompts or endless manual updates, it is not done yet. Deadwater replaces that drift with structure agents
+              can trust.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/read" className="focus-ring border border-accent-blue px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
+                Explore Read
+              </Link>
+              <Link href="/contact" className="focus-ring border border-ink-700 px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
+                Contact
+              </Link>
+            </div>
+          </div>
+          <div className="border border-ink-800 p-4">
+            <SubmergedRidge className="h-auto w-full text-white/80" />
           </div>
         </div>
       </section>
@@ -27,7 +33,8 @@ export default function HomePage() {
       <div className="divider" />
 
       <section className="section">
-        <div className="flex flex-col gap-8 text-lg text-slate-300">
+        <div className="grid-structure">
+          <div className="flex flex-col gap-8 text-lg text-slate-300">
           <p>
             Most teams are trying to bolt AI onto systems that were never designed for it. PDFs. CMSs. Wikis.
             Dashboards. Prompts taped together with hope.
@@ -37,22 +44,29 @@ export default function HomePage() {
             understood, expanded, and operated on by agents.
           </p>
           <p className="text-white">Content OS is how AI actually becomes useful.</p>
+          </div>
+          <div className="side-note">System substrate</div>
         </div>
       </section>
 
       <section className="section">
-        <div className="card">
-          <h2 className="heading-serif text-2xl">What is a content OS?</h2>
-          <p className="mt-4 text-slate-300">
-            A Content OS is an AI-first, AI-native content system designed to be fully usable by agents—not just humans.
-          </p>
-          <div className="mt-6 grid gap-4 text-slate-300">
-            <p>Structured for maximum context, not maximum clicks.</p>
-            <p>Written in formats machines can reason over—markdown, schemas, graphs.</p>
-            <p>Continuously expandable by AI using its own internal understanding.</p>
-            <p>Operational, not editorial—content that powers workflows, not pages.</p>
-            <p>Think less “website.” More “living system.”</p>
-            <p className="text-white">A Content OS doesn’t just answer questions. It runs things.</p>
+        <div className="grid-structure">
+          <div>
+            <h2 className="heading-serif text-2xl">What is a content OS?</h2>
+            <p className="mt-4 text-slate-300">
+              A Content OS is an AI-first, AI-native content system designed to be fully usable by agents—not just humans.
+            </p>
+            <div className="mt-6 grid gap-4 text-slate-300">
+              <p>Structured for maximum context, not maximum clicks.</p>
+              <p>Written in formats machines can reason over—markdown, schemas, graphs.</p>
+              <p>Continuously expandable by AI using its own internal understanding.</p>
+              <p>Operational, not editorial—content that powers workflows, not pages.</p>
+              <p>Think less “website.” More “living system.”</p>
+              <p className="text-white">A Content OS doesn’t just answer questions. It runs things.</p>
+            </div>
+          </div>
+          <div className="border border-ink-800 p-4">
+            <SedimentLayers className="h-auto w-full text-white/70" />
           </div>
         </div>
       </section>
@@ -90,6 +104,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <div className="section-tight">
+        <FaultLineDivider className="mx-auto h-20 w-full max-w-3xl text-white/70" />
+      </div>
 
       <section className="section">
         <h2 className="heading-serif text-2xl">What we actually help with</h2>

@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Manrope, Cormorant_Garamond } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Sans_Condensed } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const sans = Manrope({
+const sans = IBM_Plex_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap"
+  display: "swap",
+  weight: ["300", "400", "500", "600"]
 });
 
-const serif = Cormorant_Garamond({
+const serif = IBM_Plex_Sans_Condensed({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",

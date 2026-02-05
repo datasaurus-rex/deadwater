@@ -13,7 +13,7 @@ export function SiteHeader() {
         <Link href="/" className="heading-serif text-lg font-semibold text-white focus-ring">
           Deadwater.ai
         </Link>
-        <nav className="flex items-center gap-6 text-sm uppercase tracking-[0.2em] text-slate-300">
+        <nav className="flex items-center gap-6 text-xs uppercase tracking-[0.35em] text-slate-400">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="focus-ring transition-colors hover:text-white">
               {link.label}

@@ -4,6 +4,15 @@
 
 :root {
   color-scheme: dark;
+  --bg: #050608;
+  --fg: #ffffff;
+  --muted: #c7cfdd;
+  --muted-2: #98a2b3;
+  --border: #1a2333;
+  --panel: #0b111a;
+  --accent-blue: #4da3ff;
+  --accent-sea: #4dd4c6;
+  --space-unit: 6px;
 }
 
 * {
@@ -13,6 +22,8 @@
 
 body {
   @apply bg-ink-950 text-white;
+  background: var(--bg);
+  color: var(--fg);
 }
 
 a {
@@ -28,11 +39,15 @@ a:hover {
 }
 
 .container-narrow {
-  @apply mx-auto w-full max-w-3xl px-6;
+  @apply mx-auto w-full max-w-4xl px-6;
 }
 
 .section {
   @apply py-12;
+}
+
+.section-tight {
+  @apply py-8;
 }
 
 .heading-serif {
@@ -41,17 +56,17 @@ a:hover {
 
 .prose-deadwater {
   @apply prose prose-invert max-w-none;
-  --tw-prose-body: #e6edf7;
-  --tw-prose-headings: #ffffff;
-  --tw-prose-links: #4da3ff;
-  --tw-prose-bold: #ffffff;
+  --tw-prose-body: var(--muted);
+  --tw-prose-headings: var(--fg);
+  --tw-prose-links: var(--accent-blue);
+  --tw-prose-bold: var(--fg);
   --tw-prose-quotes: #d2dbea;
   --tw-prose-code: #d2dbea;
   --tw-prose-pre-code: #e9eef6;
   --tw-prose-pre-bg: #0f1420;
-  --tw-prose-hr: #1f2b3d;
-  --tw-prose-th-borders: #1f2b3d;
-  --tw-prose-td-borders: #1f2b3d;
+  --tw-prose-hr: var(--border);
+  --tw-prose-th-borders: var(--border);
+  --tw-prose-td-borders: var(--border);
 }
 
 .prose-deadwater pre {
@@ -83,7 +98,7 @@ a:hover {
 }
 
 .tag {
-  @apply inline-flex items-center rounded-full border border-ink-700 px-3 py-1 text-xs uppercase tracking-[0.2em] text-slate-200;
+  @apply inline-flex items-center border border-ink-700 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-slate-300;
 }
 
 .divider {
@@ -91,7 +106,7 @@ a:hover {
 }
 
 .card {
-  @apply rounded-2xl border border-ink-800 bg-ink-900/70 p-6;
+  @apply border border-ink-800 bg-ink-900/70 p-6;
 }
 
 .muted {
@@ -138,4 +153,20 @@ a:hover {
 
 .hljs-deletion {
   color: #ff7b7b;
+}
+
+.eyebrow {
+  @apply text-xs uppercase tracking-[0.4em] text-slate-400;
+}
+
+.rule {
+  @apply h-px w-full bg-ink-800;
+}
+
+.grid-structure {
+  @apply grid gap-10 md:grid-cols-[minmax(0,1fr)_220px];
+}
+
+.side-note {
+  @apply text-xs uppercase tracking-[0.3em] text-slate-500;
 }

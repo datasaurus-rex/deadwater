@@ -38,7 +38,7 @@ export default async function ReadPostPage({ params }: Props) {
   return (
     <article className="container-narrow section">
       <header className="flex flex-col gap-4">
-        <p className="text-sm uppercase tracking-[0.2em] text-slate-400">{post.date}</p>
+        <p className="eyebrow">{post.date}</p>
         <h1 className="heading-serif text-4xl">{post.title}</h1>
         <p className="text-lg text-slate-300">{post.description}</p>
         <div className="flex flex-wrap items-center gap-4 text-sm text-slate-400">

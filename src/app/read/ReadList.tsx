@@ -44,8 +44,8 @@ export function ReadList({ posts }: Props) {
 
       <div className="mt-8 grid gap-6">
         {filtered.map((post) => (
-          <Link key={post.slug} href={`/read/${post.slug}`} className="card focus-ring">
-            <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.2em] text-slate-400">
+          <Link key={post.slug} href={`/read/${post.slug}`} className="focus-ring border-b border-ink-800 py-6">
+            <div className="flex flex-wrap items-center gap-4 text-[11px] uppercase tracking-[0.3em] text-slate-400">
               <span>{post.date}</span>
               <span>{post.readingTime}</span>
             </div>

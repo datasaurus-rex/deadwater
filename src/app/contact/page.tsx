@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="container-narrow section">
+      <p className="eyebrow">Contact</p>
       <h1 className="heading-serif text-3xl">Contact</h1>
       <p className="mt-6 text-lg text-slate-300">
         Email is the simplest way to start. If you want to build a Content OS or repair a brittle AI stack, send a note.

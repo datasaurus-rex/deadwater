@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="container-narrow section">
+      <p className="eyebrow">About</p>
       <h1 className="heading-serif text-3xl">About</h1>
       <div className="mt-6 grid gap-4 text-lg text-slate-300">
         <p>
