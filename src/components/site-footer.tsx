@@ -4,9 +4,22 @@ export function SiteFooter() {
       <div className="container-narrow flex flex-col gap-6 py-10 text-sm text-slate-300">
         <p>Deadwater.ai — Content OS for an AI-first world.</p>
         <div className="flex flex-wrap gap-6 uppercase tracking-[0.2em]">
-          <span>LinkedIn</span>
-          <span>GitHub</span>
-          <span>X</span>
+          <a
+            href="https://linkedin.com/in/jackvirag"
+            className="focus-ring transition-colors hover:text-white"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/datasaurus-rex"
+            className="focus-ring transition-colors hover:text-white"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
         </div>
       </div>
     </footer>

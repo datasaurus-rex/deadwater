@@ -66,6 +66,18 @@ a:hover {
   @apply bg-transparent p-0;
 }
 
+.prose-deadwater img {
+  @apply my-8 h-auto w-full rounded-xl border border-ink-800;
+}
+
+.prose-deadwater figure {
+  @apply my-10;
+}
+
+.prose-deadwater figcaption {
+  @apply mt-3 text-sm text-slate-400;
+}
+
 .focus-ring {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950;
 }
