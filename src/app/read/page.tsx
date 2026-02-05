@@ -1,0 +1,38 @@
+import type { Metadata } from "next";
+import { getAllPosts } from "@/lib/content";
+import { ReadList } from "./ReadList";
+
+export const metadata: Metadata = {
+  title: "Read",
+  description: "Longform writing on Content OS, agent workflows, and AI-native knowledge systems.",
+  openGraph: {
+    title: "Read — Deadwater.ai",
+    description: "Longform writing on Content OS, agent workflows, and AI-native knowledge systems."
+  }
+};
+
+export default async function ReadPage() {
+  const posts = await getAllPosts();
+
+  return (
+    <div className="container-narrow section">
+      <div className="flex flex-col gap-4">
+        <p className="text-sm uppercase tracking-[0.2em] text-slate-400">Read</p>
+        <h1 className="heading-serif text-3xl">Field notes on Content OS</h1>
+        <p className="text-lg text-slate-300">
+          Essays on AI-native content systems, agent workflows, and the architecture that keeps knowledge alive.
+        </p>
+      </div>
+      <ReadList
+        posts={posts.map((post) => ({
+          slug: post.slug,
+          title: post.title,
+          description: post.description,
+          date: post.date,
+          tags: post.tags,
+          readingTime: post.readingTime
+        }))}
+      />
+    </div>
+  );
+}

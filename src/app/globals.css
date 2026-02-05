@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  @apply bg-ink-950 text-white;
+}
+
+a {
+  @apply text-accent-blue transition-colors;
+}
+
+a:hover {
+  @apply text-accent-sea;
+}
+
+::selection {
+  background: rgba(77, 163, 255, 0.25);
+}
+
+.container-narrow {
+  @apply mx-auto w-full max-w-3xl px-6;
+}
+
+.section {
+  @apply py-12;
+}
+
+.heading-serif {
+  @apply font-serif tracking-tight;
+}
+
+.prose-deadwater {
+  @apply prose prose-invert max-w-none;
+  --tw-prose-body: #e6edf7;
+  --tw-prose-headings: #ffffff;
+  --tw-prose-links: #4da3ff;
+  --tw-prose-bold: #ffffff;
+  --tw-prose-quotes: #d2dbea;
+  --tw-prose-code: #d2dbea;
+  --tw-prose-pre-code: #e9eef6;
+  --tw-prose-pre-bg: #0f1420;
+  --tw-prose-hr: #1f2b3d;
+  --tw-prose-th-borders: #1f2b3d;
+  --tw-prose-td-borders: #1f2b3d;
+}
+
+.prose-deadwater pre {
+  @apply rounded-lg border border-ink-700;
+}
+
+.prose-deadwater code {
+  @apply rounded bg-ink-800 px-1 py-0.5;
+}
+
+.prose-deadwater pre code {
+  @apply bg-transparent p-0;
+}
+
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950;
+}
+
+.tag {
+  @apply inline-flex items-center rounded-full border border-ink-700 px-3 py-1 text-xs uppercase tracking-[0.2em] text-slate-200;
+}
+
+.divider {
+  @apply my-10 h-px w-full bg-ink-800;
+}
+
+.card {
+  @apply rounded-2xl border border-ink-800 bg-ink-900/70 p-6;
+}
+
+.muted {
+  @apply text-slate-300;
+}
+
+.highlight {
+  @apply text-accent-blue;
+}
+
+.hljs {
+  color: #e6edf7;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #8a93a6;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #4da3ff;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #4dd4c6;
+}
+
+.hljs-number,
+.hljs-literal {
+  color: #f7b955;
+}
+
+.hljs-deletion {
+  color: #ff7b7b;
+}
