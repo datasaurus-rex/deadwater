@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div className="container-narrow">
       <section className="section">
-        <div className="relative overflow-hidden border border-ink-800 p-8 lg:p-12">
+        <div className="relative overflow-hidden p-8 lg:p-12">
           <div className="relative z-10 max-w-xl">
             <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
             <h2 className="mt-4 text-xl text-slate-200">Content OS for an AI-first world.</h2>
@@ -30,7 +30,7 @@ export default function HomePage() {
               alt="Submerged structure under a flat waterline"
               fill
               priority
-              className="object-contain object-right"
+              className="object-contain object-right scale-[1.08] translate-x-6 sm:translate-x-10"
               sizes="(min-width: 1024px) 800px, 100vw"
             />
           </div>
