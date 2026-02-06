@@ -6,29 +6,28 @@ export default function HomePage() {
   return (
     <div className="container-narrow">
       <section className="pt-4 pb-2">
-        <div className="relative overflow-hidden px-6 pt-4 pb-2 lg:px-10 lg:pt-6 lg:pb-4">
-          <div className="relative z-10 max-w-xl">
-            <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
-            <h2 className="mt-4 text-xl text-slate-200">Content OS for an AI-first world.</h2>
-            <p className="mt-6 text-lg text-slate-300">
-              We build AI-native content systems that stay coherent under pressure. If your stack depends on fragile
-              prompts or endless manual updates, it is not done yet. Deadwater replaces that drift with structure agents
-              can trust.
-            </p>
+        <div className="container-narrow relative z-10 pt-4 pb-2 lg:pt-6 lg:pb-4">
+          <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
+          <h2 className="mt-4 text-xl text-slate-200">Content OS for an AI-first world.</h2>
+          <p className="mt-6 text-lg text-slate-300">
+            We build AI-native content systems that stay coherent under pressure. If your stack depends on fragile
+            prompts or endless manual updates, it is not done yet. Deadwater replaces that drift with structure agents
+            can trust.
+          </p>
+        </div>
+        <div className="relative mt-2 w-screen overflow-hidden ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] sm:mt-4 sm:ml-0 sm:mr-0 sm:w-full sm:aspect-[1060/274]">
+          <div className="relative h-40 w-full sm:h-full">
+            <Image
+              src="/hero/hero.png"
+              alt="Submerged structure under a flat waterline"
+              fill
+              priority
+              className="object-cover object-left sm:object-contain sm:object-center"
+              sizes="100vw"
+            />
           </div>
-          <div className="relative mt-2 w-full overflow-hidden sm:mt-4">
-            <div className="relative left-1/2 right-1/2 w-screen -mx-[50vw] sm:static sm:mx-0 sm:w-full">
-              <Image
-                src="/hero/hero.png"
-                alt="Submerged structure under a flat waterline"
-                width={1060}
-                height={274}
-                priority
-                className="h-auto w-screen max-w-none object-contain object-left sm:w-full sm:object-contain sm:object-center"
-                sizes="(min-width: 1024px) 1060px, 100vw"
-              />
-            </div>
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-wrap gap-4">
+          <div className="pointer-events-none absolute inset-0 flex items-center">
+            <div className="container-narrow pointer-events-auto flex flex-wrap gap-4">
               <Link href="/read" className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
                 Read
               </Link>
