@@ -18,15 +18,15 @@ export default function HomePage() {
           </div>
           <div className="relative mt-2 w-full overflow-hidden sm:mt-4">
             <div className="relative left-1/2 right-1/2 w-screen -mx-[50vw] sm:static sm:mx-0 sm:w-full">
-            <Image
-              src="/hero/hero.png"
-              alt="Submerged structure under a flat waterline"
-              width={1060}
-              height={274}
-              priority
-              className="h-40 w-full max-w-none scale-[1.18] object-cover object-left sm:h-auto sm:scale-100 sm:object-contain sm:object-center"
-              sizes="(min-width: 1024px) 1060px, 100vw"
-            />
+              <Image
+                src="/hero/hero.png"
+                alt="Submerged structure under a flat waterline"
+                width={1060}
+                height={274}
+                priority
+                className="h-auto w-screen max-w-none object-contain object-left sm:w-full sm:object-contain sm:object-center"
+                sizes="(min-width: 1024px) 1060px, 100vw"
+              />
             </div>
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-wrap gap-4">
               <Link href="/read" className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
