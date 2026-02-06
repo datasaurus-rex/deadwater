@@ -8,7 +8,7 @@ export function SiteFooter() {
         alt=""
         fill
         aria-hidden="true"
-        className="object-cover object-top object-right sm:object-top sm:object-center"
+        className="object-cover object-[95%_0%] sm:object-top sm:object-center"
         sizes="100vw"
       />
       <div className="container-narrow relative z-10 flex flex-col gap-6 py-10 text-sm text-slate-300">
