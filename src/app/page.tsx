@@ -16,13 +16,14 @@ export default function HomePage() {
               can trust.
             </p>
           </div>
-          <div className="relative mt-8 aspect-[1060/274] w-full">
+          <div className="relative mt-8 w-full">
             <Image
               src="/hero/hero.png"
               alt="Submerged structure under a flat waterline"
-              fill
+              width={1060}
+              height={274}
               priority
-              className="object-contain object-right"
+              className="h-auto w-full object-contain object-center"
               sizes="(min-width: 1024px) 1060px, 100vw"
             />
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-wrap gap-4">
