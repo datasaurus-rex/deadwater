@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     template: "%s — Deadwater.ai"
   },
   description: "The AI-native content operating system is here.",
+  icons: {
+    icon: "/favicon/favicon.jpg"
+  },
   openGraph: {
     title: "Deadwater.ai",
     description: "The AI-native content operating system is here.",
