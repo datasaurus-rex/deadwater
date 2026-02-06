@@ -64,20 +64,23 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
     }
 
     const phaseDurationMs = phase === 1 ? 2500 : 3000;
-    const slots = 4;
+    const sequence: Array<"blue" | "green"> = ["blue", "green", "blue", "green"];
+    const slots = sequence.length;
     const activeWindowMs = Math.round(phaseDurationMs * 0.55);
     const slotMs = Math.max(120, Math.floor(activeWindowMs / slots));
     const timers: NodeJS.Timeout[] = [];
 
+    setZapMode("none");
+
     for (let i = 0; i < slots; i += 1) {
       timers.push(
         setTimeout(() => {
-          const mode = i % 2 === 0 ? "green" : "blue";
+          const mode = sequence[i];
           setZapMode(mode);
           if (mode === "green") {
             setMagicTick((tick) => tick + 1);
           }
-        }, i * slotMs)
+        }, i * slotMs + 20)
       );
     }
 
@@ -288,15 +291,17 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
           <>
             {activeLine ? (
               <g key={`magic-${phase}-${magicTick}`}>
-                <motion.path
-                  d={`M185 ${70 + leftOffsetY} L205 ${80 + leftOffsetY} L225 ${72 + leftOffsetY} L245 ${84 + leftOffsetY} L265 ${76 + leftOffsetY} L285 ${88 + leftOffsetY} L${draftFrame.x} ${draftFrame.y + 32}`}
-                  stroke="#2cc7a8"
-                  strokeWidth="2"
-                  fill="none"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 0.55, ease: "easeOut" }}
-                />
+                {zapMode === "green" ? (
+                  <motion.path
+                    d={`M185 ${70 + leftOffsetY} L205 ${80 + leftOffsetY} L225 ${72 + leftOffsetY} L245 ${84 + leftOffsetY} L265 ${76 + leftOffsetY} L285 ${88 + leftOffsetY} L${draftFrame.x} ${draftFrame.y + 32}`}
+                    stroke="#2cc7a8"
+                    strokeWidth="2"
+                    fill="none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ duration: 0.55, ease: "easeOut" }}
+                  />
+                ) : null}
                 {zapMode !== "green" ? (
                   <>
                     <motion.rect
