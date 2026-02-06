@@ -106,13 +106,16 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
       lines.mode === "wall" ? lineSegments : lines.mode === "formatted" ? formattedSegments : refinedSegments;
 
     return segments.map((seg, index) => {
-      const height = seg.heading ? 10 : seg.gap ? 4 : 8;
+      const isHeading = "heading" in seg && Boolean(seg.heading);
+      const isGap = "gap" in seg && Boolean(seg.gap);
+      const isLink = "link" in seg && Boolean(seg.link);
+      const height = isHeading ? 10 : isGap ? 4 : 8;
       const delayStep = lines.mode === "wall" ? 0.2 : 0.2;
       const duration = lines.mode === "wall" ? 0.7 : 0.6;
       const baseDelay = 0;
       const delay = baseDelay + index * delayStep;
-      const fill = seg.link ? "#4da3ff" : "#ffffff";
-      const opacity = seg.link ? 0.9 : 0.85;
+      const fill = isLink ? "#4da3ff" : "#ffffff";
+      const opacity = isLink ? 0.9 : 0.85;
 
       if (prefersReducedMotion) {
         return <rect key={index} x={seg.x} y={seg.y} width={seg.w} height={height} fill={fill} opacity={opacity} />;
