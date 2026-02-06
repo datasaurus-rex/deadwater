@@ -24,14 +24,14 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="pointer-events-none absolute inset-0">
+          <div className="relative mt-10 h-40 sm:h-52 lg:h-60">
             <Image
               src="/hero/hero.png"
               alt="Submerged structure under a flat waterline"
               fill
               priority
-              className="object-contain object-right scale-[1.08] translate-x-6 sm:translate-x-10"
-              sizes="(min-width: 1024px) 800px, 100vw"
+              className="object-contain object-right scale-[1.12] translate-x-10 sm:translate-x-16"
+              sizes="(min-width: 1024px) 900px, 100vw"
             />
           </div>
         </div>

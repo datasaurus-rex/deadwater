@@ -23,16 +23,24 @@ const siteUrl = "https://deadwater.ai";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Deadwater.ai — Content OS for an AI-first world",
+    default: "Deadwater.ai",
     template: "%s — Deadwater.ai"
   },
-  description: "Deadwater.ai builds Content OS systems designed for AI-native knowledge operations.",
+  description: "The AI-native content operating system is here.",
   openGraph: {
     title: "Deadwater.ai",
-    description: "Content OS for an AI-first world.",
+    description: "The AI-native content operating system is here.",
     url: siteUrl,
     siteName: "Deadwater.ai",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: "/og/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Deadwater.ai — Content OS for an AI-first world"
+      }
+    ]
   },
   robots: {
     index: true,
