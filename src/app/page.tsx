@@ -16,21 +16,21 @@ export default function HomePage() {
               can trust.
             </p>
           </div>
-          <div className="relative mt-2 w-full">
+          <div className="relative mt-2 w-full overflow-hidden">
             <Image
               src="/hero/hero.png"
               alt="Submerged structure under a flat waterline"
               width={1060}
               height={274}
               priority
-              className="h-auto w-full object-contain object-center"
+              className="h-40 w-full object-cover object-left sm:h-auto sm:object-contain sm:object-center"
               sizes="(min-width: 1024px) 1060px, 100vw"
             />
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-wrap gap-4">
-              <Link href="/read" className="focus-ring border border-accent-blue px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
+              <Link href="/read" className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
                 Read
               </Link>
-              <Link href="/contact" className="focus-ring border border-ink-700 px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
+              <Link href="/contact" className="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
                 Contact
               </Link>
             </div>
