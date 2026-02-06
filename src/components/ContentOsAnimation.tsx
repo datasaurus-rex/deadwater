@@ -24,6 +24,8 @@ const sizeMap = {
 export function ContentOsAnimation({ size = "md", loop = true }: Props) {
   const prefersReducedMotion = useReducedMotion();
   const [phase, setPhase] = useState(0);
+  const [zapMode, setZapMode] = useState<"none" | "blue" | "green">("none");
+  const [magicTick, setMagicTick] = useState(0);
   const leftOffsetY = 62;
   const textOffsetY = -6;
   const groupScale = 1.12;
@@ -54,6 +56,37 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
     advance();
     return () => clearTimeout(timeout);
   }, [prefersReducedMotion, loop]);
+
+  useEffect(() => {
+    if (prefersReducedMotion || !loop || phase === 0) {
+      setZapMode("none");
+      return;
+    }
+
+    const phaseDurationMs = phase === 1 ? 2500 : 3000;
+    const slots = 4;
+    const activeWindowMs = Math.round(phaseDurationMs * 0.55);
+    const slotMs = Math.max(120, Math.floor(activeWindowMs / slots));
+    const timers: NodeJS.Timeout[] = [];
+
+    for (let i = 0; i < slots; i += 1) {
+      timers.push(
+        setTimeout(() => {
+          const mode = i % 2 === 0 ? "green" : "blue";
+          setZapMode(mode);
+          if (mode === "green") {
+            setMagicTick((tick) => tick + 1);
+          }
+        }, i * slotMs)
+      );
+    }
+
+    timers.push(setTimeout(() => setZapMode("none"), activeWindowMs));
+
+    return () => {
+      timers.forEach((timer) => clearTimeout(timer));
+    };
+  }, [phase, prefersReducedMotion, loop]);
 
   const lines = useMemo(() => {
     if (phase === 1) {
@@ -200,7 +233,7 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
   };
 
   const zapTransition = { duration: 0.25, ease: "easeInOut" };
-  const magicTransition = { duration: 0.75, ease: "easeOut" };
+  const magicTransition = { duration: 0.6, ease: "easeOut" };
 
   return (
     <div className="w-full">
@@ -254,7 +287,7 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
         {prefersReducedMotion ? null : (
           <>
             {activeLine ? (
-              <g key={`magic-${phase}`}>
+              <g key={`magic-${phase}-${magicTick}`}>
                 <motion.path
                   d={`M185 ${70 + leftOffsetY} L205 ${80 + leftOffsetY} L225 ${72 + leftOffsetY} L245 ${84 + leftOffsetY} L265 ${76 + leftOffsetY} L285 ${88 + leftOffsetY} L${draftFrame.x} ${draftFrame.y + 32}`}
                   stroke="#2cc7a8"
@@ -264,59 +297,66 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 0.55, ease: "easeOut" }}
                 />
-                <motion.rect
-                  x={draftFrame.x - 2}
-                  y={draftFrame.y - 2}
-                  width={draftFrame.width + 4}
-                  height={draftFrame.height + 4}
-                  rx="10"
-                  stroke="#2cc7a8"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeDasharray="16 10"
-                  initial={{ strokeDashoffset: 60, opacity: 0 }}
-                  animate={{ strokeDashoffset: -60, opacity: [1, 0.2, 1] }}
-                  transition={magicTransition}
-                />
-                <motion.path
-                  d={`M${draftFrame.x - 2} ${draftFrame.y + 16} L${draftFrame.x + 8} ${draftFrame.y - 2} L${draftFrame.x + 28} ${draftFrame.y + 6} L${draftFrame.x + 48} ${draftFrame.y - 2} L${draftFrame.x + 78} ${draftFrame.y + 6} L${draftFrame.x + 108} ${draftFrame.y - 2} L${draftFrame.x + 138} ${draftFrame.y + 6} L${draftFrame.x + 168} ${draftFrame.y - 2} L${draftFrame.x + 198} ${draftFrame.y + 6} L${draftFrame.x + 228} ${draftFrame.y - 2} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 12} L${draftFrame.x + draftFrame.width - 6} ${draftFrame.y + 36} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 62} L${draftFrame.x + draftFrame.width - 6} ${draftFrame.y + 88} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 114} L${draftFrame.x + draftFrame.width - 6} ${draftFrame.y + 140} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 166} L${draftFrame.x + draftFrame.width - 6} ${draftFrame.y + 192} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 218} L${draftFrame.x + draftFrame.width - 8} ${draftFrame.y + draftFrame.height + 2} L${draftFrame.x + draftFrame.width - 32} ${draftFrame.y + draftFrame.height - 4} L${draftFrame.x + draftFrame.width - 64} ${draftFrame.y + draftFrame.height + 2} L${draftFrame.x + draftFrame.width - 96} ${draftFrame.y + draftFrame.height - 4} L${draftFrame.x + draftFrame.width - 128} ${draftFrame.y + draftFrame.height + 2} L${draftFrame.x + draftFrame.width - 160} ${draftFrame.y + draftFrame.height - 4} L${draftFrame.x + draftFrame.width - 192} ${draftFrame.y + draftFrame.height + 2} L${draftFrame.x + draftFrame.width - 224} ${draftFrame.y + draftFrame.height - 4} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 10} L${draftFrame.x + 6} ${draftFrame.y + draftFrame.height - 36} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 62} L${draftFrame.x + 6} ${draftFrame.y + draftFrame.height - 88} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 114} L${draftFrame.x + 6} ${draftFrame.y + draftFrame.height - 140} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 166} L${draftFrame.x + 6} ${draftFrame.y + draftFrame.height - 192} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 218} Z`}
-                  stroke="#2cc7a8"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinejoin="round"
-                  initial={{ strokeDashoffset: 120, opacity: 0 }}
-                  animate={{ strokeDashoffset: -120, opacity: [0, 1, 0] }}
-                  transition={magicTransition}
-                  strokeDasharray="14 10"
-                />
-                <motion.rect
-                  x={113}
-                  y={33 + leftOffsetY}
-                  width={74}
-                  height={74}
-                  rx="14"
-                  stroke="#2cc7a8"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeDasharray="14 8"
-                  initial={{ strokeDashoffset: 50, opacity: 0 }}
-                  animate={{ strokeDashoffset: -50, opacity: [1, 0.2, 1] }}
-                  transition={magicTransition}
-                />
-                <motion.path
-                  d={`M113 ${45 + leftOffsetY} L122 ${33 + leftOffsetY} L138 ${41 + leftOffsetY} L154 ${33 + leftOffsetY} L172 ${41 + leftOffsetY} L187 ${33 + leftOffsetY} L189 ${50 + leftOffsetY} L183 ${68 + leftOffsetY} L189 ${86 + leftOffsetY} L183 ${104 + leftOffsetY} L168 ${107 + leftOffsetY} L150 ${101 + leftOffsetY} L132 ${107 + leftOffsetY} L114 ${101 + leftOffsetY} L109 ${84 + leftOffsetY} L114 ${66 + leftOffsetY} Z`}
-                  stroke="#2cc7a8"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinejoin="round"
-                  initial={{ strokeDashoffset: 80, opacity: 0 }}
-                  animate={{ strokeDashoffset: -80, opacity: [0, 1, 0] }}
-                  transition={magicTransition}
-                  strokeDasharray="12 8"
-                />
+                {zapMode !== "green" ? (
+                  <>
+                    <motion.rect
+                      x={draftFrame.x - 2}
+                      y={draftFrame.y - 2}
+                      width={draftFrame.width + 4}
+                      height={draftFrame.height + 4}
+                      rx="10"
+                      stroke="#2cc7a8"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeDasharray="16 10"
+                      initial={{ strokeDashoffset: 60, opacity: 0.9 }}
+                      animate={{ strokeDashoffset: -60, opacity: 0.9 }}
+                      transition={magicTransition}
+                    />
+                    <motion.rect
+                      x={113}
+                      y={33 + leftOffsetY}
+                      width={74}
+                      height={74}
+                      rx="14"
+                      stroke="#2cc7a8"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeDasharray="14 8"
+                      initial={{ strokeDashoffset: 50, opacity: 0.9 }}
+                      animate={{ strokeDashoffset: -50, opacity: 0.9 }}
+                      transition={magicTransition}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <motion.path
+                      d={`M${draftFrame.x - 2} ${draftFrame.y + 16} L${draftFrame.x + 8} ${draftFrame.y - 2} L${draftFrame.x + 28} ${draftFrame.y + 6} L${draftFrame.x + 48} ${draftFrame.y - 2} L${draftFrame.x + 78} ${draftFrame.y + 6} L${draftFrame.x + 108} ${draftFrame.y - 2} L${draftFrame.x + 138} ${draftFrame.y + 6} L${draftFrame.x + 168} ${draftFrame.y - 2} L${draftFrame.x + 198} ${draftFrame.y + 6} L${draftFrame.x + 228} ${draftFrame.y - 2} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 12} L${draftFrame.x + draftFrame.width - 6} ${draftFrame.y + 36} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 62} L${draftFrame.x + draftFrame.width - 6} ${draftFrame.y + 88} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 114} L${draftFrame.x + draftFrame.width - 6} ${draftFrame.y + 140} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 166} L${draftFrame.x + draftFrame.width - 6} ${draftFrame.y + 192} L${draftFrame.x + draftFrame.width + 2} ${draftFrame.y + 218} L${draftFrame.x + draftFrame.width - 8} ${draftFrame.y + draftFrame.height + 2} L${draftFrame.x + draftFrame.width - 32} ${draftFrame.y + draftFrame.height - 4} L${draftFrame.x + draftFrame.width - 64} ${draftFrame.y + draftFrame.height + 2} L${draftFrame.x + draftFrame.width - 96} ${draftFrame.y + draftFrame.height - 4} L${draftFrame.x + draftFrame.width - 128} ${draftFrame.y + draftFrame.height + 2} L${draftFrame.x + draftFrame.width - 160} ${draftFrame.y + draftFrame.height - 4} L${draftFrame.x + draftFrame.width - 192} ${draftFrame.y + draftFrame.height + 2} L${draftFrame.x + draftFrame.width - 224} ${draftFrame.y + draftFrame.height - 4} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 10} L${draftFrame.x + 6} ${draftFrame.y + draftFrame.height - 36} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 62} L${draftFrame.x + 6} ${draftFrame.y + draftFrame.height - 88} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 114} L${draftFrame.x + 6} ${draftFrame.y + draftFrame.height - 140} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 166} L${draftFrame.x + 6} ${draftFrame.y + draftFrame.height - 192} L${draftFrame.x - 2} ${draftFrame.y + draftFrame.height - 218} Z`}
+                      stroke="#2cc7a8"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinejoin="round"
+                      initial={{ strokeDashoffset: 120, opacity: 0 }}
+                      animate={{ strokeDashoffset: -120, opacity: [0, 1, 0] }}
+                      transition={magicTransition}
+                      strokeDasharray="14 10"
+                    />
+                    <motion.path
+                      d={`M113 ${45 + leftOffsetY} L122 ${33 + leftOffsetY} L138 ${41 + leftOffsetY} L154 ${33 + leftOffsetY} L172 ${41 + leftOffsetY} L187 ${33 + leftOffsetY} L189 ${50 + leftOffsetY} L183 ${68 + leftOffsetY} L189 ${86 + leftOffsetY} L183 ${104 + leftOffsetY} L168 ${107 + leftOffsetY} L150 ${101 + leftOffsetY} L132 ${107 + leftOffsetY} L114 ${101 + leftOffsetY} L109 ${84 + leftOffsetY} L114 ${66 + leftOffsetY} Z`}
+                      stroke="#2cc7a8"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinejoin="round"
+                      initial={{ strokeDashoffset: 80, opacity: 0 }}
+                      animate={{ strokeDashoffset: -80, opacity: [0, 1, 0] }}
+                      transition={magicTransition}
+                      strokeDasharray="12 8"
+                    />
+                  </>
+                )}
               </g>
             ) : null}
-            {activeLine === 1 ? (
+            {zapMode === "blue" && activeLine === 1 ? (
               <motion.path
                 key="zap-1"
                 d={`M150 ${105 + leftOffsetY} L130 ${121 + leftOffsetY} L110 ${127 + leftOffsetY} L90 ${135 + leftOffsetY}`}
@@ -335,7 +375,7 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
                 transition={{ ...zapTransition, repeat: Infinity, repeatType: "loop" }}
               />
             ) : null}
-            {activeLine === 2 ? (
+            {zapMode === "blue" && activeLine === 2 ? (
               <motion.path
                 key="zap-2"
                 d={`M150 ${105 + leftOffsetY} L160 ${123 + leftOffsetY} L180 ${135 + leftOffsetY}`}
@@ -354,7 +394,7 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
                 transition={{ ...zapTransition, repeat: Infinity, repeatType: "loop" }}
               />
             ) : null}
-            {activeLine === 3 ? (
+            {zapMode === "blue" && activeLine === 3 ? (
               <motion.path
                 key="zap-3"
                 d={`M150 ${105 + leftOffsetY} L190 ${121 + leftOffsetY} L220 ${129 + leftOffsetY} L260 ${135 + leftOffsetY}`}
