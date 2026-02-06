@@ -15,7 +15,17 @@ export default function HomePage() {
               prompts or endless manual updates, it is not done yet. Deadwater replaces that drift with structure agents
               can trust.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+          </div>
+          <div className="relative mt-8 aspect-[1060/274] w-full">
+            <Image
+              src="/hero/hero.png"
+              alt="Submerged structure under a flat waterline"
+              fill
+              priority
+              className="object-contain object-right"
+              sizes="(min-width: 1024px) 1060px, 100vw"
+            />
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-wrap gap-4">
               <Link href="/read" className="focus-ring border border-accent-blue px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
                 Read
               </Link>
@@ -23,16 +33,6 @@ export default function HomePage() {
                 Contact
               </Link>
             </div>
-          </div>
-          <div className="relative mt-10 h-40 sm:h-52 lg:h-60">
-            <Image
-              src="/hero/hero.png"
-              alt="Submerged structure under a flat waterline"
-              fill
-              priority
-              className="object-contain object-right scale-[1.12] translate-x-10 sm:translate-x-16"
-              sizes="(min-width: 1024px) 900px, 100vw"
-            />
           </div>
         </div>
       </section>
