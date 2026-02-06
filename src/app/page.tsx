@@ -23,7 +23,7 @@ export default function HomePage() {
               width={1060}
               height={274}
               priority
-              className="h-40 w-full object-cover object-left sm:h-auto sm:object-contain sm:object-center"
+              className="h-40 w-full max-w-none object-cover object-left sm:h-auto sm:object-contain sm:object-center"
               sizes="(min-width: 1024px) 1060px, 100vw"
             />
             <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-wrap gap-4">
