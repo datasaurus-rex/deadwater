@@ -5,8 +5,8 @@ import { FaultLineDivider, SedimentLayers } from "@/components/illustrations";
 export default function HomePage() {
   return (
     <div className="container-narrow">
-      <section className="section">
-        <div className="relative overflow-hidden p-8 lg:p-12">
+      <section className="section-tight">
+        <div className="relative overflow-hidden px-8 pt-6 pb-4 lg:px-12 lg:pt-8 lg:pb-6">
           <div className="relative z-10 max-w-xl">
             <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
             <h2 className="mt-4 text-xl text-slate-200">Content OS for an AI-first world.</h2>
@@ -16,7 +16,7 @@ export default function HomePage() {
               can trust.
             </p>
           </div>
-          <div className="relative mt-8 w-full">
+          <div className="relative mt-4 w-full">
             <Image
               src="/hero/hero.png"
               alt="Submerged structure under a flat waterline"
