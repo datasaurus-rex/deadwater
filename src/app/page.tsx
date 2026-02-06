@@ -1,31 +1,38 @@
+import Image from "next/image";
 import Link from "next/link";
-import { SubmergedRidge, FaultLineDivider, SedimentLayers } from "@/components/illustrations";
+import { FaultLineDivider, SedimentLayers } from "@/components/illustrations";
 
 export default function HomePage() {
   return (
     <div className="container-narrow">
       <section className="section">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
-          <div className="flex flex-col gap-6">
-            <p className="eyebrow">Deadwater.ai</p>
+        <div className="relative overflow-hidden border border-ink-800 p-8 lg:p-12">
+          <div className="relative z-10 max-w-xl">
             <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
-            <h2 className="text-xl text-slate-200">Content OS for an AI-first world.</h2>
-            <p className="text-lg text-slate-300">
+            <h2 className="mt-4 text-xl text-slate-200">Content OS for an AI-first world.</h2>
+            <p className="mt-6 text-lg text-slate-300">
               We build AI-native content systems that stay coherent under pressure. If your stack depends on fragile
               prompts or endless manual updates, it is not done yet. Deadwater replaces that drift with structure agents
               can trust.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/read" className="focus-ring border border-accent-blue px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
-                Explore Read
+                Read
               </Link>
               <Link href="/contact" className="focus-ring border border-ink-700 px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
                 Contact
               </Link>
             </div>
           </div>
-          <div className="border border-ink-800 p-4">
-            <SubmergedRidge className="h-auto w-full text-white/80" />
+          <div className="pointer-events-none absolute inset-0">
+            <Image
+              src="/hero/hero.png"
+              alt="Submerged structure under a flat waterline"
+              fill
+              priority
+              className="object-contain object-right"
+              sizes="(min-width: 1024px) 800px, 100vw"
+            />
           </div>
         </div>
       </section>
