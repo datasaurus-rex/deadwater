@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ContentOsAnimation } from "@/components/ContentOsAnimation";
 import { FaultLineDivider, SedimentLayers } from "@/components/illustrations";
 
 export default function HomePage() {
@@ -55,6 +56,12 @@ export default function HomePage() {
           <p className="text-white">Content OS is how AI actually becomes useful.</p>
           </div>
           <div className="side-note">System substrate</div>
+        </div>
+      </section>
+
+      <section className="section-tight">
+        <div className="container-narrow">
+          <ContentOsAnimation size="md" loop />
         </div>
       </section>
 
