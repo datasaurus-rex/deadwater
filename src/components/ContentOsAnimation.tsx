@@ -8,10 +8,13 @@ type Props = {
   loop?: boolean;
 };
 
+type LineKind = "title" | "heading" | "text";
+type LineSegment = { y: number; kind: LineKind; color?: string; link?: boolean; linkOffset?: number; w?: number };
+
 const sizeMap = {
-  sm: 320,
-  md: 420,
-  lg: 520
+  sm: 300,
+  md: 340,
+  lg: 420
 };
 
 // Timeline summary (tweak durations here):
@@ -21,6 +24,10 @@ const sizeMap = {
 export function ContentOsAnimation({ size = "md", loop = true }: Props) {
   const prefersReducedMotion = useReducedMotion();
   const [phase, setPhase] = useState(0);
+  const leftOffsetY = 62;
+  const textOffsetY = -6;
+  const groupScale = 1.12;
+  const groupTranslate = { x: -12, y: -30 };
 
   const height = sizeMap[size];
   const width = Math.round(height * 1.9);
@@ -58,45 +65,85 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
     return { mode: "refined", headings: 3, blueLinks: 2 };
   }, [phase]);
 
-  const lineSegments = useMemo(
-    () => [
-      { x: 340, y: 140, w: 190 },
-      { x: 340, y: 168, w: 190 },
-      { x: 340, y: 196, w: 190 },
-      { x: 340, y: 224, w: 190 },
-      { x: 340, y: 252, w: 190 },
-      { x: 340, y: 280, w: 190 },
-      { x: 340, y: 308, w: 190 }
-    ],
+  const draftFrame = useMemo(
+    () => ({
+      x: 360,
+      y: 52,
+      width: 240,
+      height: 256,
+      paddingX: 20,
+      paddingTop: 22,
+      lineGap: 22
+    }),
     []
+  );
+
+  const widthMap = useMemo<Record<LineKind, number>>(() => ({ title: 205, heading: 170, text: 145 }), []);
+  const heightMap = useMemo<Record<LineKind, number>>(() => ({ title: 10, heading: 8, text: 6 }), []);
+  const contentWidth = draftFrame.width - draftFrame.paddingX * 2;
+
+  const buildLines = (input: Array<Omit<LineSegment, "y">>) => {
+    const extraTitleGap = 10;
+    const extraHeadingGap = 8;
+    let currentY = draftFrame.y + draftFrame.paddingTop;
+    return input.map((segment) => {
+      const extra =
+        segment.kind === "title" ? extraTitleGap : segment.kind === "heading" ? extraHeadingGap : 0;
+      currentY += extra;
+      const withY = { ...segment, y: currentY };
+      currentY += draftFrame.lineGap + extra;
+      return withY;
+    });
+  };
+
+  const lineSegments = useMemo(
+    (): LineSegment[] =>
+      buildLines([
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth },
+        { kind: "text", w: contentWidth }
+      ]),
+    [contentWidth, draftFrame]
   );
 
   const formattedSegments = useMemo(
-    () => [
-      { x: 340, y: 140, w: 200 },
-      { x: 340, y: 168, w: 170 },
-      { x: 340, y: 196, w: 185 },
-      { x: 340, y: 226, w: 120, gap: true },
-      { x: 340, y: 260, w: 200 },
-      { x: 340, y: 288, w: 160 },
-      { x: 340, y: 316, w: 180 },
-      { x: 340, y: 344, w: 150 }
-    ],
-    []
+    (): LineSegment[] =>
+      buildLines([
+        { kind: "title" },
+        { kind: "text", w: contentWidth * 0.55 },
+        { kind: "text", w: contentWidth * 0.85 },
+        { kind: "text", w: contentWidth * 0.65 },
+        { kind: "heading" },
+        { kind: "text", w: contentWidth * 0.55 },
+        { kind: "text", w: contentWidth * 0.85 },
+        { kind: "text", w: contentWidth * 0.65 },
+        { kind: "heading" }
+      ]),
+    [contentWidth, draftFrame]
   );
 
   const refinedSegments = useMemo(
-    () => [
-      { x: 340, y: 140, w: 200, heading: true },
-      { x: 340, y: 168, w: 170 },
-      { x: 340, y: 196, w: 185, link: true },
-      { x: 340, y: 226, w: 120, gap: true },
-      { x: 340, y: 258, w: 200 },
-      { x: 340, y: 286, w: 170 },
-      { x: 340, y: 314, w: 180, link: true },
-      { x: 340, y: 342, w: 150 }
-    ],
-    []
+    (): LineSegment[] =>
+      buildLines([
+        { kind: "title" },
+        { kind: "text", w: contentWidth * 0.55 },
+        { kind: "text", w: contentWidth * 0.85, link: true },
+        { kind: "text", w: contentWidth * 0.65 },
+        { kind: "heading" },
+        { kind: "text", w: contentWidth * 0.55 },
+        { kind: "text", w: contentWidth * 0.85, link: true, linkOffset: 0.2 },
+        { kind: "text", w: contentWidth * 0.65 },
+        { kind: "heading", color: "#4da3ff", w: contentWidth * 0.45 }
+      ]),
+    [contentWidth, draftFrame]
   );
 
   const activeLine = phase === 1 ? 1 : phase === 2 ? 2 : phase === 3 ? 3 : 0;
@@ -106,33 +153,48 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
       lines.mode === "wall" ? lineSegments : lines.mode === "formatted" ? formattedSegments : refinedSegments;
 
     return segments.map((seg, index) => {
-      const isHeading = "heading" in seg && Boolean(seg.heading);
-      const isGap = "gap" in seg && Boolean(seg.gap);
       const isLink = "link" in seg && Boolean(seg.link);
-      const height = isHeading ? 10 : isGap ? 4 : 8;
-      const delayStep = lines.mode === "wall" ? 0.2 : 0.2;
-      const duration = lines.mode === "wall" ? 0.7 : 0.6;
+      const kind = seg.kind;
+      const height = heightMap[kind];
+      const width = seg.w ?? widthMap[kind];
+      const delayStep = lines.mode === "wall" ? 0.12 : 0.2;
+      const duration = lines.mode === "wall" ? 0.45 : 0.6;
       const baseDelay = 0;
       const delay = baseDelay + index * delayStep;
-      const fill = isLink ? "#4da3ff" : "#ffffff";
+      const fill = seg.color ?? "#ffffff";
       const opacity = isLink ? 0.9 : 0.85;
+      const x = draftFrame.x + draftFrame.paddingX;
+      const y = seg.y + textOffsetY;
 
       if (prefersReducedMotion) {
-        return <rect key={index} x={seg.x} y={seg.y} width={seg.w} height={height} fill={fill} opacity={opacity} />;
+        return <rect key={index} x={x} y={y} width={width} height={height} fill={fill} opacity={opacity} />;
       }
 
       return (
-        <motion.rect
-          key={`${lines.mode}-${index}`}
-          x={seg.x}
-          y={seg.y}
-          height={height}
-          fill={fill}
-          opacity={opacity}
-          initial={{ width: 0 }}
-          animate={{ width: seg.w }}
-          transition={{ duration, delay, ease: "easeOut" }}
-        />
+        <g key={`${lines.mode}-${index}`}>
+          <motion.rect
+            x={x}
+            y={y}
+            height={height}
+            fill={fill}
+            opacity={opacity}
+            initial={{ width: 0 }}
+            animate={{ width }}
+            transition={{ duration, delay, ease: "easeOut" }}
+          />
+          {isLink ? (
+            <motion.rect
+              x={x + width * (seg.linkOffset ?? 0.45)}
+              y={y}
+              height={height}
+              fill="#4da3ff"
+              opacity={0.9}
+              initial={{ width: 0 }}
+              animate={{ width: width * 0.35 }}
+              transition={{ duration, delay, ease: "easeOut" }}
+            />
+          ) : null}
+        </g>
       );
     });
   };
@@ -142,30 +204,31 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
   return (
     <div className="w-full">
       <svg
-        viewBox="0 0 780 420"
+        viewBox="0 0 780 320"
         width={width}
         height={height}
         className="h-auto w-full"
         role="img"
         aria-label="Content OS animation"
       >
-        <rect x="125" y="40" width="70" height="70" rx="12" stroke="#ffffff" strokeWidth="2" fill="none" />
-        <text x="160" y="82" textAnchor="middle" fill="#ffffff" fontSize="20" fontFamily="var(--font-sans)">
+        <g transform={`translate(${groupTranslate.x} ${groupTranslate.y}) scale(${groupScale})`}>
+        <rect x="115" y={35 + leftOffsetY} width="70" height="70" rx="12" stroke="#ffffff" strokeWidth="2" fill="none" />
+        <text x="150" y={77 + leftOffsetY} textAnchor="middle" fill="#ffffff" fontSize="20" fontFamily="var(--font-sans)">
           AI
         </text>
 
         {[0, 1, 2].map((index) => (
           <g key={index}>
-            <rect x={40 + index * 90} y={140} width="60" height="44" rx="4" stroke="#ffffff" strokeWidth="2" fill="none" />
+            <rect x={30 + index * 90} y={135 + leftOffsetY} width="60" height="44" rx="4" stroke="#ffffff" strokeWidth="2" fill="none" />
             <path
-              d={`M${86 + index * 90} 140 L${100 + index * 90} 154 L${100 + index * 90} 184 L${40 + index * 90} 184`}
+              d={`M${76 + index * 90} ${135 + leftOffsetY} L${90 + index * 90} ${149 + leftOffsetY} L${90 + index * 90} ${179 + leftOffsetY} L${30 + index * 90} ${179 + leftOffsetY}`}
               stroke="#ffffff"
               strokeWidth="2"
               fill="none"
             />
             <text
-              x={70 + index * 90}
-              y={168}
+              x={60 + index * 90}
+              y={163 + leftOffsetY}
               textAnchor="middle"
               fill="#ffffff"
               fontSize="12"
@@ -176,7 +239,17 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
           </g>
         ))}
 
-        <rect x="320" y="90" width="240" height="290" rx="8" stroke="#ffffff" strokeWidth="2" fill="none" opacity={0.6} />
+        <rect
+          x={draftFrame.x}
+          y={draftFrame.y}
+          width={draftFrame.width}
+          height={draftFrame.height}
+          rx="8"
+          stroke="#ffffff"
+          strokeWidth="2"
+          fill="none"
+          opacity={0.6}
+        />
 
         {renderLines()}
 
@@ -185,7 +258,7 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
             {activeLine === 1 ? (
               <motion.path
                 key="zap-1"
-                d="M160 110 L140 126 L120 132 L100 140"
+                d={`M150 ${105 + leftOffsetY} L130 ${121 + leftOffsetY} L110 ${127 + leftOffsetY} L90 ${135 + leftOffsetY}`}
                 stroke="#4da3ff"
                 strokeWidth="2"
                 fill="none"
@@ -193,9 +266,9 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
                 animate={{
                   opacity: [1, 0.25, 1],
                   d: [
-                    "M160 110 L140 126 L120 132 L100 140",
-                    "M160 110 L150 122 L120 136 L100 140",
-                    "M160 110 L140 126 L120 132 L100 140"
+                    `M150 ${105 + leftOffsetY} L130 ${121 + leftOffsetY} L110 ${127 + leftOffsetY} L90 ${135 + leftOffsetY}`,
+                    `M150 ${105 + leftOffsetY} L140 ${117 + leftOffsetY} L110 ${131 + leftOffsetY} L90 ${135 + leftOffsetY}`,
+                    `M150 ${105 + leftOffsetY} L130 ${121 + leftOffsetY} L110 ${127 + leftOffsetY} L90 ${135 + leftOffsetY}`
                   ]
                 }}
                 transition={{ ...zapTransition, repeat: Infinity, repeatType: "loop" }}
@@ -204,7 +277,7 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
             {activeLine === 2 ? (
               <motion.path
                 key="zap-2"
-                d="M160 110 L170 128 L190 140"
+                d={`M150 ${105 + leftOffsetY} L160 ${123 + leftOffsetY} L180 ${135 + leftOffsetY}`}
                 stroke="#4da3ff"
                 strokeWidth="2"
                 fill="none"
@@ -212,9 +285,9 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
                 animate={{
                   opacity: [1, 0.25, 1],
                   d: [
-                    "M160 110 L170 128 L190 140",
-                    "M160 110 L168 130 L192 142",
-                    "M160 110 L170 128 L190 140"
+                    `M150 ${105 + leftOffsetY} L160 ${123 + leftOffsetY} L180 ${135 + leftOffsetY}`,
+                    `M150 ${105 + leftOffsetY} L158 ${125 + leftOffsetY} L182 ${137 + leftOffsetY}`,
+                    `M150 ${105 + leftOffsetY} L160 ${123 + leftOffsetY} L180 ${135 + leftOffsetY}`
                   ]
                 }}
                 transition={{ ...zapTransition, repeat: Infinity, repeatType: "loop" }}
@@ -223,7 +296,7 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
             {activeLine === 3 ? (
               <motion.path
                 key="zap-3"
-                d="M160 110 L200 126 L230 134 L280 140"
+                d={`M150 ${105 + leftOffsetY} L190 ${121 + leftOffsetY} L220 ${129 + leftOffsetY} L260 ${135 + leftOffsetY}`}
                 stroke="#4da3ff"
                 strokeWidth="2"
                 fill="none"
@@ -231,9 +304,9 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
                 animate={{
                   opacity: [1, 0.25, 1],
                   d: [
-                    "M160 110 L200 126 L230 134 L280 140",
-                    "M160 110 L206 124 L232 138 L280 140",
-                    "M160 110 L200 126 L230 134 L280 140"
+                    `M150 ${105 + leftOffsetY} L190 ${121 + leftOffsetY} L220 ${129 + leftOffsetY} L260 ${135 + leftOffsetY}`,
+                    `M150 ${105 + leftOffsetY} L196 ${119 + leftOffsetY} L222 ${133 + leftOffsetY} L260 ${135 + leftOffsetY}`,
+                    `M150 ${105 + leftOffsetY} L190 ${121 + leftOffsetY} L220 ${129 + leftOffsetY} L260 ${135 + leftOffsetY}`
                   ]
                 }}
                 transition={{ ...zapTransition, repeat: Infinity, repeatType: "loop" }}
@@ -241,6 +314,7 @@ export function ContentOsAnimation({ size = "md", loop = true }: Props) {
             ) : null}
           </>
         )}
+        </g>
       </svg>
     </div>
   );
