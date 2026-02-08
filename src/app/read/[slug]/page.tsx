@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
 
 type Props = {
@@ -35,6 +36,8 @@ export default async function ReadPostPage({ params }: Props) {
     notFound();
   }
 
+  const showDraftWorkbench = post.slug === "content-draft-workbench";
+
   return (
     <article className="container-narrow section">
       <header className="flex flex-col gap-4">
@@ -56,6 +59,8 @@ export default async function ReadPostPage({ params }: Props) {
       <div className="divider" />
 
       <div className="prose-deadwater" dangerouslySetInnerHTML={{ __html: post.html }} />
+
+      {showDraftWorkbench ? <ContentDraftWorkbench /> : null}
     </article>
   );
 }
