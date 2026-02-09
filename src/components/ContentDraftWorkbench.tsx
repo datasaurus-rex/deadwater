@@ -179,7 +179,7 @@ import { useMemo, useState } from "react";
          </div>
  
          <div className="rounded-lg border border-ink-800 bg-ink-950/70 p-4">
-           <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Live draft</p>
+           <p className="text-sm uppercase tracking-[0.3em] text-slate-400">AI outline</p>
            <div className="mt-4 whitespace-pre-wrap text-sm text-slate-200">
              {draftLines.map((line, index) => (
                <p key={`${line}-${index}`} className={line ? "mb-2" : "mb-3"}>{line}</p>

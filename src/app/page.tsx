@@ -11,9 +11,8 @@ export default function HomePage() {
           <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
           <h2 className="mt-4 text-xl text-slate-200">Content OS for an AI-first world.</h2>
           <p className="mt-6 text-lg text-slate-300">
-            We build AI-native content systems that stay coherent under pressure. If your stack depends on fragile
-            prompts or endless manual updates, it is not done yet. Deadwater replaces that drift with structure agents
-            can trust.
+            We build AI-native content systems that lock AI into your company's DNA. The result is content that compounds,
+            teams that move faster, and agents that can operate with confidence at scale.
           </p>
         </div>
         <div className="relative mt-2 w-screen overflow-hidden ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] sm:mt-4 sm:ml-0 sm:mr-0 sm:w-full sm:aspect-[1060/274]">
@@ -45,15 +44,20 @@ export default function HomePage() {
       <section className="section">
         <div className="grid-structure">
           <div className="flex flex-col gap-8 text-lg text-slate-300">
-          <p>
-            Most teams are trying to bolt AI onto systems that were never designed for it. PDFs. CMSs. Wikis.
-            Dashboards. Prompts taped together with hope.
-          </p>
-          <p>
-            Deadwater builds Content OS—AI-native systems where content isn’t just written, stored, or searched. It’s
-            understood, expanded, and operated on by agents.
-          </p>
-          <p className="text-white">Content OS is how AI actually becomes useful.</p>
+            <p>
+              Most teams are trying to bolt AI onto systems that were never designed for it. PDFs. CMSs. Wikis.
+              Dashboards. Prompts taped together with hope.
+            </p>
+            <p>
+              Deadwater builds Content OS—AI-native systems where content isn't just written, stored, or searched. It's
+              understood, expanded, and operated on by agents.
+            </p>
+            <p className="text-white">Content OS is how AI actually becomes useful.</p>
+            <p>
+              Deadwater automated content greatly exceeds traditional SEO content quality standards, providing higher
+              conversions, higher rankings in search engines and LLMs, with an unprecedented level of customization and
+              focus on brand relevance.
+            </p>
           </div>
           <div className="side-note">System substrate</div>
         </div>
@@ -77,8 +81,8 @@ export default function HomePage() {
               <p>Written in formats machines can reason over—markdown, schemas, graphs.</p>
               <p>Continuously expandable by AI using its own internal understanding.</p>
               <p>Operational, not editorial—content that powers workflows, not pages.</p>
-              <p>Think less “website.” More “living system.”</p>
-              <p className="text-white">A Content OS doesn’t just answer questions. It runs things.</p>
+              <p>Think less "website." More "living system."</p>
+              <p className="text-white">A Content OS doesn't just answer questions. It runs things.</p>
             </div>
           </div>
           <div className="border border-ink-800 p-4">
@@ -114,8 +118,8 @@ export default function HomePage() {
           <div className="card">
             <h3 className="heading-serif text-xl text-white">Smart websites that think</h3>
             <p className="mt-3">
-              Sites that don’t just render content—but reason over it. Websites that can answer, adapt, personalize, and
-              act because they’re backed by a real Content OS, not a CMS pretending to be one.
+              Sites that don't just render content—but reason over it. Websites that can answer, adapt, personalize, and
+              act because they're backed by a real Content OS, not a CMS pretending to be one.
             </p>
           </div>
         </div>
@@ -127,39 +131,22 @@ export default function HomePage() {
 
       <section className="section">
         <h2 className="heading-serif text-2xl">What we actually help with</h2>
-        <div className="mt-6 grid gap-4 text-slate-300">
-          <p>AI ops and agent workflows.</p>
-          <p>Knowledge base architecture that doesn’t rot.</p>
-          <p>GPT training and context strategy.</p>
-          <p>Content systems designed for automation first.</p>
-          <p>Smart, AI-driven websites that do real work.</p>
-          <p className="text-white">
-            If your AI depends on brittle prompts, manual updates, or human babysitting—it’s not done yet.
-          </p>
-        </div>
+        <ul className="mt-6 grid gap-2 list-disc pl-5 text-slate-300">
+          <li>AI ops and workflows.</li>
+          <li>Knowledge base architecture that powers all business functions.</li>
+          <li>AI content production at scale.</li>
+          <li>Freeing your marketers to focus on human and brand content.</li>
+          <li>SEO and product marketing on autopilot.</li>
+          <li>Smart AI workflows and websites.</li>
+        </ul>
       </section>
 
       <section className="section">
-        <h2 className="heading-serif text-2xl">Why deadwater</h2>
+        <h2 className="heading-serif text-2xl">Why Deadwater</h2>
         <p className="mt-4 text-slate-300">
-          Deadwater is where systems go quiet and deep. No noise. No fluff. Just structure that holds under pressure.
+          Deadwater Content OSs are the next evolution of human&lt;&gt;AI interaction. We're all familiar with LLM parlor tricks,
+          Moltbook, and automation steps. We enable brands to use AI to its full potential, delivering maximum impact.
         </p>
-        <p className="mt-4 text-white">We don’t ship demos. We build foundations.</p>
-      </section>
-
-      <section className="section">
-        <h2 className="heading-serif text-2xl">Mission statement</h2>
-        <div className="mt-4 grid gap-4 text-slate-300">
-          <p>Deadwater.ai exists to build content systems that AI can actually use.</p>
-          <p>
-            Our mission is to replace fragile, human-dependent knowledge stacks with AI-native Content OS platforms—systems
-            designed for maximum context, continuous intelligence, and autonomous operation. We believe content should not
-            just inform people, but empower agents to reason, act, and evolve without constant human intervention.
-          </p>
-          <p className="text-white">
-            We build the layer where AI stops being impressive—and starts being reliable.
-          </p>
-        </div>
       </section>
     </div>
   );

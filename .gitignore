@@ -7,3 +7,6 @@ yarn-debug.log*
 yarn-error.log*
 .env*
 public/hero/hero-old.png
+
+.vercel
+.env*.local

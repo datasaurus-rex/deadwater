@@ -25,6 +25,23 @@ export default function AboutPage() {
         </p>
         <p className="text-white">If you want content that runs, not just content that looks good, you are in the right place.</p>
       </div>
+
+      <div className="divider" />
+
+      <section>
+        <h2 className="heading-serif text-2xl">Our mission</h2>
+        <div className="mt-4 grid gap-4 text-slate-300">
+          <p>Deadwater.ai exists to build content systems that AI can actually use.</p>
+          <p>
+            Our mission is to replace fragile, human-dependent knowledge stacks with AI-native Content OS platforms—systems
+            designed for maximum context, continuous intelligence, and autonomous operation. We believe content should not
+            just inform people, but empower agents to reason, act, and evolve without constant human intervention.
+          </p>
+          <p className="text-white">
+            We build the layer where AI stops being impressive—and starts being reliable.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
