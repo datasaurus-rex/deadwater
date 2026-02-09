@@ -34,56 +34,54 @@ export function ContactForm() {
   const [websiteType, setWebsiteType] = useState<WebsiteType | "">("");
   const [cmsType, setCmsType] = useState<CmsType | "">("");
   const [otherCms, setOtherCms] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [startedAt] = useState(() => Date.now());
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [sending, setSending] = useState(false);
 
   const showCmsSelect = topic === "content-os" && websiteType !== "" && websiteType !== "all-code";
   const showOtherCms = showCmsSelect && cmsType === "other";
-
-  const subject = useMemo(() => {
-    if (topic === "workflow") return "Deadwater contact — workflow build";
-    if (topic === "content-os") return "Deadwater contact — content OS install";
-    return "Deadwater contact — chat";
-  }, [topic]);
-
-  const mailtoBody = useMemo(() => {
-    const lines: string[] = [
-      `Topic: ${topic}`,
-      `Name: ${name}`,
-      `Company: ${company}`,
-      `Email: ${email}`
-    ];
-
-    if (topic === "chat") {
-      lines.push("", `Chat focus: ${chatNote || "Not provided"}`);
-    }
-
-    if (topic === "workflow") {
-      lines.push("", "Workflow help:", workflowHelp.length ? workflowHelp.map((item) => `- ${item}`).join("\n") : "- Not selected");
-      lines.push("", "Current assets:", workflowAssets.length ? workflowAssets.map((item) => `- ${item}`).join("\n") : "- Not selected");
-    }
-
-    if (topic === "content-os") {
-      lines.push("", `Website: ${websiteType || "Not selected"}`);
-      if (showCmsSelect) {
-        lines.push(`CMS: ${cmsType || "Not selected"}`);
-        if (showOtherCms) {
-          lines.push(`Other CMS: ${otherCms || "Not provided"}`);
-        }
-      }
-    }
-
-    return lines.join("\n");
-  }, [topic, name, company, email, chatNote, workflowHelp, workflowAssets, websiteType, cmsType, otherCms, showCmsSelect, showOtherCms]);
 
   const toggleMulti = (current: string[], value: string) => {
     return current.includes(value) ? current.filter((item) => item !== value) : [...current, value];
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
-    const href = `mailto:hello@deadwater.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
-    window.location.href = href;
+    setError(null);
+    setSending(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          topic,
+          name,
+          company,
+          email,
+          chatNote,
+          workflowHelp,
+          workflowAssets,
+          websiteType,
+          cmsType,
+          otherCms,
+          honeypot,
+          startedAt
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong sending the form. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -146,6 +144,15 @@ export function ContactForm() {
           />
         </label>
       </div>
+      <label className="hidden">
+        Do not fill this field
+        <input
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+        />
+      </label>
 
       {topic === "chat" && (
         <label className="grid gap-2 text-sm text-slate-300">
@@ -276,15 +283,17 @@ export function ContactForm() {
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white"
+          className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white disabled:cursor-not-allowed disabled:opacity-60"
+          disabled={sending}
         >
-          Submit
+          {sending ? "Sending..." : "Submit"}
         </button>
         {submitted ? (
           <p className="text-sm text-slate-300">
             Form submitted. We will reach out to the email address you provided.
           </p>
         ) : null}
+        {error ? <p className="text-sm text-red-400">{error}</p> : null}
       </div>
     </form>
   );
