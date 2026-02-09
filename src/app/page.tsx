@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { ContentOsAnimation } from "@/components/ContentOsAnimation";
 import { FaultLineDivider, SedimentLayers } from "@/components/illustrations";
 
@@ -128,6 +129,8 @@ export default function HomePage() {
       <div className="section-tight">
         <FaultLineDivider className="mx-auto h-20 w-full max-w-3xl text-white/70" />
       </div>
+
+      <ContentDraftWorkbench />
 
       <section className="section">
         <h2 className="heading-serif text-2xl">What we actually help with</h2>
