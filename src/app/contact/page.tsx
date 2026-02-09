@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -16,13 +16,10 @@ export default function ContactPage() {
       <p className="eyebrow">Contact</p>
       <h1 className="heading-serif text-3xl">Contact</h1>
       <p className="mt-6 text-lg text-slate-300">
-        Email is the simplest way to start. If you want to build a Content OS or repair a brittle AI stack, send a note.
+        Tell us what you want to build, how your content stack works today, and where you want leverage. We will reply
+        with next steps and a clear scope.
       </p>
-      <p className="mt-6 text-lg">
-        <Link href="mailto:hello@deadwater.ai" className="focus-ring text-accent-blue">
-          hello@deadwater.ai
-        </Link>
-      </p>
+      <ContactForm />
     </div>
   );
 }

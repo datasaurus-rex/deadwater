@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function SiteFooter() {
   return (
@@ -22,14 +23,9 @@ export function SiteFooter() {
           >
             LinkedIn
           </a>
-          <a
-            href="https://github.com/datasaurus-rex"
-            className="focus-ring transition-colors hover:text-white"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
+          <Link href="/contact" className="focus-ring transition-colors hover:text-white">
+            Contact
+          </Link>
         </div>
       </div>
     </footer>
