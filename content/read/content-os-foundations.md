@@ -3,6 +3,7 @@ title: "Content OS Foundations: The Quiet Architecture"
 description: "Why AI-first systems need a content substrate built for agents, not pages."
 date: "2025-10-12"
 tags: ["content-os", "architecture", "ai-native", "foundations"]
+image: "/blog/foundations.jpg"
 draft: false
 ---
 

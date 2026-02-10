@@ -1,8 +1,9 @@
 ---
 title: "The Prompt Brittleness Tax"
 description: "Why prompt-heavy systems degrade and how Content OS reduces the tax."
-date: "2025-08-18"
+date: "2025-10-01"
 tags: ["prompts", "brittleness", "content-os", "reliability"]
+image: "/blog/brittleness.jpg"
 draft: false
 ---
 

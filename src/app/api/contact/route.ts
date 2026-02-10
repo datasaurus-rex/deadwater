@@ -99,7 +99,17 @@ export async function POST(request: Request) {
   });
 
   if (!response.ok) {
-    return NextResponse.json({ error: "Email failed to send." }, { status: 500 });
+    let details = "Email failed to send.";
+    try {
+      const data = await response.json();
+      if (data?.error?.message) {
+        details = data.error.message;
+      }
+    } catch {
+      // ignore parsing errors
+    }
+
+    return NextResponse.json({ error: details }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true });

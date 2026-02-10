@@ -3,6 +3,7 @@ title: "The Content Draft Workbench"
 description: "A hands-on proof of concept for turning knowledge bases into living drafts."
 date: "2026-02-08"
 tags: ["content-os", "drafting", "knowledge-bases", "workflow"]
+image: "/blog/workbench.jpg"
 draft: false
 ---
 

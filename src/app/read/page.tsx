@@ -30,7 +30,8 @@ export default async function ReadPage() {
           description: post.description,
           date: post.date,
           tags: post.tags,
-          readingTime: post.readingTime
+          readingTime: post.readingTime,
+          image: post.image
         }))}
       />
     </div>

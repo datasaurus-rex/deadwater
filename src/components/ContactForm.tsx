@@ -73,12 +73,17 @@ export function ContactForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed");
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Something went wrong sending the form. Please try again.");
       }
 
       setSubmitted(true);
-    } catch {
-      setError("Something went wrong sending the form. Please try again.");
+    } catch (err) {
+      if (err instanceof Error && err.message) {
+        setError(err.message);
+      } else {
+        setError("Something went wrong sending the form. Please try again.");
+      }
     } finally {
       setSending(false);
     }

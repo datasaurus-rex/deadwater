@@ -15,6 +15,7 @@ export type PostFrontmatter = {
   date: string;
   tags: string[];
   draft: boolean;
+  image?: string;
 };
 
 export type Post = PostFrontmatter & {
@@ -45,8 +46,9 @@ function parseFrontmatter(data: Record<string, unknown>): PostFrontmatter {
   const date = String(data.date ?? "");
   const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
   const draft = Boolean(data.draft ?? false);
+  const image = data.image ? String(data.image) : undefined;
 
-  return { title, description, date, tags, draft };
+  return { title, description, date, tags, draft, image };
 }
 
 async function renderMarkdown(markdown: string) {

@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+staged_files="$(git diff --cached --name-only)"
+
+if echo "$staged_files" | grep -E '(^|/)\.env' >/dev/null 2>&1; then
+  echo "ERROR: .env file is staged. Remove it from the commit."
+  echo "Hint: git rm --cached .env.local"
+  exit 1
+fi
+
+if git diff --cached | grep -E 'RESEND_API_KEY|MAILGUN_API_KEY|SENDGRID_API_KEY|SECRET|PRIVATE KEY|BEGIN RSA PRIVATE KEY' >/dev/null 2>&1; then
+  echo "ERROR: Possible secret detected in staged changes."
+  echo "Remove secrets before committing."
+  exit 1
+fi
+
+exit 0
