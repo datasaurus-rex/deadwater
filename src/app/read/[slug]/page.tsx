@@ -107,12 +107,12 @@ export default async function ReadPostPage({ params }: Props) {
 
       {showAnatomyMap ? (
         <>
-          <div className="prose-deadwater" dangerouslySetInnerHTML={{ __html: anatomyBefore }} />
+          <div className="prose-deadwater prose-deadwater-post" dangerouslySetInnerHTML={{ __html: anatomyBefore }} />
           <ContentOsAnatomyMap />
-          <div className="prose-deadwater" dangerouslySetInnerHTML={{ __html: anatomyAfter }} />
+          <div className="prose-deadwater prose-deadwater-post" dangerouslySetInnerHTML={{ __html: anatomyAfter }} />
         </>
       ) : (
-        <div className="prose-deadwater" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="prose-deadwater prose-deadwater-post" dangerouslySetInnerHTML={{ __html: post.html }} />
       )}
 
       {showDraftWorkbench ? <ContentDraftWorkbench /> : null}

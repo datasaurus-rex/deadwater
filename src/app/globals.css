@@ -69,6 +69,10 @@ a:hover {
   --tw-prose-td-borders: var(--border);
 }
 
+.prose-deadwater-post h1:first-of-type {
+  display: none;
+}
+
 .prose-deadwater pre {
   @apply rounded-lg border border-ink-700;
 }
