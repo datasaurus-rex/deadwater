@@ -2,7 +2,7 @@
 title: "What is a content OS? The content operating system behind AI-native teams"
 description: "Why AI systems fail without a content substrate—and what a content OS actually is."
 date: "2026-02-10"
-tags: ["content-os", "ai-systems", "infrastructure", "automation"]
+tags: ["content-os", "ai-systems", "infrastructure", "automation", "featured"]
 image: "/blog/content-os.jpg"
 draft: false
 ---
@@ -17,7 +17,7 @@ The failure mode is consistent. Teams try to scale AI on top of content systems 
 
 That is the gap a content OS exists to fill.
 
-<!-- anatomy-map -->
+ANATOMY_MAP
 
 ## The definition
 

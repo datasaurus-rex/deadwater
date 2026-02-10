@@ -68,7 +68,7 @@ export default async function ReadPostPage({ params }: Props) {
 
   const showDraftWorkbench = post.slug === "content-draft-workbench";
   const showAnatomyMap = post.slug === "what-is-a-content-os";
-  const anatomyMarker = "<!-- anatomy-map -->";
+  const anatomyMarker = "ANATOMY_MAP";
   const anatomySplit = showAnatomyMap ? post.html.split(anatomyMarker) : [post.html];
   const anatomyBefore = anatomySplit[0] ?? "";
   const anatomyAfter = anatomySplit[1] ?? "";
