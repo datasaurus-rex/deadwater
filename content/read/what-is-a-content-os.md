@@ -26,7 +26,7 @@ Private context:
 
 - Deep information about competitive comparisons
 - Sales strategy and tactics
-- [[tangent:writing style guides|Style guides let AI match your tone, capitalization rules, and formatting without extra prompting.]]
+- [[tangent:Writing style guides|Style guides let AI match your tone, capitalization rules, and formatting without extra prompting.]]
 - Upcoming features
 - Your code repo
 - Operating guidelines
