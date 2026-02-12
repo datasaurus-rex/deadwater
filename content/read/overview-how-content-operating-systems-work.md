@@ -9,11 +9,11 @@ draft: false
 
 # Overview: How content operating systems work
 
-#### Most teams don’t have an AI problem. They have a content substrate problem.
+#### Most teams don’t have an AI problem. They have a [[tangent:content substrate problem|A missing substrate means content lacks contracts, structure, and a reliable source of truth for agents.]].
 
 AI demos look incredible. The first workflow works. The second one mostly works. By the third or fourth, things start to break—outputs drift, context goes missing, edge cases pile up, and the system becomes harder to trust than the manual process it was meant to replace.
 
-The failure mode is consistent. Teams try to scale AI on top of content systems that were never designed for execution.
+The failure mode is consistent. Teams try to scale AI on top of content systems that were never designed for [[tangent:execution|Execution means an agent can act without guessing what content means or where it lives.]].
 
 That is the gap a content OS exists to fill.
 
@@ -89,7 +89,7 @@ As soon as you want AI to:
 - Coordinate across domains
 - Improve over time
 
-You need a stable execution environment.
+You need a [[tangent:stable execution environment|A stable environment gives AI deterministic inputs, enforceable rules, and safe boundaries.]].
 
 A content OS provides that environment. It is the layer where AI stops being impressive and starts being reliable.
 
@@ -115,6 +115,6 @@ Most content systems are optimized to look good. Deadwater builds the layer unde
 
 A content OS is optimized to keep working—when the team grows, when the model changes, and when the pressure rises. It replaces manual patchwork with a stable substrate: schemas, guardrails, and execution paths that make AI outputs reliable and reusable.
 
-You don’t see it in a demo. You feel it months later when the system still holds and your content keeps compounding.
+You don’t see it in a demo. You feel it months later when the system still holds and your content keeps [[tangent:compounding|Each new workflow benefits from the same structured context, so the value stacks over time.]].
 
 That is the difference between content that informs and content that runs—and that is what a content operating system is for.

@@ -9,7 +9,7 @@ draft: false
 
 # The Prompt Brittleness Tax
 
-Every organization that ships an AI feature eventually pays a hidden cost: the prompt brittleness tax. It shows up as escalating prompt length, endless retries, human review cycles, and a quiet loss of trust in the system. The tax is not about model quality. It is about missing structure.
+Every organization that ships an AI feature eventually pays a hidden cost: the [[tangent:prompt brittleness tax|The hidden overhead of managing prompts, retries, and manual fixes as complexity grows.]]. It shows up as escalating prompt length, endless retries, human review cycles, and a quiet loss of trust in the system. The tax is not about model quality. It is about missing structure.
 
 Prompts are a bridge. They are not a foundation. When the bridge becomes the foundation, systems fail.
 
@@ -34,7 +34,7 @@ Consider a task like "summarize this meeting note." If the note is just a raw tr
 
 ## Structure turns prompting into routing
 
-In a Content OS, prompts are no longer the core logic. They are a routing mechanism: small, targeted instructions that operate on structured input. The system controls the schema. The agent fills it.
+In a Content OS, prompts are no longer the core logic. They are a [[tangent:routing mechanism|Prompts become thin instructions that route structured data to the right action.]]: small, targeted instructions that operate on structured input. The system controls the schema. The agent fills it.
 
 Example:
 
@@ -51,7 +51,7 @@ With a schema like this, the agent does not need to guess what to output. It jus
 
 ## The compounding effect
 
-The brittleness tax compounds over time. Each new prompt depends on an older prompt's output. When one fails, the errors ripple. Your system becomes a tower of fragile assumptions.
+The brittleness tax compounds over time. Each new prompt depends on an older prompt's output. When one fails, the errors ripple. Your system becomes a [[tangent:tower of fragile assumptions|A chain of prompt outputs where one weak link cascades into the next.]].
 
 You can measure this by asking a simple question: how many prompts does it take to complete a workflow? If the answer keeps growing, you are accumulating debt.
 
@@ -71,7 +71,7 @@ The fix is to locate these one-offs and standardize the output. If two prompts g
 
 ## The transition strategy
 
-Most teams cannot delete prompts overnight. The transition is to identify where prompts are doing structural work and replace those parts first. Start with outputs that should be stable: incident summaries, runbooks, decision records. Build schemas for those, then shrink the prompts to routing instructions.
+Most teams cannot delete prompts overnight. The transition is to identify where prompts are doing structural work and replace those parts first. Start with outputs that should be stable: incident summaries, runbooks, decision records. Build schemas for those, then shrink the prompts to [[tangent:routing instructions|Short directives that assume structured inputs and validated outputs.]].
 
 As the Content OS matures, prompts become smaller and more reliable. You stop prompting for structure and start prompting for synthesis.
 
