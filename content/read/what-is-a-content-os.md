@@ -11,7 +11,7 @@ draft: false
 
 #### 2026 is the year that AI transitions from parlor trick to the supertool we dreamed of.
 
-A content OS is a system—usually designed directly inside your coded website—wherein your context is exposed to AI systems, giving them knowledge about your business and allowing them to take precise action.
+A content OS is a system—usually designed directly inside your coded website—wherein your context is exposed to [[tangent:AI systems|AI systems can include Codex, Claude Code, or any AI workflow steps like AirOps.]] giving them knowledge about your business and allowing them to take precise action.
 
 Your context doesn’t necessarily have to be published. Your AI likely already has access to it.
 
@@ -55,7 +55,7 @@ A content OS installed in a website can:
 
 ## What are the benefits of having a content OS?
 
-Most companies—from founder-led startups to large B2B organizations—don’t have the marketing bandwidth they need. They also don’t have the systems required to safely delegate meaningful work to AI.
+Most companies—from founder-led startups to large B2B organizations—[[tangent:don’t have the marketing bandwidth they need.|Research shows that even early-stage companies need solid product marketing (often led by developers), as well as sales-led content, success stories, and competitive SEO strategy.\n\nIt takes a handful of full-time employees to really execute this well.]] They also don’t have the systems required to safely delegate meaningful work to AI.
 
 A content OS solves both problems at once.
 

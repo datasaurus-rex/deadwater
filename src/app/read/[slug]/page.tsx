@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { ContentOsAnatomyMap } from "@/components/ContentOsAnatomyMap";
+import { TangentPost } from "@/components/TangentPost";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
 
 type Props = {
@@ -35,6 +36,21 @@ function formatDate(dateValue: string) {
   const day = String(parsed.getUTCDate()).padStart(2, "0");
   const year = parsed.getUTCFullYear();
   return `${month} ${day} ${year}`;
+}
+
+function injectTangents(html: string) {
+  let index = 0;
+  return html.replace(/\[\[tangent:([^|]+)\|([^\]]+)\]\]/g, (_, label, text) => {
+    const safeLabel = encodeURIComponent(String(label).trim());
+    const safeText = encodeURIComponent(String(text).trim());
+    const id = `tangent-${index++}`;
+    return `
+      <span class="tangent-inline-group">
+        <button type="button" class="tangent-link" data-tangent-id="${id}" data-tangent-label="${safeLabel}" data-tangent="${safeText}">${label}</button>
+        <span class="tangent-inline" data-tangent-id="${id}" data-tangent-label="${safeLabel}" data-tangent="${safeText}">${text}</span>
+      </span>
+    `;
+  });
 }
 
 export async function generateStaticParams() {
@@ -69,7 +85,8 @@ export default async function ReadPostPage({ params }: Props) {
   const showDraftWorkbench = post.slug === "content-draft-workbench";
   const showAnatomyMap = post.slug === "overview-how-content-operating-systems-work";
   const anatomyMarker = "ANATOMY_MAP";
-  const anatomySplit = showAnatomyMap ? post.html.split(anatomyMarker) : [post.html];
+  const preparedHtml = injectTangents(post.html);
+  const anatomySplit = showAnatomyMap ? preparedHtml.split(anatomyMarker) : [preparedHtml];
   const anatomyBefore = anatomySplit[0] ?? "";
   const anatomyAfter = anatomySplit[1] ?? "";
 
@@ -107,12 +124,12 @@ export default async function ReadPostPage({ params }: Props) {
 
       {showAnatomyMap ? (
         <>
-          <div className="prose-deadwater prose-deadwater-post" dangerouslySetInnerHTML={{ __html: anatomyBefore }} />
+          <TangentPost html={anatomyBefore} />
           <ContentOsAnatomyMap />
-          <div className="prose-deadwater prose-deadwater-post" dangerouslySetInnerHTML={{ __html: anatomyAfter }} />
+          <TangentPost html={anatomyAfter} />
         </>
       ) : (
-        <div className="prose-deadwater prose-deadwater-post" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <TangentPost html={preparedHtml} />
       )}
 
       {showDraftWorkbench ? <ContentDraftWorkbench /> : null}
