@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { ContentOsAnatomyMap } from "@/components/ContentOsAnatomyMap";
@@ -64,6 +65,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const imageUrl = post.image ?? "/blog/blog-image.jpg";
+
   return {
     title: post.title,
     description: post.description,
@@ -71,7 +74,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${post.title} — Deadwater.ai`,
       description: post.description,
       type: "article",
-      tags: post.tags
+      tags: post.tags,
+      images: [
+        {
+          url: imageUrl
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [imageUrl]
     }
   };
 }
@@ -89,9 +103,59 @@ export default async function ReadPostPage({ params }: Props) {
   const anatomySplit = showAnatomyMap ? preparedHtml.split(anatomyMarker) : [preparedHtml];
   const anatomyBefore = anatomySplit[0] ?? "";
   const anatomyAfter = anatomySplit[1] ?? "";
+  const siteUrl = "https://deadwater.ai";
+  const canonicalUrl = `${siteUrl}/read/${post.slug}`;
+  const heroImageUrl = post.image ?? "/blog/blog-image.jpg";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: post.title,
+        isPartOf: { "@id": `${siteUrl}#website` },
+        about: { "@id": `${siteUrl}#organization` },
+        primaryImageOfPage: heroImageUrl ? { "@id": `${canonicalUrl}#primaryimage` } : undefined
+      },
+      heroImageUrl
+        ? {
+            "@type": "ImageObject",
+            "@id": `${canonicalUrl}#primaryimage`,
+            url: heroImageUrl.startsWith("http") ? heroImageUrl : `${siteUrl}${heroImageUrl}`
+          }
+        : undefined,
+      {
+        "@type": "BlogPosting",
+        "@id": `${canonicalUrl}#blogposting`,
+        headline: post.title,
+        description: post.description,
+        image: heroImageUrl ? { "@id": `${canonicalUrl}#primaryimage` } : undefined,
+        datePublished: new Date(post.date).toISOString(),
+        inLanguage: "en",
+        keywords: post.tags?.length ? post.tags : undefined,
+        author: { "@id": `${siteUrl}#organization` },
+        publisher: { "@id": `${siteUrl}#organization` },
+        mainEntityOfPage: { "@id": `${canonicalUrl}#webpage` }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Deadwater.ai", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Read", item: `${siteUrl}/read` },
+          { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl }
+        ]
+      }
+    ].filter(Boolean)
+  };
 
   return (
     <article className="container-narrow section">
+      <Script id="jsonld-post" type="application/ld+json">
+        {JSON.stringify(jsonLd, null, 0)}
+      </Script>
       <header className="flex flex-col gap-4">
         <p className="eyebrow">{formatDate(post.date)}</p>
         <h1 className="heading-serif text-4xl">{post.title}</h1>

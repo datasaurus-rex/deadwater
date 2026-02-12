@@ -20,6 +20,17 @@ const serif = IBM_Plex_Sans_Condensed({
 });
 
 const siteUrl = "https://deadwater.ai";
+const siteName = "Deadwater.ai";
+const logoUrl = "/favicon/favicon.jpg";
+const sameAs = ["https://linkedin.com/in/jackvirag"];
+
+function absoluteUrl(pathOrUrl: string, baseUrl: string) {
+  if (!pathOrUrl) return pathOrUrl;
+  if (pathOrUrl.startsWith("http://") || pathOrUrl.startsWith("https://")) {
+    return pathOrUrl;
+  }
+  return `${baseUrl.replace(/\/$/, "")}/${pathOrUrl.replace(/^\//, "")}`;
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,7 +46,7 @@ export const metadata: Metadata = {
     title: "Deadwater.ai",
     description: "The AI-native content operating system is here.",
     url: siteUrl,
-    siteName: "Deadwater.ai",
+    siteName,
     type: "website",
     images: [
       {
@@ -65,6 +76,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-F8BN85VTHY');`}
+        </Script>
+        <Script id="jsonld-site" type="application/ld+json">
+          {JSON.stringify(
+            {
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": `${siteUrl}#organization`,
+                  name: siteName,
+                  url: siteUrl,
+                  logo: logoUrl
+                    ? {
+                        "@type": "ImageObject",
+                        "@id": `${siteUrl}#logo`,
+                        url: absoluteUrl(logoUrl, siteUrl)
+                      }
+                    : undefined,
+                  sameAs: sameAs?.length ? sameAs : undefined
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": `${siteUrl}#website`,
+                  url: siteUrl,
+                  name: siteName,
+                  publisher: { "@id": `${siteUrl}#organization` }
+                }
+              ].filter(Boolean)
+            },
+            null,
+            0
+          )}
         </Script>
       </body>
     </html>
