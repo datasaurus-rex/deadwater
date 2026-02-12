@@ -13,7 +13,7 @@ draft: false
 
 A content OS is a system—usually designed directly inside your coded website—wherein your context is exposed to [[tangent:AI systems|AI systems can include Codex, Claude Code, or any AI workflow steps like AirOps.]] giving them knowledge about your business and allowing them to take precise action.
 
-Your context doesn’t necessarily have to be published. Your AI likely already has access to it.
+Your context doesn’t necessarily have to be [[tangent:published|Published context includes any public-facing pages that live on your domain and can be crawled.]]. Your AI likely already has access to it.
 
 Published context:
 
@@ -26,7 +26,7 @@ Private context:
 
 - Deep information about competitive comparisons
 - Sales strategy and tactics
-- Writing style guides
+- [[tangent:writing style guides|Style guides let AI match your tone, capitalization rules, and formatting without extra prompting.]]
 - Upcoming features
 - Your code repo
 - Operating guidelines
@@ -42,16 +42,16 @@ For this case, we’ll assume the content OS is basic and installed in a website
 A content OS installed in a website can:
 
 - Read all context, either one-off or hardwired into its workflow, including:
-  - Brand guidelines
-  - Operating guidelines
-  - Content and SEO strategy
-  - Product updates
-  - Other relevant context
+- Brand guidelines
+- Operating guidelines
+- Content and SEO strategy
+- Product updates
+- Other relevant context
 - Use context to create additional content and update existing content. Examples:
   - “We changed our brand, please update all instances of X, Y, or Z.”
   - “Read our new feature launch and create three blog posts and a landing page.”
   - “Embed an animation on the landing page illustrating the flow of data through our product.”
-- Take agentic actions and connect to additional GTM systems.
+- Take [[tangent:agentic actions|Agentic actions can include updating a landing page, generating a draft, or triggering a new workflow based on fresh context.]] and connect to additional GTM systems.
 
 ## What are the benefits of having a content OS?
 
@@ -61,7 +61,7 @@ A content OS solves both problems at once.
 
 ### 1. AI that actually understands your business
 
-Without a content OS, AI works off fragments—whatever happens to be in the prompt, whatever the model remembers from training, whatever you manually paste in. With a content OS, AI operates with full situational awareness.
+Without a content OS, AI works off fragments—whatever happens to be in the prompt, whatever the model remembers from training, whatever you manually paste in. With a content OS, AI operates with [[tangent:full situational awareness|This means the system can pull from brand rules, product history, and current positioning without extra manual assembly.]].
 
 That means:
 
@@ -75,13 +75,13 @@ When used for content and comms generation at scale, the difference is massive.
 
 Most AI automation breaks the moment something changes. A product name updates. A positioning shift happens. A new rule gets added.
 
-A content OS gives AI a source of truth. Instead of hardcoding assumptions, workflows reference live context—brand rules, operating constraints, and validated inputs—so changes propagate automatically and safely.
+A content OS gives AI a source of truth. Instead of hardcoding assumptions, workflows reference live context—brand rules, operating constraints, and validated inputs—so changes [[tangent:propagate automatically and safely|When a product name or positioning updates, every downstream workflow pulls the new version immediately.]].
 
 This is how you move from experiments to systems.
 
 ### 3. Compounding leverage
 
-The first workflow saves time. The second saves more. By the fifth or tenth, you’re no longer replacing tasks—you’re installing infrastructure.
+The first workflow saves time. The second saves more. By the fifth or tenth, you’re no longer replacing tasks—you’re installing [[tangent:infrastructure|Infrastructure means shared schemas, validation, and execution paths that every workflow reuses.]].
 
 A content OS compounds because:
 
@@ -89,13 +89,13 @@ A content OS compounds because:
 - Each new workflow reuses the same substrate
 - The system gets more valuable as it grows
 
-This is why teams with strong content systems pull away from competitors who rely on ad-hoc tooling.
+This is why teams with strong content systems [[tangent:pull away|The advantage compounds because each new workflow benefits from the same upgraded substrate.]].
 
 ### 4. Fewer handoffs, less coordination tax
 
 Traditional content operations require constant translation—strategy to brief, brief to draft, draft to edit, edit to publish.
 
-A content OS collapses those layers. AI can move directly from intent to execution because the rules of execution already exist in the system.
+A content OS collapses those layers. AI can move directly from intent to execution because the rules of execution [[tangent:already exist in the system|Think of it as a runbook the AI can read and follow without improvising.]].
 
 ## Content OS vs traditional CMS
 
@@ -116,6 +116,6 @@ Most CMSs can be part of a content OS, but they cannot be the OS themselves.
 
 2026 is when AI starts being operational.
 
-The teams that win won’t be the ones with the best prompts or the flashiest demos. They’ll be the ones who invested early in structure—systems that make AI reliable, repeatable, and safe to run in production.
+The teams that win won’t be the ones with the best prompts or the flashiest demos. They’ll be the ones who invested early in structure—systems that make AI reliable, repeatable, and safe to run [[tangent:in production|Production means real users, real stakes, and zero tolerance for silent drift.]].
 
 That system is a content OS.

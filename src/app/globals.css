@@ -42,6 +42,10 @@ a:hover {
   @apply mx-auto w-full max-w-4xl px-[18px];
 }
 
+.container-post {
+  @apply mx-auto w-full max-w-3xl px-[18px];
+}
+
 .section {
   @apply py-12;
 }
@@ -83,28 +87,23 @@ a:hover {
 }
 
 .tangent-link {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display: inline;
   border: 1px solid var(--accent-blue);
   padding: 0 6px;
-  padding-right: 18px;
   border-radius: 999px;
   font-size: 0.85em;
   line-height: 1.6;
   white-space: normal;
   color: #e6f1ff;
   background: rgba(77, 163, 255, 0.15);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
   transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
 }
 
 .tangent-link::after {
   content: "+";
-  position: absolute;
-  right: 6px;
-  width: 10px;
-  text-align: center;
+  margin-left: 6px;
   font-size: 0.85em;
   opacity: 0.7;
 }
@@ -133,6 +132,7 @@ a:hover {
   font-size: 0.95em;
   line-height: 1.6;
   overflow-wrap: anywhere;
+  white-space: pre-line;
 }
 
 .tangent-inline.is-active {
@@ -162,6 +162,12 @@ a:hover {
   letter-spacing: 0.3em;
   font-size: 0.65rem;
   color: var(--muted-2);
+  min-height: 26px;
+}
+
+.tangent-panel-header .tangent-close {
+  flex-shrink: 0;
+  margin-top: -2px;
 }
 
 .tangent-panel-title {
@@ -230,29 +236,43 @@ a:hover {
 
 .tangent-panel-item-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 6px;
+}
+
+.tangent-panel-label {
+  flex: 1;
+}
+
+.tangent-panel-item-head .tangent-close {
+  flex-shrink: 0;
+  margin-top: -2px;
 }
 
 .tangent-panel-text {
   color: var(--muted);
   line-height: 1.7;
   overflow-wrap: anywhere;
+  white-space: pre-line;
 }
 
 @media (min-width: 1024px) {
   .tangent-layout {
-    position: relative;
-    display: block;
+    grid-template-columns: minmax(0, 1fr) 0;
+    align-items: start;
   }
 
   .tangent-panel {
-    position: absolute;
-    top: 0;
-    right: -320px;
-    width: 280px;
+    position: sticky;
+    top: 120px;
+    width: 300px;
+    max-height: calc(100vh - 160px);
+    overflow: auto;
+    grid-column: 2;
+    justify-self: end;
+    transform: translateX(320px);
   }
 
   .tangent-inline {

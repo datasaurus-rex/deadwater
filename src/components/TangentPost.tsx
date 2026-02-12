@@ -9,7 +9,7 @@ type Props = {
 type TangentData = {
   id: string;
   label: string;
-  text: string;
+  html: string;
 };
 
 function decode(value: string | undefined) {
@@ -19,6 +19,10 @@ function decode(value: string | undefined) {
   } catch {
     return value;
   }
+}
+
+function normalizeHtml(value: string) {
+  return value.replace(/\\n/g, "\n").replace(/\n\n/g, "<br /><br />").replace(/\n/g, "<br />");
 }
 
 export function TangentPost({ html }: Props) {
@@ -34,8 +38,12 @@ export function TangentPost({ html }: Props) {
     const links = root.querySelectorAll<HTMLElement>(".tangent-link");
     inlinePanels.forEach((panel) => {
       const id = panel.dataset.tangentId;
+      const html = normalizeHtml(decode(panel.dataset.tangent));
       const isActive = active.some((item) => item.id === id);
       panel.classList.toggle("is-active", isActive);
+      if (isActive) {
+        panel.innerHTML = html;
+      }
     });
     links.forEach((link) => {
       const id = link.dataset.tangentId;
@@ -57,7 +65,7 @@ export function TangentPost({ html }: Props) {
             const entry = {
               id,
               label: decode(target.dataset.tangentLabel),
-              text: decode(target.dataset.tangent)
+              html: normalizeHtml(decode(target.dataset.tangent))
             };
             setActive((prev) => {
               const exists = prev.find((item) => item.id === id);
@@ -77,22 +85,26 @@ export function TangentPost({ html }: Props) {
           <div className="tangent-panel-inner">
             <div className="tangent-panel-header">
               <span className="tangent-panel-title">Tangents</span>
-                <button
-                  type="button"
-                  className="tangent-close"
-                  onClick={() => setActive([])}
-                  aria-label="Close tangents"
-                >
-                
-                </button>
+              <button
+                type="button"
+                className="tangent-close"
+                onClick={() => setActive([])}
+                aria-label="Close tangents"
+              />
             </div>
             <div className="tangent-panel-body">
               {active.map((item) => (
                 <div key={item.id} className="tangent-panel-item">
                   <div className="tangent-panel-item-head">
                     <p className="tangent-panel-label">{item.label}</p>
+                    <button
+                      type="button"
+                      className="tangent-close"
+                      onClick={() => setActive((prev) => prev.filter((entry) => entry.id !== item.id))}
+                      aria-label="Close tangent"
+                    />
                   </div>
-                  <p className="tangent-panel-text">{item.text}</p>
+                  <p className="tangent-panel-text" dangerouslySetInnerHTML={{ __html: item.html }} />
                 </div>
               ))}
             </div>

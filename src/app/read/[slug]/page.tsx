@@ -47,7 +47,7 @@ function injectTangents(html: string) {
     return `
       <span class="tangent-inline-group">
         <button type="button" class="tangent-link" data-tangent-id="${id}" data-tangent-label="${safeLabel}" data-tangent="${safeText}">${label}</button>
-        <span class="tangent-inline" data-tangent-id="${id}" data-tangent-label="${safeLabel}" data-tangent="${safeText}">${text}</span>
+        <span class="tangent-inline" data-tangent-id="${id}" data-tangent-label="${safeLabel}" data-tangent="${safeText}"></span>
       </span>
     `;
   });
@@ -124,12 +124,18 @@ export default async function ReadPostPage({ params }: Props) {
 
       {showAnatomyMap ? (
         <>
-          <TangentPost html={anatomyBefore} />
+          <div className="container-post">
+            <TangentPost html={anatomyBefore} />
+          </div>
           <ContentOsAnatomyMap />
-          <TangentPost html={anatomyAfter} />
+          <div className="container-post">
+            <TangentPost html={anatomyAfter} />
+          </div>
         </>
       ) : (
-        <TangentPost html={preparedHtml} />
+        <div className="container-post">
+          <TangentPost html={preparedHtml} />
+        </div>
       )}
 
       {showDraftWorkbench ? <ContentDraftWorkbench /> : null}
