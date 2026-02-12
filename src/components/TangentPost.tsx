@@ -87,10 +87,12 @@ export function TangentPost({ html }: Props) {
               <span className="tangent-panel-title">Tangents</span>
               <button
                 type="button"
-                className="tangent-close"
+                className="tangent-close tangent-close-all"
                 onClick={() => setActive([])}
                 aria-label="Close tangents"
-              />
+              >
+                Close all
+              </button>
             </div>
             <div className="tangent-panel-body">
               {active.map((item) => (

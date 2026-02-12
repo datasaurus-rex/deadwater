@@ -209,6 +209,20 @@ a:hover {
   letter-spacing: normal;
 }
 
+.tangent-close-all {
+  font-size: 0.65rem;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0 10px;
+  width: auto;
+  height: 26px;
+}
+
+.tangent-close-all::before {
+  content: none;
+}
+
 .tangent-close:hover {
   border-color: var(--accent-blue);
   color: #ffffff;
