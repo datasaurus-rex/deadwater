@@ -3,7 +3,7 @@ title: "What is a content OS?"
 description: "A plain-English breakdown of how a content OS exposes context and makes AI safe to operate."
 date: "2026-02-10"
 tags: ["content-os", "ai-ops", "automation", "featured"]
-image: "/blog/what-is-a-content-os.png"
+image: "/blog/what-is-content-os.jpg"
 draft: false
 ---
 
