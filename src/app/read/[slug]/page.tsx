@@ -54,6 +54,35 @@ function injectTangents(html: string) {
   });
 }
 
+function injectInlineContentOsCta(html: string) {
+  const ctaHtml = `
+    <div class="my-10 border border-ink-800 bg-ink-900/40 p-6">
+      <h3 class="heading-serif text-2xl text-white">Build this on a real Content OS</h3>
+      <p class="mt-2 text-slate-300">This post is one piece of the system. See how Deadwater structures content so AI can operate on it safely and at scale.</p>
+      <div class="mt-4 flex flex-wrap gap-4">
+        <a href="/content-os" class="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">Explore Content OS</a>
+        <a href="/contact" class="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">Book a scoping call</a>
+      </div>
+    </div>
+  `;
+
+  const h2Pattern = /<h2\b[^>]*>/gi;
+  const matches = Array.from(html.matchAll(h2Pattern));
+
+  if (matches.length === 0) {
+    return html;
+  }
+
+  const target = matches.length >= 2 ? matches[matches.length - 2] : matches[0];
+  const insertAt = target.index ?? -1;
+
+  if (insertAt < 0) {
+    return html;
+  }
+
+  return `${html.slice(0, insertAt)}${ctaHtml}${html.slice(insertAt)}`;
+}
+
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
@@ -100,7 +129,8 @@ export default async function ReadPostPage({ params }: Props) {
   const showAnatomyMap = post.slug === "overview-how-content-operating-systems-work";
   const showInlineContentOsCta = Boolean(post.image && post.image !== "/blog/blog-image.jpg");
   const anatomyMarker = "ANATOMY_MAP";
-  const preparedHtml = injectTangents(post.html);
+  const tangentHtml = injectTangents(post.html);
+  const preparedHtml = showInlineContentOsCta ? injectInlineContentOsCta(tangentHtml) : tangentHtml;
   const anatomySplit = showAnatomyMap ? preparedHtml.split(anatomyMarker) : [preparedHtml];
   const anatomyBefore = anatomySplit[0] ?? "";
   const anatomyAfter = anatomySplit[1] ?? "";
@@ -204,23 +234,6 @@ export default async function ReadPostPage({ params }: Props) {
       )}
 
       {showDraftWorkbench ? <ContentDraftWorkbench /> : null}
-
-      {showInlineContentOsCta ? (
-        <section className="container-post mt-10 border border-ink-800 bg-ink-900/40 p-6">
-          <h3 className="heading-serif text-2xl text-white">Build this on a real Content OS</h3>
-          <p className="mt-2 text-slate-300">
-            This post is one piece of the system. See how Deadwater structures content so AI can operate on it safely and at scale.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-4">
-            <Link href="/content-os" className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
-              Explore Content OS
-            </Link>
-            <Link href="/contact" className="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
-              Book a scoping call
-            </Link>
-          </div>
-        </section>
-      ) : null}
 
       <div className="divider" />
 
