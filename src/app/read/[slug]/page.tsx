@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
+import { CallToActionBlock, type CallToActionContent } from "@/components/CallToActionBlock";
 import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { ContentOsAnatomyMap } from "@/components/ContentOsAnatomyMap";
 import { TangentPost } from "@/components/TangentPost";
+import { ctaContentByType, inlineBlogPostCta } from "@/lib/cta-content";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
 
 type Props = {
@@ -54,18 +55,19 @@ function injectTangents(html: string) {
   });
 }
 
-function injectInlineContentOsCta(html: string) {
-  const ctaHtml = `
-    <div class="my-10 border border-ink-800 bg-ink-900/40 p-6">
-      <h3 class="heading-serif text-2xl text-white">Build this on a real Content OS</h3>
-      <p class="mt-2 text-slate-300">This post is one piece of the system. See how Deadwater structures content so AI can operate on it safely and at scale.</p>
-      <div class="mt-4 flex flex-wrap gap-4">
-        <a href="/content-os" class="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">Explore Content OS</a>
-        <a href="/contact" class="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">Book a scoping call</a>
-      </div>
-    </div>
-  `;
+function splitOnce(html: string, token: string) {
+  const index = html.indexOf(token);
+  if (index === -1) {
+    return null;
+  }
 
+  return {
+    before: html.slice(0, index),
+    after: html.slice(index + token.length)
+  };
+}
+
+function insertTokenBeforeSecondToLastH2(html: string, token: string) {
   const h2Pattern = /<h2\b[^>]*>/gi;
   const matches = Array.from(html.matchAll(h2Pattern));
 
@@ -80,7 +82,45 @@ function injectInlineContentOsCta(html: string) {
     return html;
   }
 
-  return `${html.slice(0, insertAt)}${ctaHtml}${html.slice(insertAt)}`;
+  return `${html.slice(0, insertAt)}${token}${html.slice(insertAt)}`;
+}
+
+function renderSegmentWithInlineCta({
+  html,
+  inlineToken,
+  ctaContent
+}: {
+  html: string;
+  inlineToken: string;
+  ctaContent: CallToActionContent;
+}) {
+  const split = splitOnce(html, inlineToken);
+
+  if (!split) {
+    return html ? (
+      <div className="container-post">
+        <TangentPost html={html} />
+      </div>
+    ) : null;
+  }
+
+  return (
+    <>
+      {split.before ? (
+        <div className="container-post">
+          <TangentPost html={split.before} />
+        </div>
+      ) : null}
+      <div className="container-post my-10">
+        <CallToActionBlock content={ctaContent} />
+      </div>
+      {split.after ? (
+        <div className="container-post">
+          <TangentPost html={split.after} />
+        </div>
+      ) : null}
+    </>
+  );
 }
 
 export async function generateStaticParams() {
@@ -128,12 +168,15 @@ export default async function ReadPostPage({ params }: Props) {
   const showDraftWorkbench = post.slug === "content-draft-workbench";
   const showAnatomyMap = post.slug === "overview-how-content-operating-systems-work";
   const showInlineContentOsCta = Boolean(post.image && post.image !== "/blog/blog-image.jpg");
+  const inlineToken = "__INLINE_CTA_TOKEN__";
   const anatomyMarker = "ANATOMY_MAP";
   const tangentHtml = injectTangents(post.html);
-  const preparedHtml = showInlineContentOsCta ? injectInlineContentOsCta(tangentHtml) : tangentHtml;
-  const anatomySplit = showAnatomyMap ? preparedHtml.split(anatomyMarker) : [preparedHtml];
-  const anatomyBefore = anatomySplit[0] ?? "";
-  const anatomyAfter = anatomySplit[1] ?? "";
+  const htmlWithInlineToken = showInlineContentOsCta
+    ? insertTokenBeforeSecondToLastH2(tangentHtml, inlineToken)
+    : tangentHtml;
+  const anatomySplit = showAnatomyMap ? splitOnce(htmlWithInlineToken, anatomyMarker) : null;
+  const anatomyBefore = anatomySplit?.before ?? htmlWithInlineToken;
+  const anatomyAfter = anatomySplit?.after ?? "";
   const siteUrl = "https://deadwater.ai";
   const canonicalUrl = `${siteUrl}/read/${post.slug}`;
   const heroImageUrl = post.image ?? "/blog/blog-image.jpg";
@@ -219,36 +262,31 @@ export default async function ReadPostPage({ params }: Props) {
 
       {showAnatomyMap ? (
         <>
-          <div className="container-post">
-            <TangentPost html={anatomyBefore} />
-          </div>
+          {renderSegmentWithInlineCta({
+            html: anatomyBefore,
+            inlineToken,
+            ctaContent: inlineBlogPostCta
+          })}
           <ContentOsAnatomyMap />
-          <div className="container-post">
-            <TangentPost html={anatomyAfter} />
-          </div>
+          {renderSegmentWithInlineCta({
+            html: anatomyAfter,
+            inlineToken,
+            ctaContent: inlineBlogPostCta
+          })}
         </>
       ) : (
-        <div className="container-post">
-          <TangentPost html={preparedHtml} />
-        </div>
+        renderSegmentWithInlineCta({
+          html: htmlWithInlineToken,
+          inlineToken,
+          ctaContent: inlineBlogPostCta
+        })
       )}
 
       {showDraftWorkbench ? <ContentDraftWorkbench /> : null}
 
       <div className="divider" />
 
-      <section className="border border-ink-800 bg-ink-900/40 p-6">
-        <h3 className="heading-serif text-2xl text-white">Ready to learn more?</h3>
-        <p className="mt-2 text-slate-300">Book a demo and we will walk you through what a Content OS looks like in practice.</p>
-        <div className="mt-4 flex flex-wrap gap-4">
-          <Link href="/contact" className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
-            Book a demo
-          </Link>
-          <Link href="/pricing" className="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
-            View pricing
-          </Link>
-        </div>
-      </section>
+      <CallToActionBlock content={ctaContentByType.blogPost} />
     </article>
   );
 }
