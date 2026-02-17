@@ -14,6 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: siteUrl, lastModified: new Date().toISOString() },
     { url: `${siteUrl}/read`, lastModified: new Date().toISOString() },
+    { url: `${siteUrl}/content-os`, lastModified: new Date().toISOString() },
     { url: `${siteUrl}/about`, lastModified: new Date().toISOString() },
     { url: `${siteUrl}/contact`, lastModified: new Date().toISOString() },
     ...postEntries

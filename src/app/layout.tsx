@@ -40,7 +40,13 @@ export const metadata: Metadata = {
   },
   description: "The AI-native content operating system is here.",
   icons: {
-    icon: "/favicon/favicon.jpg"
+    icon: [
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+      { url: "/favicon/favicon.ico", sizes: "any", type: "image/x-icon" },
+      { url: "/favicon/favicon.jpg", type: "image/jpeg" }
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: [{ url: "/favicon/favicon.jpg" }]
   },
   openGraph: {
     title: "Deadwater.ai",
