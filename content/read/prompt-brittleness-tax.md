@@ -9,13 +9,11 @@ draft: false
 
 # The Prompt Brittleness Tax
 
-Every organization that ships an AI feature eventually pays a hidden cost: the [[tangent:prompt brittleness tax|The hidden overhead of managing prompts, retries, and manual fixes as complexity grows.]]. It shows up as escalating prompt length, endless retries, human review cycles, and a quiet loss of trust in the system. The tax is not about model quality. It is about missing structure.
+Every organization that ships an [AI](https://en.wikipedia.org/wiki/Artificial_intelligence) feature eventually pays a hidden cost: the [[tangent:prompt brittleness tax|The hidden overhead of managing prompts, retries, and manual fixes as complexity grows.]]. It shows up as escalating prompt length, endless retries, human review cycles, and a quiet loss of trust in the system. The tax is not about model quality. It is about missing structure.
 
-Prompts are a bridge. They are not a foundation. When the bridge becomes the foundation, systems fail.
+Prompts are a bridge. They are not a [foundation](/read/content-os-foundations). When the bridge becomes the foundation, systems fail.
 
 ## Symptoms of the tax
-
-If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
 
 You can spot prompt brittleness in the field:
 
@@ -30,13 +28,13 @@ When these symptoms appear, the system is compensating for a lack of structure i
 
 Prompts operate inside the model's attention window. They are temporary, untyped, and easy to break. They have no guarantees. If a model decides to interpret a paragraph differently today, the prompt cannot enforce a contract.
 
-That is the difference between prompts and schemas. A schema is a hard boundary. A prompt is a suggestion.
+That is the difference between prompts and [schemas](https://json-schema.org/). A schema is a hard boundary. A prompt is a suggestion.
 
 Consider a task like "summarize this meeting note." If the note is just a raw transcript, the prompt has to infer everything: participants, decisions, risks. If the note is already structured, the prompt becomes optional. The system should do that work once, not every time.
 
 ## Structure turns prompting into routing
 
-In a Content OS, prompts are no longer the core logic. They are a [[tangent:routing mechanism|Prompts become thin instructions that route structured data to the right action.]]: small, targeted instructions that operate on structured input. The system controls the schema. The agent fills it.
+In a [Content OS](/read/what-is-a-content-os), prompts are no longer the core logic. They are a [[tangent:routing mechanism|Prompts become thin instructions that route structured data to the right action.]]: small, targeted instructions that operate on structured input. The system controls the schema. The [agent](https://en.wikipedia.org/wiki/Intelligent_agent) fills it.
 
 Example:
 
@@ -49,19 +47,17 @@ Example:
 }
 ```
 
-With a schema like this, the agent does not need to guess what to output. It just needs to fill known fields, and the system can validate them.
+With a schema like this, the [agent](https://en.wikipedia.org/wiki/Intelligent_agent) does not need to guess what to output. It just needs to fill known fields, and the system can validate them.
 
 ## The compounding effect
 
 The brittleness tax compounds over time. Each new prompt depends on an older prompt's output. When one fails, the errors ripple. Your system becomes a [[tangent:tower of fragile assumptions|A chain of prompt outputs where one weak link cascades into the next.]].
 
-You can measure this by asking a simple question: how many prompts does it take to complete a workflow? If the answer keeps growing, you are accumulating debt.
+You can measure this by asking a simple question: how many prompts does it take to complete a [workflow](/read/agent-workflows-that-stick)? If the answer keeps growing, you are accumulating debt.
 
 ## Replace prompt glue with content contracts
 
-For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
-
-A Content OS shifts the responsibility from the prompt to the content. You build contracts in frontmatter, schemas, and structured sections. You constrain ambiguity and make the system legible.
+A [Content OS](/read/what-is-a-content-os) shifts the responsibility from the prompt to the content. You build contracts in frontmatter, schemas, and structured sections. You constrain ambiguity and make the system legible.
 
 This is not a stylistic change. It is a structural change. It is the difference between a script and a service.
 
@@ -89,7 +85,5 @@ As the Content OS matures, prompts become smaller and more reliable. You stop pr
 - Track prompt growth as a debt metric.
 
 ## The shift from clever to reliable
-
-At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
 Prompts can be clever. Systems must be reliable. When you replace prompt glue with a Content OS, the model stops being a fragile interpreter and becomes a dependable worker. That is how the tax disappears.

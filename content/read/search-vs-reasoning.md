@@ -6,15 +6,13 @@ tags: ["search", "reasoning", "content-os", "systems"]
 draft: true
 ---
 
-# Search vs Reasoning in a Content OS
+# [Search](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) vs Reasoning in a [Content OS](/read/what-is-a-content-os)
 
-Search is a lookup mechanism. Reasoning is a traversal mechanism. Most knowledge systems are built for search and expect reasoning to happen in a human's head. AI flips this. Agents need to reason directly over the content system, not just retrieve a page and hope it contains the answer.
+Search is a lookup mechanism. Reasoning is a traversal mechanism. Most knowledge systems are built for search and expect reasoning to happen in a human's head. [AI](https://en.wikipedia.org/wiki/Artificial_intelligence) flips this. [Agents](/read/governance-for-[agents](https://en.wikipedia.org/wiki/Intelligent_agent)) need to reason directly over the content system, not just retrieve a page and hope it contains the answer.
 
-A Content OS has to support both. Search is the entry point. Reasoning is the path.
+A [Content OS](/read/what-is-a-content-os) has to support both. Search is the entry point. Reasoning is the path.
 
 ## Search is for discovery
-
-If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
 
 Search is good at two things: finding known items and revealing related items. It is not good at inference. When an agent uses search, it should be to locate a small number of modules with clear metadata.
 
@@ -30,7 +28,7 @@ Search is a filter, not a brain.
 
 Reasoning is how an agent answers questions that span modules: "What changed after the outage?" or "Which runbooks depend on this service?" The answer is not in a single page. It is in the relationships between pages.
 
-That means you need explicit links, stable identifiers, and schemas that expose dependencies. Without those, reasoning collapses into guesswork.
+That means you need explicit links, stable identifiers, and [schemas](https://json-schema.org/) that expose dependencies. Without those, reasoning collapses into guesswork.
 
 ## The danger of search-only systems
 
@@ -60,15 +58,13 @@ With this, agents can traverse and build a reasoning chain.
 
 ## Evidence beats relevance
 
-For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
-
 Search results often look relevant but lack evidence. Reasoning requires traceable evidence. If a module claims a threshold or policy, it should link to the source module where that rule is defined.
 
 This is why a Content OS needs explicit citations and relationships. It is not enough to retrieve the right page. The agent must be able to justify the path it took to reach an answer.
 
 ## The handoff between search and reasoning
 
-Search finds candidates. Reasoning determines which candidates actually matter. For high-impact workflows, define a short list of trusted sources. For exploratory workflows, allow broader search but require more validation.
+Search finds candidates. Reasoning determines which candidates actually matter. For high-impact [workflows](/read/agent-workflows-that-stick), define a short list of trusted sources. For exploratory workflows, allow broader search but require more validation.
 
 This handoff should be explicit in your system design. Otherwise agents will over-trust search results.
 
@@ -88,7 +84,5 @@ These constraints can be expressed in metadata filters. That turns retrieval int
 - Validate that reasoning paths exist for key workflows.
 
 ## The balanced system
-
-At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
 Search gets you into the system. Reasoning lets you move through it with intent. A Content OS needs both, but it should be designed so that reasoning does the heavy work. That is the difference between a knowledge base and an operating system.

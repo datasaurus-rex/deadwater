@@ -8,13 +8,11 @@ draft: false
 
 # Operational Docs as Systems, Not Pages
 
-Operational documentation is where most AI systems fail. The docs are outdated, inconsistent, and written for people, not agents. That is not a documentation problem. It is a systems problem. Operations run on repeatable behavior. If your docs are not repeatable, your agents will not be either.
+Operational documentation is where most [AI](https://en.wikipedia.org/wiki/Artificial_intelligence) systems fail. The docs are outdated, inconsistent, and written for people, not [agents](https://en.wikipedia.org/wiki/Intelligent_agent). That is not a documentation problem. It is a systems problem. Operations run on repeatable behavior. If your docs are not repeatable, your agents will not be either.
 
 The fix is to treat operational docs as systems. That means structure, validation, and lifecycle management.
 
-## Doc types are workflows
-
-If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+## Doc types are [workflows](/read/agent-workflows-that-stick)
 
 An incident review is not a page. It is a workflow with a known shape. A runbook is not prose. It is a sequence of steps, dependencies, and escalation paths.
 
@@ -25,7 +23,7 @@ Define the doc types explicitly. For example:
 - Deployment checklist
 - Escalation protocol
 
-Each type should have a schema. If the schema is missing, the doc is incomplete by definition.
+Each type should have a [schema](https://json-schema.org/). If the schema is missing, the doc is incomplete by definition.
 
 ## Structure beats style
 
@@ -83,7 +81,7 @@ If a step says "restart the service," it should specify `service_id`, the expect
 
 Operational docs should not live in isolation. If a runbook is tied to a service, link it to the service module. If it references thresholds, link it to metrics definitions. This creates a closed loop: the doc can be updated automatically when its underlying system changes.
 
-This is how living documentation becomes possible without chaos. The system knows what needs to change when the world changes.
+This is how [living documentation](/read/living-docs-for-agents) becomes possible without chaos. The system knows what needs to change when the world changes.
 
 ## Practical checklist
 
@@ -95,7 +93,5 @@ This is how living documentation becomes possible without chaos. The system know
 - Treat documentation updates as part of operations, not an afterthought.
 
 ## The long-term effect
-
-At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
 When operational docs behave like systems, agents can execute them without hand-holding. You reduce manual escalations, shorten response time, and make operations resilient. The system becomes executable knowledge, not a dusty archive.

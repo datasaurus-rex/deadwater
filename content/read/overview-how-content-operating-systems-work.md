@@ -11,21 +11,19 @@ draft: false
 
 #### Most teams don’t have an AI problem. They have a [[tangent:content substrate problem|A missing substrate means content lacks contracts, structure, and a reliable source of truth for agents.]].
 
-AI demos look incredible. The first workflow works. The second one mostly works. By the third or fourth, things start to break—outputs drift, context goes missing, edge cases pile up, and the system becomes harder to trust than the manual process it was meant to replace.
+AI demos look incredible. The first [workflow](/read/agent-workflows-that-stick) works. The second one mostly works. By the third or fourth, things start to break—outputs drift, context goes missing, edge cases pile up, and the system becomes harder to trust than the manual process it was meant to replace.
 
 The failure mode is consistent. Teams try to scale AI on top of content systems that were never designed for [[tangent:execution|Execution means an agent can act without guessing what content means or where it lives.]].
 
-That is the gap a content OS exists to fill.
+That is the gap a [content OS](/read/what-is-a-content-os) exists to fill.
 
 ANATOMY_MAP
 
 ## The definition
 
-If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
-
 A content OS—short for content operating system—is the structured, code-first layer that governs how content is stored, validated, and executed so AI systems can operate on it reliably. It defines the rules of the environment content lives in, so humans and machines can both reason over it without the system collapsing.
 
-It is not a CMS, a workflow, or a collection of prompts. It is the substrate that makes those things dependable. When the system is built on a Content OS, every workflow runs against the same contracts, and every update stays inside the same guardrails.
+It is not a [CMS](https://en.wikipedia.org/wiki/Content_management_system), a workflow, or a collection of prompts. It is the substrate that makes those things dependable. When the system is built on a [Content OS](/read/what-is-a-content-os), every workflow runs against the same contracts, and every update stays inside the same guardrails.
 
 ## Why workflows are not enough
 
@@ -42,7 +40,7 @@ Without a content operating system underneath, workflows are brittle:
 
 You can automate faster, but you cannot compound.
 
-A content OS changes the nature of the system itself. It standardizes how content exists so many workflows can run safely on top of the same foundation.
+A content OS changes the nature of the system itself. It standardizes how content exists so many workflows can run safely on top of the same [foundation](/read/content-os-foundations).
 
 One is a sharp tool. The other is the system that lets tools accumulate value.
 
@@ -51,16 +49,14 @@ One is a sharp tool. The other is the system that lets tools accumulate value.
 A real content operating system has a few defining properties:
 
 - A single source of truth. Content lives in plain, portable formats—typically markdown—backed by version control. No opaque blobs. No hidden state.
-- Schemas and contracts. Content is structured. Inputs and outputs are explicit. If something breaks, it fails loudly instead of silently drifting.
+- [Schemas](https://json-schema.org/) and contracts. Content is structured. Inputs and outputs are explicit. If something breaks, it fails loudly instead of silently drifting.
 - Validation and guardrails. Linting, checks, and constraints prevent invalid states. AI is allowed to act—but only inside safe boundaries.
 - Execution semantics. Content is not just written and read. It is runnable. AI agents can query it, extend it, and operate on it deterministically.
 - Ownership and portability. The system lives in your repo, your infrastructure, your tooling. No platform lock-in. No proprietary dead ends.
 
-If those pieces are missing, you don’t have a content OS—you have automation layered on top of a fragile base.
+If those pieces are missing, you don’t have a content OS—you have [automation](https://en.wikipedia.org/wiki/Automation) layered on top of a fragile base.
 
 ## Why CMSs break under AI
-
-For execution, [governance for agents](/read/governance-for-agents) and [context strategy](/read/context-strategy) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
 
 Traditional CMSs were designed for humans editing pages, not machines executing logic.
 
@@ -78,7 +74,7 @@ AI needs the opposite:
 - Clear boundaries
 - Machine-readable semantics
 
-This is why CMS-driven AI systems devolve into prompt spaghetti. The content is unstructured, the rules are implicit, and the only thing holding it together is constant human intervention.
+This is why [CMS](https://en.wikipedia.org/wiki/Content_management_system)-driven AI systems devolve into prompt spaghetti. The content is unstructured, the rules are implicit, and the only thing holding it together is constant human intervention.
 
 A content operating system removes that dependency.
 
@@ -114,8 +110,6 @@ If you are trying to fix a single bottleneck quickly, a focused workflow is ofte
 If you want compounding leverage, the system has to come first.
 
 ## Content that runs
-
-At operating scale, [agent workflows that stick](/read/agent-workflows-that-stick) and [markdown knowledge systems](/read/markdown-knowledge-systems) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
 Most content systems are optimized to look good. Deadwater builds the layer underneath so content can be operated on, not just published. The result is a system where agents can draft, update, and expand with confidence, without breaking your standards or your brand.
 

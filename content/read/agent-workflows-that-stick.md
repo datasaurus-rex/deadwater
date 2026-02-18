@@ -6,19 +6,17 @@ tags: ["agent-workflows", "automation", "ai-ops", "reliability"]
 draft: false
 ---
 
-# Agent Workflows That Stick
+# Agent workflows that stick
 
-Agent workflows look easy in a prototype. You connect a model to a tool, pass in a prompt, and watch it execute a few steps. The demo works. The system does not. Real workflows have edge cases, mixed context, and timelines that stretch past a single conversation.
+Agent workflows look easy in a [prototype](https://en.wikipedia.org/wiki/Prototype). You connect a model to a tool, pass in a prompt, and watch it execute a few steps. The demo works. The system does not. Real workflows have edge cases, mixed [context](/read/context-strategy), and timelines that stretch past a single conversation.
 
-The problem is rarely the model. It is the workflow substrate. Agents are asked to operate on brittle content, inconsistent metadata, and undefined responsibilities. If you want workflows that stick, you need to design the system like you would a production service: clear contracts, stable inputs, and known failure modes.
+The problem is rarely the model. It is the [workflow substrate](/read/content-os-foundations). Agents are asked to operate on brittle content, inconsistent [metadata](https://en.wikipedia.org/wiki/Metadata), and undefined responsibilities. If you want workflows that stick, you need to design the system like you would a production service: clear contracts, stable inputs, and known failure modes.
 
 ## Start with outcome, not tasks
 
-If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
-
 Most agent systems begin as a list of tasks. "Summarize this." "Generate that." "File a ticket." Those tasks might be correct, but they do not define success. Outcome design starts with a single question: what state should exist when the workflow is done?
 
-Define the end state in structured terms. You want a Markdown module created, a graph updated, a status field set to `ready`. That is the contract. Tasks are just the path.
+Define the end state in structured terms. You want a [Markdown](https://daringfireball.net/projects/markdown/) module created, a graph updated, a status field set to `ready`. That is the contract. Tasks are just the path.
 
 To make the outcome concrete, define a simple acceptance checklist. For example: "A runbook exists with `Trigger`, `Steps`, `Rollback`, and `Escalation` sections, and it is tagged `payments`." If a human can check it quickly, an agent can check it too.
 
@@ -51,13 +49,11 @@ If the system cannot detect a silent failure, you will find it later when the st
 
 > If you cannot measure the output, you cannot trust the agent.
 
-Silent failures also include partial updates. If an agent updates one section but ignores another, the doc may look correct while being internally inconsistent. This is why section contracts matter and why validation should be more than a single "schema present" check.
+Silent failures also include partial updates. If an agent updates one section but ignores another, the doc may look correct while being internally inconsistent. This is why section contracts matter and why validation should be more than a single "[schema](https://json-schema.org/) present" check, especially when you are paying the [prompt brittleness tax](/read/prompt-brittleness-tax).
 
 ## Time is part of the system
 
-For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
-
-Agent workflows often ignore time. They assume everything can be done in one run. In reality, workflows need to pause, resume, and branch. This is where a Content OS becomes essential, because it stores the state of the workflow in content itself.
+Agent workflows often ignore time. They assume everything can be done in one run. In reality, workflows need to pause, resume, and branch. This is where a [Content OS](/read/what-is-a-content-os) becomes essential, because it stores the state of the workflow in content itself.
 
 For example, a module can have a `status` field: `draft`, `review`, `published`. The agent does not need to remember where it left off; it can read the state and continue.
 
@@ -82,10 +78,8 @@ If an agent produces output that fails validation, the right response is not "fi
 
 ## The hidden cost of improvisation
 
-Improvised workflows feel fast. They also create a high ongoing cost. Every edge case becomes an extra prompt. Every exception becomes a manual note. Over time, the system turns into a shadow process run by humans. A Content OS replaces improvisation with structure, and that is what makes workflows stick.
+Improvised workflows feel fast. They also create a high ongoing cost. Every edge case becomes an extra prompt. Every exception becomes a manual note. Over time, the system turns into a shadow process run by humans. A [Content OS](/read/what-is-a-content-os) replaces improvisation with structure, and that is what makes workflows stick.
 
 ## The difference between a demo and a system
-
-At operating scale, [context strategy](/read/context-strategy) and [markdown knowledge systems](/read/markdown-knowledge-systems) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
 When workflows stick, they become invisible. They run in the background, quietly updating knowledge, generating new modules, and keeping context alive. That is the difference between a demo and a system. Demos look impressive. Systems last.

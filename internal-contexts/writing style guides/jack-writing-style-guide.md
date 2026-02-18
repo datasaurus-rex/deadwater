@@ -269,6 +269,8 @@ Links are part of the argument, not decoration.
 - Every post should include at least 3 external links to primary sources, standards, or canonical references.
 - Never go below 3 links of either type (internal or external).
 - Distribute links across the full post; do not cluster them into one section or a final link dump.
+- Only link existing in-context anchor text; do not add standalone "link bridge" sentences just to place links.
+- Do not rewrite heading copy to force links. Keep original prose and wrap natural phrases that already fit.
 - Internal links should reinforce concept depth (foundations, governance, workflows, architecture).
 - External links should improve credibility, not send readers to generic listicles.
 - Keep anchors human and specific; avoid "click here" anchors.

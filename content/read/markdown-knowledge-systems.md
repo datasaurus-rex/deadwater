@@ -6,15 +6,13 @@ tags: ["markdown", "knowledge-systems", "content-os", "documentation"]
 draft: false
 ---
 
-# Markdown Knowledge Systems That Don't Rot
+# Markdown knowledge systems that don't rot
 
-Markdown is everywhere because it is simple and durable. But most Markdown repositories still rot. They become out of date, unlinked, and unusable by machines. The problem is not Markdown. It is the lack of system design around it.
+Markdown is everywhere because it is simple and durable. But most Markdown repositories still rot. They become out of date, unlinked, and unusable by machines. The problem is not Markdown. It is the lack of [system design](/read/content-os-foundations) around it.
 
-If you want Markdown to serve an AI-first organization, you need to treat it like a database. That means schemas, taxonomies, and a structure that makes reasoning possible without a human in the loop. The goal is not more documentation. The goal is a system that stays coherent as it grows.
+If you want Markdown to serve an [AI](https://en.wikipedia.org/wiki/Artificial_intelligence)-first organization, you need to treat it like a [database](https://en.wikipedia.org/wiki/Database). That means [schemas](https://json-schema.org/), taxonomies, and a structure that makes reasoning possible without a human in the loop. The goal is not more documentation. The goal is a system that stays coherent as it grows.
 
 ## Start with a real schema
-
-If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
 
 Markdown files without schemas are just pages. The frontmatter is where the system starts. Define a schema for every content type you have: guides, playbooks, product briefs, onboarding, architecture decisions.
 
@@ -26,7 +24,7 @@ At minimum, every file should carry:
 - `tags`
 - `draft`
 
-Then add the type-specific fields that agents will use for routing and actions. Example:
+Then add the type-specific fields that [agents](/read/governance-for-agents) will use for routing and actions. Example:
 
 ```yaml
 ---
@@ -39,7 +37,7 @@ owner: "platform-team"
 ---
 ```
 
-The `status` field turns a doc into a workflow object. The `owner` field makes accountability visible. Schemas also reduce ambiguity in language. If a module has a `decision` field, you do not have to guess which sentence is the decision. You can ask the agent to output to that field, and you can validate it.
+The `status` field turns a doc into a [workflow](/read/agent-workflows-that-stick) object. The `owner` field makes accountability visible. Schemas also reduce ambiguity in language. If a module has a `decision` field, you do not have to guess which sentence is the decision. You can ask the agent to output to that field, and you can validate it.
 
 ## Build a taxonomy that humans can keep
 
@@ -78,9 +76,7 @@ Agents can parse these with high reliability. A paragraph often hides the same d
 
 ## Add a change log discipline
 
-For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
-
-Rot is often caused by unknown change history. A Content OS benefits from explicit change logs. This can be a section at the end of the file:
+Rot is often caused by unknown change history. A [Content OS](/read/what-is-a-content-os) benefits from explicit change logs. This can be a section at the end of the file:
 
 ```md
 ## Change log
@@ -96,7 +92,7 @@ If you want to go further, add a `review_cycle_days` field and automate reminder
 
 ## Linting is not optional
 
-A Markdown system without linting is a pile of files. A Content OS should include automated checks for required fields, tag validity, and section presence. Even a simple script that flags missing frontmatter can catch most drift. The point is not perfection. It is consistent enforcement.
+A Markdown system without linting is a pile of files. A [Content OS](/read/what-is-a-content-os) should include automated checks for required fields, tag validity, and section presence. Even a simple script that flags missing frontmatter can catch most drift. The point is not perfection. It is consistent enforcement.
 
 ## Practical checklist
 
@@ -108,7 +104,5 @@ A Markdown system without linting is a pile of files. A Content OS should includ
 - Automate linting for missing frontmatter fields.
 
 ## The real payoff
-
-At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
 Markdown becomes a Content OS when it stops being a collection of files and becomes a system of record. At that point, you can safely let agents read, interpret, and extend it. You move from a static wiki to a living knowledge base, and the system stops rotting because it is structured to evolve.

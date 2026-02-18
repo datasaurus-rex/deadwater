@@ -6,15 +6,13 @@ tags: ["living-docs", "agents", "automation", "content-os"]
 draft: false
 ---
 
-# Living Docs for Agents
+# Living Docs for [Agents](/read/governance-for-[agents](https://en.wikipedia.org/wiki/Intelligent_agent))
 
-Most teams want documentation that stays current without endless manual updates. The moment you try to automate, you hit a wall: the docs become inconsistent, and the updates feel untrusted. A Content OS solves this by making documents living systems with defined contracts and controlled evolution.
+Most teams want documentation that stays current without endless manual updates. The moment you try to automate, you hit a wall: the docs become inconsistent, and the updates feel untrusted. A [Content OS](/read/what-is-a-content-os) solves this by making documents living systems with defined contracts and controlled evolution.
 
-Living docs are not a gimmick. They are the logical result of AI-native operations. If agents can read content, they should be able to extend it. The trick is to do so without creating noise.
+Living docs are not a gimmick. They are the logical result of [AI](https://en.wikipedia.org/wiki/Artificial_intelligence)-native operations. If agents can read content, they should be able to extend it. The trick is to do so without creating noise.
 
 ## Define the mutation surface
-
-If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
 
 Every living doc should state what is allowed to change. This is the mutation surface. Without it, agents will over-edit or drift.
 
@@ -48,7 +46,7 @@ If an agent is responsible for updates, it needs clear triggers. "When things ch
 - Update after a release event.
 - Update every 30 days if no changes occur.
 
-These triggers can be encoded in the doc itself. The doc becomes a workflow object.
+These triggers can be encoded in the doc itself. The doc becomes a [workflow](/read/agent-workflows-that-stick) object.
 
 ## Audit trails are not optional
 
@@ -58,11 +56,9 @@ Living docs must have audit trails. Otherwise the system becomes untrusted. Use 
 
 ## Validation and rollback
 
-For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
-
 Automated updates should be reversible. If a doc changes and an error is detected, the system needs a clean rollback path. This can be as simple as storing the previous version and adding a `rollback_to` field in metadata.
 
-Validation also matters. Before a change is accepted, the doc should pass schema checks and section checks. Without validation, automation becomes noise.
+Validation also matters. Before a change is accepted, the doc should pass [schema](https://json-schema.org/) checks and section checks. Without validation, [automation](https://en.wikipedia.org/wiki/Automation) becomes noise.
 
 ## Tie updates to ownership
 
@@ -87,6 +83,4 @@ A simple rule helps: keep narrative updates human-led, keep telemetry updates ag
 
 ## The stability paradox
 
-At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
-
-The paradox of living docs is that they only stay alive when they are controlled. A Content OS does not give agents permission to rewrite everything. It gives them a small, defined surface to update. That is what keeps the system stable. That is what makes living docs real.
+The paradox of living docs is that they only stay alive when they are controlled. A [Content OS](/read/what-is-a-content-os) does not give agents permission to rewrite everything. It gives them a small, defined surface to update. That is what keeps the system stable. That is what makes living docs real.

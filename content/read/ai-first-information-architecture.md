@@ -6,17 +6,15 @@ tags: ["information-architecture", "ai-first", "content-os", "taxonomy"]
 draft: false
 ---
 
-# AI-First Information Architecture
+# [AI](https://en.wikipedia.org/wiki/Artificial_intelligence)-First Information [Architecture](/read/content-os-foundations)
 
-Information architecture was invented for humans: navigation menus, page hierarchies, and scroll depth. AI-first systems need a different IA. They need an architecture that supports reasoning, not browsing.
+Information architecture was invented for humans: navigation menus, page hierarchies, and scroll depth. [AI](https://en.wikipedia.org/wiki/Artificial_intelligence)-first systems need a different IA. They need an architecture that supports reasoning, not browsing.
 
-This changes the entire approach. Instead of building a site map, you build a knowledge map.
+This changes the entire approach. Instead of building a [site map](https://www.sitemaps.org/protocol.html), you build a knowledge map.
 
 ## IA is a graph, not a tree
 
-If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
-
-Traditional IA is hierarchical. AI-first IA is relational. The most important structure is not a parent-child tree but a graph of connections.
+Traditional IA is hierarchical. [AI](https://en.wikipedia.org/wiki/Artificial_intelligence)-first IA is relational. The most important structure is not a parent-child tree but a graph of connections.
 
 For example, a module about "Billing Failures" should link to:
 
@@ -24,7 +22,7 @@ For example, a module about "Billing Failures" should link to:
 - The runbook for remediation.
 - The metrics and dashboards that define success.
 
-This creates a graph that agents can traverse to find dependencies and context. It is how agents actually reason.
+This creates a graph that [agents](/read/governance-for-agents) can traverse to find dependencies and [context strategy](/read/context-strategy). It is how agents actually reason.
 
 ## Build for traversal, not navigation
 
@@ -55,11 +53,9 @@ status: "active"
 priority: "critical"
 ```
 
-An agent can now find all critical runbooks for payments without manual search. This is how metadata becomes navigation without a menu.
+An agent can now find all critical runbooks for payments without manual [search](https://developers.google.com/search/docs/fundamentals/creating-helpful-content). This is how metadata becomes navigation without a menu.
 
 ## Establish canonical modules
-
-For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
 
 Agents need to know which modules are authoritative. If every team writes its own version of "how payments work," the system becomes contradictory.
 
@@ -95,7 +91,5 @@ These links make reasoning possible. They also reduce duplication by pointing to
 - Keep link integrity as a first-class concern.
 
 ## The outcome
-
-At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
 AI-first IA removes the need for human translation. It lets agents move through knowledge with intent. The result is a system that can answer, adapt, and act because it was built to be traversed, not just read.
