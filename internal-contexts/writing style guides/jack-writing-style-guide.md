@@ -264,8 +264,11 @@ Lists:
 
 Links are part of the argument, not decoration.
 
-- Every post should include at least 3 internal links to related Deadwater posts using natural anchor text.
-- Every post should include 3-5 external links to primary sources, standards, or canonical references.
+- Every post should include 8-16 total links.
+- Every post should include at least 3 internal links to related Deadwater posts.
+- Every post should include at least 3 external links to primary sources, standards, or canonical references.
+- Never go below 3 links of either type (internal or external).
+- Distribute links across the full post; do not cluster them into one section or a final link dump.
 - Internal links should reinforce concept depth (foundations, governance, workflows, architecture).
 - External links should improve credibility, not send readers to generic listicles.
 - Keep anchors human and specific; avoid "click here" anchors.
