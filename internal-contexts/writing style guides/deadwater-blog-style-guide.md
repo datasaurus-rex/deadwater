@@ -1,5 +1,7 @@
 # Deadwater blog style guide
 
+> Note: For current content generation, prioritize `jack-writing-style-guide.md`. Use this document as supplemental conventions and formatting reference.
+
 Consistency is the only writing rule that matters.
 
 Having a unified writing style provides our customers and prospects with a consistent, coherent experience at every step of their journey.
