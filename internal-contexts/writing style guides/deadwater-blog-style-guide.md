@@ -1,6 +1,6 @@
 # Deadwater blog style guide
 
-> Note: For current content generation, prioritize `jack-writing-style-guide.md`. Use this document as supplemental conventions and formatting reference.
+> Note: For current content generation, prioritize `jack-writing-style-guide.md` for voice and tone. Use this document primarily for punctuation and formatting rules.
 
 Consistency is the only writing rule that matters.
 

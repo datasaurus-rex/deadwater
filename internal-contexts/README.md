@@ -10,6 +10,6 @@ For content drafting and editing, use:
 
 Secondary reference:
 
-- `internal-contexts/writing style guides/deadwater-blog-style-guide.md`
+- `internal-contexts/writing style guides/deadwater-blog-style-guide.md` (punctuation and formatting conventions)
 
 Planned additions: writing samples, product descriptions, case studies, internal briefs, and other reference material.
