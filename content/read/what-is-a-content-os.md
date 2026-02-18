@@ -35,6 +35,8 @@ By using this context, your AI can take advanced actions across your site safely
 
 ## What does a content OS do?
 
+If this feels familiar, [content OS foundations](/read/content-os-foundations) and [how content operating systems work](/read/overview-how-content-operating-systems-work) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Content OSs are purpose-built to take specific actions across your systems, depending on which ones they are connected to.
 
 For this case, we’ll assume the content OS is basic and installed in a website.
@@ -54,6 +56,8 @@ A content OS installed in a website can:
 - Take [[tangent:agentic actions|Agentic actions can include updating a landing page, generating a draft, or triggering a new workflow based on fresh context.]] and connect to additional GTM systems.
 
 ## What are the benefits of having a content OS?
+
+For execution, [governance for agents](/read/governance-for-agents) and [context strategy](/read/context-strategy) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
 
 Most companies—from founder-led startups to large B2B organizations—[[tangent:don’t have the marketing bandwidth they need.|Research shows that even early-stage companies need solid product marketing (often led by developers), as well as sales-led content, success stories, and competitive SEO strategy.\n\nIt takes a handful of full-time employees to really execute this well.]] They also don’t have the systems required to safely delegate meaningful work to AI.
 
@@ -114,10 +118,10 @@ Most CMSs can be part of a content OS, but they cannot be the OS themselves.
 
 ## Why this matters now
 
+At operating scale, [agent workflows that stick](/read/agent-workflows-that-stick) and [markdown knowledge systems](/read/markdown-knowledge-systems) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+
 2026 is when AI starts being operational.
 
 The teams that win won’t be the ones with the best prompts or the flashiest demos. They’ll be the ones who invested early in structure—systems that make AI reliable, repeatable, and safe to run [[tangent:in production|Production means real users, real stakes, and zero tolerance for silent drift.]].
 
 That system is a content OS.
-
-If you want to go deeper, start with [content OS foundations](/read/content-os-foundations), [governance for agents](/read/governance-for-agents), and [how content operating systems work](/read/overview-how-content-operating-systems-work); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

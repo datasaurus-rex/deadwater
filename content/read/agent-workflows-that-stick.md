@@ -14,6 +14,8 @@ The problem is rarely the model. It is the workflow substrate. Agents are asked 
 
 ## Start with outcome, not tasks
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Most agent systems begin as a list of tasks. "Summarize this." "Generate that." "File a ticket." Those tasks might be correct, but they do not define success. Outcome design starts with a single question: what state should exist when the workflow is done?
 
 Define the end state in structured terms. You want a Markdown module created, a graph updated, a status field set to `ready`. That is the contract. Tasks are just the path.
@@ -53,6 +55,8 @@ Silent failures also include partial updates. If an agent updates one section bu
 
 ## Time is part of the system
 
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 Agent workflows often ignore time. They assume everything can be done in one run. In reality, workflows need to pause, resume, and branch. This is where a Content OS becomes essential, because it stores the state of the workflow in content itself.
 
 For example, a module can have a `status` field: `draft`, `review`, `published`. The agent does not need to remember where it left off; it can read the state and continue.
@@ -82,6 +86,6 @@ Improvised workflows feel fast. They also create a high ongoing cost. Every edge
 
 ## The difference between a demo and a system
 
-When workflows stick, they become invisible. They run in the background, quietly updating knowledge, generating new modules, and keeping context alive. That is the difference between a demo and a system. Demos look impressive. Systems last.
+At operating scale, [context strategy](/read/context-strategy) and [markdown knowledge systems](/read/markdown-knowledge-systems) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+When workflows stick, they become invisible. They run in the background, quietly updating knowledge, generating new modules, and keeping context alive. That is the difference between a demo and a system. Demos look impressive. Systems last.

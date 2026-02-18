@@ -14,6 +14,8 @@ If you want Markdown to serve an AI-first organization, you need to treat it lik
 
 ## Start with a real schema
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Markdown files without schemas are just pages. The frontmatter is where the system starts. Define a schema for every content type you have: guides, playbooks, product briefs, onboarding, architecture decisions.
 
 At minimum, every file should carry:
@@ -76,6 +78,8 @@ Agents can parse these with high reliability. A paragraph often hides the same d
 
 ## Add a change log discipline
 
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 Rot is often caused by unknown change history. A Content OS benefits from explicit change logs. This can be a section at the end of the file:
 
 ```md
@@ -105,6 +109,6 @@ A Markdown system without linting is a pile of files. A Content OS should includ
 
 ## The real payoff
 
-Markdown becomes a Content OS when it stops being a collection of files and becomes a system of record. At that point, you can safely let agents read, interpret, and extend it. You move from a static wiki to a living knowledge base, and the system stops rotting because it is structured to evolve.
+At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+Markdown becomes a Content OS when it stops being a collection of files and becomes a system of record. At that point, you can safely let agents read, interpret, and extend it. You move from a static wiki to a living knowledge base, and the system stops rotting because it is structured to evolve.

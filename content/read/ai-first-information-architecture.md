@@ -14,6 +14,8 @@ This changes the entire approach. Instead of building a site map, you build a kn
 
 ## IA is a graph, not a tree
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Traditional IA is hierarchical. AI-first IA is relational. The most important structure is not a parent-child tree but a graph of connections.
 
 For example, a module about "Billing Failures" should link to:
@@ -57,6 +59,8 @@ An agent can now find all critical runbooks for payments without manual search. 
 
 ## Establish canonical modules
 
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 Agents need to know which modules are authoritative. If every team writes its own version of "how payments work," the system becomes contradictory.
 
 Define canonical modules and enforce linking. If a new doc overlaps with an existing canonical module, it should link rather than duplicate. This is how you prevent drift in an AI-first IA.
@@ -92,6 +96,6 @@ These links make reasoning possible. They also reduce duplication by pointing to
 
 ## The outcome
 
-AI-first IA removes the need for human translation. It lets agents move through knowledge with intent. The result is a system that can answer, adapt, and act because it was built to be traversed, not just read.
+At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+AI-first IA removes the need for human translation. It lets agents move through knowledge with intent. The result is a system that can answer, adapt, and act because it was built to be traversed, not just read.

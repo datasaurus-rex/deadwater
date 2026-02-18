@@ -15,6 +15,8 @@ The shift is subtle. Instead of building an interface, you build a substrate. In
 
 ## The failure mode of page-first systems
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [how content operating systems work](/read/overview-how-content-operating-systems-work) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Page-first systems are optimized for presentation. They are full of human-friendly signals and empty of machine-friendly structure. Your content is trapped in a layout, a template, a collection of local assumptions. The moment you try to automate, you end up with [[tangent:prompt glue|A pile of ad hoc prompts used to patch missing structure instead of fixing the system.]] and a manual curation treadmill.
 
 This is why teams feel like they have "AI initiatives" that never stabilize. They are trying to make the model do the work the system should have done. They send the model a paragraph and hope it sees the same relationships you do. It does not.
@@ -72,6 +74,8 @@ Think of it like code: you can paste a script into a random doc, or you can turn
 
 ## A small example
 
+For execution, [governance for agents](/read/governance-for-agents) and [context strategy](/read/context-strategy) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 Here is the difference between a page-first snippet and a Content OS module:
 
 ```md
@@ -112,6 +116,6 @@ The difference between a knowledge library and a Content OS is the ability to ru
 
 ## The quiet payoff
 
-When you get this right, agents stop being impressive demos and start being reliable collaborators. They can find what they need, understand how it fits, and change it without breaking the system. A Content OS makes content durable and operational. That is the quiet payoff: systems that keep working when the humans step away.
+At operating scale, [agent workflows that stick](/read/agent-workflows-that-stick) and [markdown knowledge systems](/read/markdown-knowledge-systems) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [governance for agents](/read/governance-for-agents), and [how content operating systems work](/read/overview-how-content-operating-systems-work); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+When you get this right, agents stop being impressive demos and start being reliable collaborators. They can find what they need, understand how it fits, and change it without breaking the system. A Content OS makes content durable and operational. That is the quiet payoff: systems that keep working when the humans step away.

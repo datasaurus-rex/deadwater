@@ -14,6 +14,8 @@ The fix is to treat operational docs as systems. That means structure, validatio
 
 ## Doc types are workflows
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 An incident review is not a page. It is a workflow with a known shape. A runbook is not prose. It is a sequence of steps, dependencies, and escalation paths.
 
 Define the doc types explicitly. For example:
@@ -38,6 +40,8 @@ Instead, structure it as a set of sections:
 ## Rollback
 ## Escalation
 ```
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 
 The model can reliably parse these. The system can validate that they exist. You can even lint for missing sections and block a release if the doc is incomplete.
 
@@ -92,6 +96,6 @@ This is how living documentation becomes possible without chaos. The system know
 
 ## The long-term effect
 
-When operational docs behave like systems, agents can execute them without hand-holding. You reduce manual escalations, shorten response time, and make operations resilient. The system becomes executable knowledge, not a dusty archive.
+At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+When operational docs behave like systems, agents can execute them without hand-holding. You reduce manual escalations, shorten response time, and make operations resilient. The system becomes executable knowledge, not a dusty archive.

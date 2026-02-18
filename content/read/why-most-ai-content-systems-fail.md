@@ -17,6 +17,8 @@ The first demo looks great and the second one still looks promising, so everyone
 
 ## The actual problem
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Most content stacks were built for static publishing and human editing, not live execution across agents, teams, and constantly changing business context.
 
 AI systems need:
@@ -58,6 +60,8 @@ No one says "our architecture is wrong" in the meeting, even when that is exactl
 Translation: the system cannot carry the load, so humans are compensating with effort and process.
 
 ## The three root causes
+
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
 
 ### 1) Unstructured context
 
@@ -146,6 +150,8 @@ This is the difference between content that informs and content that runs.
 
 ## The part most teams miss
 
+At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+
 AI is not the limiting factor anymore, system design is. The teams that pull away over the next few years will not be the ones with the flashiest prompt libraries; they will be the ones that invested early in AI-native content infrastructure:
 
 - Structured context.
@@ -153,5 +159,3 @@ AI is not the limiting factor anymore, system design is. The teams that pull awa
 - Governance that lives in the system.
 
 That is competitive leverage, not a tooling preference, and it compounds over time. If you are still treating AI content as a campaign tactic, you are already late, because the winners are building the operating layer.
-
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

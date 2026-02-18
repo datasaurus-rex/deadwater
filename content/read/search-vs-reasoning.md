@@ -14,6 +14,8 @@ A Content OS has to support both. Search is the entry point. Reasoning is the pa
 
 ## Search is for discovery
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Search is good at two things: finding known items and revealing related items. It is not good at inference. When an agent uses search, it should be to locate a small number of modules with clear metadata.
 
 A Content OS optimizes for search by:
@@ -58,6 +60,8 @@ With this, agents can traverse and build a reasoning chain.
 
 ## Evidence beats relevance
 
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 Search results often look relevant but lack evidence. Reasoning requires traceable evidence. If a module claims a threshold or policy, it should link to the source module where that rule is defined.
 
 This is why a Content OS needs explicit citations and relationships. It is not enough to retrieve the right page. The agent must be able to justify the path it took to reach an answer.
@@ -85,6 +89,6 @@ These constraints can be expressed in metadata filters. That turns retrieval int
 
 ## The balanced system
 
-Search gets you into the system. Reasoning lets you move through it with intent. A Content OS needs both, but it should be designed so that reasoning does the heavy work. That is the difference between a knowledge base and an operating system.
+At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+Search gets you into the system. Reasoning lets you move through it with intent. A Content OS needs both, but it should be designed so that reasoning does the heavy work. That is the difference between a knowledge base and an operating system.

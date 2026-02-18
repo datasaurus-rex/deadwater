@@ -15,6 +15,8 @@ Prompts are a bridge. They are not a foundation. When the bridge becomes the fou
 
 ## Symptoms of the tax
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 You can spot prompt brittleness in the field:
 
 - Prompts grow longer to handle edge cases.
@@ -57,6 +59,8 @@ You can measure this by asking a simple question: how many prompts does it take 
 
 ## Replace prompt glue with content contracts
 
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 A Content OS shifts the responsibility from the prompt to the content. You build contracts in frontmatter, schemas, and structured sections. You constrain ambiguity and make the system legible.
 
 This is not a stylistic change. It is a structural change. It is the difference between a script and a service.
@@ -86,6 +90,6 @@ As the Content OS matures, prompts become smaller and more reliable. You stop pr
 
 ## The shift from clever to reliable
 
-Prompts can be clever. Systems must be reliable. When you replace prompt glue with a Content OS, the model stops being a fragile interpreter and becomes a dependable worker. That is how the tax disappears.
+At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+Prompts can be clever. Systems must be reliable. When you replace prompt glue with a Content OS, the model stops being a fragile interpreter and becomes a dependable worker. That is how the tax disappears.

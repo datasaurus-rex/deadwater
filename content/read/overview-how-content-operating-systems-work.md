@@ -21,6 +21,8 @@ ANATOMY_MAP
 
 ## The definition
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 A content OS—short for content operating system—is the structured, code-first layer that governs how content is stored, validated, and executed so AI systems can operate on it reliably. It defines the rules of the environment content lives in, so humans and machines can both reason over it without the system collapsing.
 
 It is not a CMS, a workflow, or a collection of prompts. It is the substrate that makes those things dependable. When the system is built on a Content OS, every workflow runs against the same contracts, and every update stays inside the same guardrails.
@@ -57,6 +59,8 @@ A real content operating system has a few defining properties:
 If those pieces are missing, you don’t have a content OS—you have automation layered on top of a fragile base.
 
 ## Why CMSs break under AI
+
+For execution, [governance for agents](/read/governance-for-agents) and [context strategy](/read/context-strategy) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
 
 Traditional CMSs were designed for humans editing pages, not machines executing logic.
 
@@ -111,6 +115,8 @@ If you want compounding leverage, the system has to come first.
 
 ## Content that runs
 
+At operating scale, [agent workflows that stick](/read/agent-workflows-that-stick) and [markdown knowledge systems](/read/markdown-knowledge-systems) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+
 Most content systems are optimized to look good. Deadwater builds the layer underneath so content can be operated on, not just published. The result is a system where agents can draft, update, and expand with confidence, without breaking your standards or your brand.
 
 A content OS is optimized to keep working—when the team grows, when the model changes, and when the pressure rises. It replaces manual patchwork with a stable substrate: schemas, guardrails, and execution paths that make AI outputs reliable and reusable.
@@ -118,5 +124,3 @@ A content OS is optimized to keep working—when the team grows, when the model 
 You don’t see it in a demo. You feel it months later when the system still holds and your content keeps [[tangent:compounding|Each new workflow benefits from the same structured context, so the value stacks over time.]].
 
 That is the difference between content that informs and content that runs—and that is what a content operating system is for.
-
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

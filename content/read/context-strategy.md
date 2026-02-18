@@ -14,6 +14,8 @@ The goal is maximum signal, minimum noise. That requires structure, and it requi
 
 ## Decide what an agent must know
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Start with the action. If the agent must generate a policy update, it needs a policy schema, recent incidents, and ownership data. It does not need the entire company wiki.
 
 A useful exercise is to list the minimum information required to complete a task with confidence. That becomes your context baseline. Anything beyond that should be added only if it improves the output measurably.
@@ -49,6 +51,8 @@ Think of it like a dependency graph:
 This allows agents to traverse as needed, rather than ingest everything at once.
 
 ## Measure context drift
+
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
 
 Context drift happens when a module stops reflecting reality. You need a way to detect this. One simple method is to add a "last verified" field in frontmatter. Another is to require a periodic review.
 
@@ -86,6 +90,6 @@ This avoids the common failure mode of agents over-trusting a random search resu
 
 ## The real work
 
-Context strategy is not a one-time task. It is a product discipline. When you get it right, agents operate on clean signals and stop hallucinating around gaps. The system becomes predictable, because the context is predictable. That is the real work.
+At operating scale, [agent workflows that stick](/read/agent-workflows-that-stick) and [markdown knowledge systems](/read/markdown-knowledge-systems) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+Context strategy is not a one-time task. It is a product discipline. When you get it right, agents operate on clean signals and stop hallucinating around gaps. The system becomes predictable, because the context is predictable. That is the real work.

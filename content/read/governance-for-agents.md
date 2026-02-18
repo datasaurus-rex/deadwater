@@ -14,6 +14,8 @@ Governance is not a bureaucracy. It is a set of rules that allow the system to o
 
 ## Define the authority model
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Every agent needs a defined level of authority. Without it, you will either block useful actions or allow dangerous ones.
 
 Authority can be encoded as simple tiers:
@@ -59,6 +61,8 @@ This creates a clear path for escalation and keeps governance from becoming abst
 
 ## Make audits routine
 
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [context strategy](/read/context-strategy) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 Governance is only real if you can audit it. Keep a log of every agent action, including the module affected, the reason, and the authority tier. This does not need to be complex. A simple changelog file or audit table is enough.
 
 Once the data exists, review it regularly. Patterns will show you where agents are overstepping and where workflows are too restrictive. That feedback is how governance stays lightweight instead of becoming rigid.
@@ -86,6 +90,6 @@ Policy as code keeps governance lightweight because it removes interpretation. T
 
 ## Governance as an enabler
 
-When governance is done right, it speeds the system up. Agents can act within clear boundaries, and humans can trust the outputs without constant supervision. Governance is not a brake. It is the frame that keeps the system from collapsing under its own velocity.
+At operating scale, [agent workflows that stick](/read/agent-workflows-that-stick) and [markdown knowledge systems](/read/markdown-knowledge-systems) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [how content operating systems work](/read/overview-how-content-operating-systems-work); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+When governance is done right, it speeds the system up. Agents can act within clear boundaries, and humans can trust the outputs without constant supervision. Governance is not a brake. It is the frame that keeps the system from collapsing under its own velocity.

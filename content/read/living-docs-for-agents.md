@@ -14,6 +14,8 @@ Living docs are not a gimmick. They are the logical result of AI-native operatio
 
 ## Define the mutation surface
 
+If this feels familiar, [what is a content OS](/read/what-is-a-content-os) and [content OS foundations](/read/content-os-foundations) pair well with [Markdown](https://daringfireball.net/projects/markdown/).
+
 Every living doc should state what is allowed to change. This is the mutation surface. Without it, agents will over-edit or drift.
 
 The mutation surface can be encoded in frontmatter:
@@ -56,6 +58,8 @@ Living docs must have audit trails. Otherwise the system becomes untrusted. Use 
 
 ## Validation and rollback
 
+For execution, [how content operating systems work](/read/overview-how-content-operating-systems-work) and [governance for agents](/read/governance-for-agents) become more reliable when teams enforce contracts like [JSON Schema](https://json-schema.org/).
+
 Automated updates should be reversible. If a doc changes and an error is detected, the system needs a clean rollback path. This can be as simple as storing the previous version and adding a `rollback_to` field in metadata.
 
 Validation also matters. Before a change is accepted, the doc should pass schema checks and section checks. Without validation, automation becomes noise.
@@ -83,6 +87,6 @@ A simple rule helps: keep narrative updates human-led, keep telemetry updates ag
 
 ## The stability paradox
 
-The paradox of living docs is that they only stay alive when they are controlled. A Content OS does not give agents permission to rewrite everything. It gives them a small, defined surface to update. That is what keeps the system stable. That is what makes living docs real.
+At operating scale, [context strategy](/read/context-strategy) and [agent workflows that stick](/read/agent-workflows-that-stick) stay durable with version control from [Git docs](https://git-scm.com/doc) and crawl discipline from the [sitemap protocol](https://www.sitemaps.org/protocol.html).
 
-If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
+The paradox of living docs is that they only stay alive when they are controlled. A Content OS does not give agents permission to rewrite everything. It gives them a small, defined surface to update. That is what keeps the system stable. That is what makes living docs real.
