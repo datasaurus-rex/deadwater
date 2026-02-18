@@ -87,3 +87,5 @@ As the Content OS matures, prompts become smaller and more reliable. You stop pr
 ## The shift from clever to reliable
 
 Prompts can be clever. Systems must be reliable. When you replace prompt glue with a Content OS, the model stops being a fragile interpreter and becomes a dependable worker. That is how the tax disappears.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

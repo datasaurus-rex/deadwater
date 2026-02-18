@@ -67,9 +67,9 @@ Avoid:
 
 Your structure is part of your voice.
 
-- 1-3 sentences per paragraph.
-- Frequently 1 sentence.
-- Rarely 4 sentences.
+- 2-4 sentences per paragraph in most sections.
+- 1-sentence paragraphs should be occasional emphasis, not the default rhythm.
+- Avoid long runs of one-line paragraphs.
 - Never dense blocks.
 
 White space is strategic.
@@ -260,6 +260,17 @@ Lists:
 - No colon-heavy formatting.
 - Avoid AI-style list symmetry.
 
+### Strategic linking
+
+Links are part of the argument, not decoration.
+
+- Every post should include at least 3 internal links to related Deadwater posts using natural anchor text.
+- Every post should include 3-5 external links to primary sources, standards, or canonical references.
+- Internal links should reinforce concept depth (foundations, governance, workflows, architecture).
+- External links should improve credibility, not send readers to generic listicles.
+- Keep anchors human and specific; avoid "click here" anchors.
+- Place links inline where the claim appears, not in a dump at the end.
+
 ---
 
 ### Sentence rhythm
@@ -339,7 +350,7 @@ If the piece feels "safe," it failed.
 When generating drafts:
 
 1. Rewrite the intro entirely.
-2. Break up paragraphs aggressively.
+2. Break up dense paragraphs, but keep natural multi-sentence flow.
 3. Delete conclusion sections.
 4. Remove repetitive structure.
 5. Add opinion.

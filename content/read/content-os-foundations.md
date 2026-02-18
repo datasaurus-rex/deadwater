@@ -113,3 +113,5 @@ The difference between a knowledge library and a Content OS is the ability to ru
 ## The quiet payoff
 
 When you get this right, agents stop being impressive demos and start being reliable collaborators. They can find what they need, understand how it fits, and change it without breaking the system. A Content OS makes content durable and operational. That is the quiet payoff: systems that keep working when the humans step away.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [governance for agents](/read/governance-for-agents), and [how content operating systems work](/read/overview-how-content-operating-systems-work); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

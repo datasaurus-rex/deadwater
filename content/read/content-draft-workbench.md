@@ -22,3 +22,5 @@ The interactive workbench below lets you toggle the knowledge layers that power 
 Content without structure decays. It becomes inconsistent, hard to update, and brittle for agents to use. A Content OS makes the structure visible and operational. That is the difference between a site that looks good and a system that [[tangent:keeps working|Survives new launches, new models, and new contributors without breaking.]].
 
 Scroll down and turn the layers on and off. Watch the draft change. That is the core promise of a Content OS in miniature.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

@@ -83,3 +83,5 @@ Improvised workflows feel fast. They also create a high ongoing cost. Every edge
 ## The difference between a demo and a system
 
 When workflows stick, they become invisible. They run in the background, quietly updating knowledge, generating new modules, and keeping context alive. That is the difference between a demo and a system. Demos look impressive. Systems last.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

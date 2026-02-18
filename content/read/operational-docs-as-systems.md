@@ -93,3 +93,5 @@ This is how living documentation becomes possible without chaos. The system know
 ## The long-term effect
 
 When operational docs behave like systems, agents can execute them without hand-holding. You reduce manual escalations, shorten response time, and make operations resilient. The system becomes executable knowledge, not a dusty archive.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

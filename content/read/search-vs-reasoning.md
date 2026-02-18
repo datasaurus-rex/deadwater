@@ -86,3 +86,5 @@ These constraints can be expressed in metadata filters. That turns retrieval int
 ## The balanced system
 
 Search gets you into the system. Reasoning lets you move through it with intent. A Content OS needs both, but it should be designed so that reasoning does the heavy work. That is the difference between a knowledge base and an operating system.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

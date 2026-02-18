@@ -119,3 +119,5 @@ Most CMSs can be part of a content OS, but they cannot be the OS themselves.
 The teams that win won’t be the ones with the best prompts or the flashiest demos. They’ll be the ones who invested early in structure—systems that make AI reliable, repeatable, and safe to run [[tangent:in production|Production means real users, real stakes, and zero tolerance for silent drift.]].
 
 That system is a content OS.
+
+If you want to go deeper, start with [content OS foundations](/read/content-os-foundations), [governance for agents](/read/governance-for-agents), and [how content operating systems work](/read/overview-how-content-operating-systems-work); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

@@ -87,3 +87,5 @@ This avoids the common failure mode of agents over-trusting a random search resu
 ## The real work
 
 Context strategy is not a one-time task. It is a product discipline. When you get it right, agents operate on clean signals and stop hallucinating around gaps. The system becomes predictable, because the context is predictable. That is the real work.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

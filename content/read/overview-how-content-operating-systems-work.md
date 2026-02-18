@@ -118,3 +118,5 @@ A content OS is optimized to keep working—when the team grows, when the model 
 You don’t see it in a demo. You feel it months later when the system still holds and your content keeps [[tangent:compounding|Each new workflow benefits from the same structured context, so the value stacks over time.]].
 
 That is the difference between content that informs and content that runs—and that is what a content operating system is for.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

@@ -106,3 +106,5 @@ A Markdown system without linting is a pile of files. A Content OS should includ
 ## The real payoff
 
 Markdown becomes a Content OS when it stops being a collection of files and becomes a system of record. At that point, you can safely let agents read, interpret, and extend it. You move from a static wiki to a living knowledge base, and the system stops rotting because it is structured to evolve.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

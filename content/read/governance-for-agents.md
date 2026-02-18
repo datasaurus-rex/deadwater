@@ -87,3 +87,5 @@ Policy as code keeps governance lightweight because it removes interpretation. T
 ## Governance as an enabler
 
 When governance is done right, it speeds the system up. Agents can act within clear boundaries, and humans can trust the outputs without constant supervision. Governance is not a brake. It is the frame that keeps the system from collapsing under its own velocity.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [how content operating systems work](/read/overview-how-content-operating-systems-work); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

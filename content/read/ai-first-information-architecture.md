@@ -93,3 +93,5 @@ These links make reasoning possible. They also reduce duplication by pointing to
 ## The outcome
 
 AI-first IA removes the need for human translation. It lets agents move through knowledge with intent. The result is a system that can answer, adapt, and act because it was built to be traversed, not just read.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).

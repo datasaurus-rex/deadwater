@@ -84,3 +84,5 @@ A simple rule helps: keep narrative updates human-led, keep telemetry updates ag
 ## The stability paradox
 
 The paradox of living docs is that they only stay alive when they are controlled. A Content OS does not give agents permission to rewrite everything. It gives them a small, defined surface to update. That is what keeps the system stable. That is what makes living docs real.
+
+If you want to go deeper, start with [what is a content OS](/read/what-is-a-content-os), [content OS foundations](/read/content-os-foundations), and [governance for agents](/read/governance-for-agents); then ground the implementation details in [Markdown](https://daringfireball.net/projects/markdown/), [JSON Schema](https://json-schema.org/), [Git](https://git-scm.com/doc), and the [sitemap protocol](https://www.sitemaps.org/protocol.html).
