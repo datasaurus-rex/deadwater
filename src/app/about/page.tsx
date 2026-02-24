@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { MaturityRail } from "@/components/MaturityRail";
 import { PhilosophyBlocks } from "@/components/PhilosophyBlocks";
+import { HandshakeIcon, RobotBrainIcon, TrashCanIcon } from "@/components/PhilosophyIcons";
 
 export const metadata: Metadata = {
   title: "About",
@@ -23,7 +25,7 @@ export default function AboutPage() {
           <strong>articles they hated writing</strong>.
         </p>
         <p>
-          I’ve spent my career in content and growth, and the work has contributed to two acquisitions (
+          I've spent my career in content and growth, and the work has contributed to two acquisitions (
           <a href="https://www.statsig.com/blog/openai-acquisition" target="_blank" rel="noreferrer" className="focus-ring">
             Statsig
           </a>
@@ -37,7 +39,7 @@ export default function AboutPage() {
             Nutshell
           </a>
           ). After enough cycles, you stop guessing what works and start seeing the pattern clearly: great marketing
-          doesn’t have to feel like a grind.
+          doesn't have to feel like a grind.
         </p>
         <p>Marketers love Deadwater because it frees them from the soulless work of writing for search engines and LLMs.</p>
         <div className="mt-2 overflow-hidden border border-ink-800 bg-ink-900/40">
@@ -65,25 +67,39 @@ export default function AboutPage() {
             your style and value props.
           </p>
           <p>You train it. You let it figure out what works and what does not. It does the rest.</p>
-          <p className="text-white">Basic examples:</p>
-          <ul className="list-disc pl-5">
-            <li>It writes and publishes your SEO articles and landing pages for you.</li>
-            <li>It performs sweeping edits (content cleanups, internal links).</li>
-            <li>It publishes automatic product marketing updates based on GitHub or Mintlify context.</li>
-          </ul>
-          <p className="text-white">Advanced examples:</p>
-          <ul className="list-disc pl-5">
-            <li>It ingests a keyword batch, prioritizes them, and writes content clusters.</li>
-            <li>It creates a suite of comparison and competitive content that meets buyers where they are.</li>
-            <li>It creates new URL folders full of content in one shot, like Integrations or Use Cases.</li>
-          </ul>
-          <p className="text-white">Extreme examples:</p>
-          <ul className="list-disc pl-5">
-            <li>It performs large-scale competitive analyses and adjusts your site accordingly.</li>
-            <li>It ingests massive datasets and identifies winning strategies.</li>
-            <li>It provides business intelligence.</li>
-          </ul>
         </div>
+        <p className="mt-6 text-sm uppercase tracking-[0.28em] text-slate-400">Deadwater use cases:</p>
+        <MaturityRail
+          items={[
+            {
+              tier: "basic",
+              title: "Daily production on autopilot",
+              points: [
+                "Writes and publishes SEO articles and landing pages.",
+                "Performs sweeping edits like content cleanup and internal links.",
+                "Publishes product marketing updates from GitHub or Mintlify context."
+              ]
+            },
+            {
+              tier: "advanced",
+              title: "Cluster and pipeline expansion",
+              points: [
+                "Ingests keyword batches, prioritizes them, and builds content clusters.",
+                "Creates comparison and competitive content aligned to buyer intent.",
+                "Ships new URL folders in one pass, like Integrations and Use Cases."
+              ]
+            },
+            {
+              tier: "extreme",
+              title: "Strategic intelligence layer",
+              points: [
+                "Performs large-scale competitive analysis and adjusts your site accordingly.",
+                "Ingests large datasets to identify winning patterns.",
+                "Turns content operations into business intelligence."
+              ]
+            }
+          ]}
+        />
       </section>
 
       <section className="mt-12">
@@ -93,10 +109,12 @@ export default function AboutPage() {
           items={[
             {
               title: "AI is here to stay",
+              icon: <RobotBrainIcon />,
               body: <p>Everyone is AI native now. Your site and CMS should be too.</p>
             },
             {
               title: "Growth content sucks",
+              icon: <TrashCanIcon />,
               body: (
                 <p>
                   SEO and growth content{" "}
@@ -114,6 +132,7 @@ export default function AboutPage() {
             },
             {
               title: "Humans deserve humans",
+              icon: <HandshakeIcon />,
               body: (
                 <p>
                   Humans resonate strongest with deep-funnel and POV content. Given that, let Deadwater handle the
@@ -151,3 +170,4 @@ export default function AboutPage() {
     </div>
   );
 }
+
