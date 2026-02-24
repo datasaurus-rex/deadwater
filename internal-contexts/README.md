@@ -12,4 +12,8 @@ Secondary reference:
 
 - `internal-contexts/writing style guides/deadwater-blog-style-guide.md` (punctuation and formatting conventions)
 
-Planned additions: writing samples, product descriptions, case studies, internal briefs, and other reference material.
+## Product offering reference
+
+- `internal-contexts/product briefs/deadwater-product-offerings.md` (internal product truth, packaging, and blog-safe claims)
+
+Planned additions: writing samples, case studies, additional internal briefs, and other reference material.

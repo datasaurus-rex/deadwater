@@ -11,6 +11,8 @@ draft: false
 
 #### 2026 is the year that AI transitions from parlor trick to the supertool we dreamed of.
 
+If you are evaluating tool-first paths first, see [other options](/other-options), including [AirOps vs Deadwater](/other-options/airops).
+
 A content OS is a system—usually designed directly inside your coded website—wherein your [context strategy](/read/context-strategy) is exposed to [[tangent:AI systems|AI systems can include Codex, Claude Code, or any AI workflow steps like AirOps.]] giving them knowledge about your business and allowing them to take precise action.
 
 Your context doesn’t necessarily have to be [[tangent:published|Published context includes any public-facing pages that live on your domain and can be crawled.]]. Your AI likely already has access to it.
@@ -119,3 +121,4 @@ Most CMSs can be part of a content OS, but they cannot be the OS themselves.
 The teams that win won’t be the ones with the best prompts or the flashiest demos. They’ll be the ones who invested early in structure—systems that make AI reliable, repeatable, and safe to run with real [governance](/read/governance-for-agents) [[tangent:in production|Production means real users, real stakes, and zero tolerance for silent drift.]].
 
 That system is a content OS.
+

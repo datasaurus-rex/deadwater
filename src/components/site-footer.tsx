@@ -18,6 +18,9 @@ export function SiteFooter() {
           <Link href="/content-os" className="focus-ring transition-colors hover:text-white">
             Content OS
           </Link>
+          <Link href="/other-options" className="focus-ring transition-colors hover:text-white">
+            Other options
+          </Link>
           <Link href="/contact" className="focus-ring transition-colors hover:text-white">
             Contact
           </Link>

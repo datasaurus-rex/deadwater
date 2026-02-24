@@ -13,6 +13,8 @@ draft: false
 
 This is the part people do not want to hear. If you bolt a new model onto a [CMS](https://en.wikipedia.org/wiki/Content_management_system), a wiki, a file server, and ten years of random Google Docs, you do not get an AI-native operating layer. You get expensive improvisation.
 
+If you are mapping your path, use our [other options](/other-options) section for side-by-side context, including [Notion AI + enterprise search vs Deadwater](/other-options/notion-ai-enterprise-search).
+
 The first demo looks great and the second one still looks promising, so everyone convinces themselves momentum is real. By month three, outputs drift, humans get tired, and the team quietly walks back to manual [workflows](/read/agent-workflows-that-stick) with a "we are evaluating AI strategy" slide in the board deck. This is not a model problem, it is a systems mismatch.
 
 ## The actual problem
@@ -153,3 +155,4 @@ AI is not the limiting factor anymore, system design is. The teams that pull awa
 - Governance that lives in the system.
 
 That is competitive leverage, not a tooling preference, and it compounds over time. If you are still treating AI content as a campaign tactic, you are already late, because the winners are building the operating layer.
+

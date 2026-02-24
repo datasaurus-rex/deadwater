@@ -12,6 +12,8 @@ Agent workflows look easy in a [prototype](https://en.wikipedia.org/wiki/Prototy
 
 The problem is rarely the model. It is the [workflow substrate](/read/content-os-foundations). Agents are asked to operate on brittle content, inconsistent [metadata](https://en.wikipedia.org/wiki/Metadata), and undefined responsibilities. If you want workflows that stick, you need to design the system like you would a production service: clear contracts, stable inputs, and known failure modes.
 
+If you are comparing workflow tooling paths, see [other options](/other-options), especially [AirOps vs Deadwater](/other-options/airops), [Zapier vs Deadwater](/other-options/zapier), and [Make vs Deadwater](/other-options/make).
+
 ## Start with outcome, not tasks
 
 Most agent systems begin as a list of tasks. "Summarize this." "Generate that." "File a ticket." Those tasks might be correct, but they do not define success. Outcome design starts with a single question: what state should exist when the workflow is done?
@@ -83,3 +85,4 @@ Improvised workflows feel fast. They also create a high ongoing cost. Every edge
 ## The difference between a demo and a system
 
 When workflows stick, they become invisible. They run in the background, quietly updating knowledge, generating new modules, and keeping context alive. That is the difference between a demo and a system. Demos look impressive. Systems last.
+

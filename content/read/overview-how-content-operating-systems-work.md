@@ -17,6 +17,8 @@ The failure mode is consistent. Teams try to scale AI on top of content systems 
 
 That is the gap a [content OS](/read/what-is-a-content-os) exists to fill.
 
+If you want a neutral breakdown of tool-first alternatives, see [other options](/other-options), including [Contentful vs Deadwater](/other-options/contentful) and [Sanity vs Deadwater](/other-options/sanity).
+
 ANATOMY_MAP
 
 ## The definition
@@ -118,3 +120,4 @@ A content OS is optimized to keep working—when the team grows, when the model 
 You don’t see it in a demo. You feel it months later when the system still holds and your content keeps [[tangent:compounding|Each new workflow benefits from the same structured context, so the value stacks over time.]].
 
 That is the difference between content that informs and content that runs—and that is what a content operating system is for.
+

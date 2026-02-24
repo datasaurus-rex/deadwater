@@ -6,8 +6,7 @@ import { useState } from "react";
 const navLinks = [
   { href: "/read", label: "Read" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" }
+  { href: "/about", label: "About" }
 ];
 
 export function SiteHeader() {
@@ -25,6 +24,12 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="focus-ring rounded-full border border-accent-blue/70 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-white transition hover:border-accent-blue hover:bg-accent-blue/15"
+          >
+            Contact
+          </Link>
         </nav>
         <button
           type="button"
@@ -54,6 +59,9 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
+            <Link href="/contact" className="focus-ring transition-colors hover:text-white" onClick={() => setOpen(false)}>
+              Contact
+            </Link>
           </div>
         </div>
       ) : null}
