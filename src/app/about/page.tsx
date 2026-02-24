@@ -5,12 +5,21 @@ import { MaturityRail } from "@/components/MaturityRail";
 import { PhilosophyBlocks } from "@/components/PhilosophyBlocks";
 import { HandshakeIcon, RobotBrainIcon, TrashCanIcon } from "@/components/PhilosophyIcons";
 
+const ogImage = "/og/og.png";
+
 export const metadata: Metadata = {
   title: "About",
   description: "How Deadwater AI builds AI-native Content OS systems that free marketers from repetitive growth content work.",
   openGraph: {
     title: "About - Deadwater.ai",
-    description: "How Deadwater AI builds AI-native Content OS systems that free marketers from repetitive growth content work."
+    description: "How Deadwater AI builds AI-native Content OS systems that free marketers from repetitive growth content work.",
+    images: [{ url: ogImage, alt: "Deadwater.ai - Content OS for an AI-first world" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About - Deadwater.ai",
+    description: "How Deadwater AI builds AI-native Content OS systems that free marketers from repetitive growth content work.",
+    images: [ogImage]
   }
 };
 
@@ -228,4 +237,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
 

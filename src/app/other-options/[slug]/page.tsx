@@ -7,6 +7,8 @@ type Props = {
   params: { slug: string };
 };
 
+const ogImage = "/og/og.png";
+
 export async function generateStaticParams() {
   return otherOptions.map((option) => ({ slug: option.slug }));
 }
@@ -25,7 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     openGraph: {
       title: `${title} - Deadwater.ai`,
-      description
+      description,
+      images: [{ url: ogImage, alt: "Deadwater.ai - Content OS for an AI-first world" }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage]
     }
   };
 }

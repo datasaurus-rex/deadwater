@@ -2,12 +2,21 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/content";
 import { ReadList } from "./ReadList";
 
+const ogImage = "/og/og.png";
+
 export const metadata: Metadata = {
   title: "Read",
   description: "Longform writing on Content OS, agent workflows, and AI-native knowledge systems.",
   openGraph: {
-    title: "Read — Deadwater.ai",
-    description: "Longform writing on Content OS, agent workflows, and AI-native knowledge systems."
+    title: "Read - Deadwater.ai",
+    description: "Longform writing on Content OS, agent workflows, and AI-native knowledge systems.",
+    images: [{ url: ogImage, alt: "Deadwater.ai - Content OS for an AI-first world" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Read - Deadwater.ai",
+    description: "Longform writing on Content OS, agent workflows, and AI-native knowledge systems.",
+    images: [ogImage]
   }
 };
 
@@ -37,3 +46,5 @@ export default async function ReadPage() {
     </div>
   );
 }
+
+

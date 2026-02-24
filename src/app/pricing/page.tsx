@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const ogImage = "/og/og.png";
+
 export const metadata: Metadata = {
-  title: "Pricing—deadwater.ai",
+  title: "Pricing - deadwater.ai",
   description: "Two ways to work together: production workflows or an all-in content OS that compounds.",
   openGraph: {
-    title: "Pricing—deadwater.ai",
-    description: "Two ways to work together: production workflows or an all-in content OS that compounds."
+    title: "Pricing - deadwater.ai",
+    description: "Two ways to work together: production workflows or an all-in content OS that compounds.",
+    images: [{ url: ogImage, alt: "Deadwater.ai - Content OS for an AI-first world" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pricing - deadwater.ai",
+    description: "Two ways to work together: production workflows or an all-in content OS that compounds.",
+    images: [ogImage]
   }
 };
 
@@ -227,3 +236,5 @@ export default function PricingPage() {
     </div>
   );
 }
+
+

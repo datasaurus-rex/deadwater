@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { otherOptions } from "@/lib/other-options";
 
+const ogImage = "/og/og.png";
+
 export const metadata: Metadata = {
   title: "Other options",
   description:
@@ -9,7 +11,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Other options - Deadwater.ai",
     description:
-      "A practical guide to adjacent tools and platforms, and how each compares with a Deadwater Content OS install."
+      "A practical guide to adjacent tools and platforms, and how each compares with a Deadwater Content OS install.",
+    images: [{ url: ogImage, alt: "Deadwater.ai - Content OS for an AI-first world" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Other options - Deadwater.ai",
+    description:
+      "A practical guide to adjacent tools and platforms, and how each compares with a Deadwater Content OS install.",
+    images: [ogImage]
   }
 };
 

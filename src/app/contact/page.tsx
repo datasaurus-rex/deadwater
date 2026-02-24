@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 
+const ogImage = "/og/og.png";
+
 export const metadata: Metadata = {
   title: "Contact",
   description: "Reach Deadwater.ai for Content OS architecture and AI-native systems.",
   openGraph: {
-    title: "Contact — Deadwater.ai",
-    description: "Reach Deadwater.ai for Content OS architecture and AI-native systems."
+    title: "Contact - Deadwater.ai",
+    description: "Reach Deadwater.ai for Content OS architecture and AI-native systems.",
+    images: [{ url: ogImage, alt: "Deadwater.ai - Content OS for an AI-first world" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact - Deadwater.ai",
+    description: "Reach Deadwater.ai for Content OS architecture and AI-native systems.",
+    images: [ogImage]
   }
 };
 
@@ -22,3 +31,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
+
