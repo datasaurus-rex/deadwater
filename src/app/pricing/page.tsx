@@ -14,7 +14,6 @@ export default function PricingPage() {
   return (
     <div className="container-narrow section">
       <section className="section-tight">
-        <p className="eyebrow">Pricing</p>
         <h1 className="heading-serif text-4xl">Pricing</h1>
         <p className="mt-6 text-lg text-slate-300">
           You are not outsourcing tasks. You are installing leverage that compounds. We build code-first systems that make

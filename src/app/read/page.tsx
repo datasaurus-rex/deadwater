@@ -17,8 +17,8 @@ export default async function ReadPage() {
   return (
     <div className="container-narrow section">
       <div className="flex flex-col gap-4">
-        <p className="eyebrow">Read</p>
-        <h1 className="heading-serif text-3xl">Field notes on Content OS</h1>
+        <p className="eyebrow">Insights</p>
+        <h1 className="heading-serif text-3xl">Content OS and AI-native systems blog</h1>
         <p className="text-lg text-slate-300">
           Essays on AI-native content systems, agent workflows, and the architecture that keeps knowledge alive.
         </p>
