@@ -16,4 +16,9 @@ Secondary reference:
 
 - `internal-contexts/product briefs/deadwater-product-offerings.md` (internal product truth, packaging, and blog-safe claims)
 
+## Workflow references
+
+- `internal-contexts/workflows/blog-writing-workflow.md` (research-first drafting workflow from inputs to final edit/link pass)
+- `internal-contexts/workflows/blog-input-template.md` (standard input format: keyword, topic, angle, context)
+
 Planned additions: writing samples, case studies, additional internal briefs, and other reference material.

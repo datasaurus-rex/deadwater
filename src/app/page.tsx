@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
+import { ContentOsAnatomyMap } from "@/components/ContentOsAnatomyMap";
 import { ContentOsAnimation } from "@/components/ContentOsAnimation";
-import { FaultLineDivider, SedimentLayers } from "@/components/illustrations";
+import { PhilosophyBlocks } from "@/components/PhilosophyBlocks";
+import { HandshakeIcon, RobotBrainIcon, TrashCanIcon } from "@/components/PhilosophyIcons";
+import { FaultLineDivider } from "@/components/illustrations";
 
 export default function HomePage() {
   return (
@@ -10,10 +12,10 @@ export default function HomePage() {
       <section className="pt-4 pb-2">
         <div className="container-narrow relative z-10 pt-4 pb-2 lg:pt-6 lg:pb-4">
           <h1 className="heading-serif text-4xl sm:text-5xl">Deadwater.ai</h1>
-          <h2 className="mt-4 text-xl text-slate-200">Content OS for an AI-first world.</h2>
+          <h2 className="mt-4 text-xl text-slate-200">Install AI systems that run.</h2>
           <p className="mt-6 text-lg text-slate-300">
-            We build AI-native content systems that lock AI into your company's DNA. The result is content that compounds,
-            teams that move faster, and agents that can operate with confidence at scale.
+            Deadwater builds stack-aware AI workflows and full Content OS platforms for teams that need reliable
+            execution, not prompt glue.
           </p>
         </div>
         <div className="relative mt-2 w-screen overflow-hidden ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] sm:mt-4 sm:ml-0 sm:mr-0 sm:w-full sm:aspect-[1060/274]">
@@ -29,11 +31,17 @@ export default function HomePage() {
           </div>
           <div className="pointer-events-none absolute inset-0 flex items-center">
             <div className="container-narrow pointer-events-auto flex flex-wrap gap-4">
-              <Link href="/read" className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
-                Read
+              <Link
+                href="/contact"
+                className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white"
+              >
+                Book a scoping call
               </Link>
-              <Link href="/contact" className="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
-                Contact
+              <Link
+                href="/content-os"
+                className="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white"
+              >
+                See content OS anatomy
               </Link>
             </div>
           </div>
@@ -43,24 +51,48 @@ export default function HomePage() {
       <div className="my-6 h-px w-full bg-ink-800" />
 
       <section className="section">
-        <div className="grid-structure">
-          <div className="flex flex-col gap-8 text-lg text-slate-300">
-            <p>
-              Most teams are trying to bolt AI onto systems that were never designed for it. PDFs. CMSs. Wikis.
-              Dashboards. Prompts taped together with hope.
-            </p>
-            <p>
-              Deadwater builds Content OS—AI-native systems where content isn't just written, stored, or searched. It's
-              understood, expanded, and operated on by agents.
-            </p>
-            <p className="text-white">Content OS is how AI actually becomes useful.</p>
-            <p>
-              Deadwater automated content greatly exceeds traditional SEO content quality standards, providing higher
-              conversions, higher rankings in search engines and LLMs, with an unprecedented level of customization and
-              focus on brand relevance.
-            </p>
-          </div>
-          <div className="side-note">System substrate</div>
+        <h2 className="heading-serif text-2xl">Choose your path</h2>
+        <p className="mt-4 text-slate-300">
+          We either solve a bottleneck fast or install the full operating layer that compounds.
+        </p>
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <article className="card">
+            <p className="eyebrow">Package A</p>
+            <h3 className="heading-serif text-xl text-white">Workflow build</h3>
+            <p className="mt-2 text-slate-300">Targeted AI automation for one high-impact bottleneck.</p>
+            <p className="mt-4 text-white">From $22,000</p>
+            <p className="text-sm text-slate-400">Typical timeline: 2-3 weeks</p>
+            <ul className="mt-4 list-disc pl-5 text-slate-300">
+              <li>2 production-ready workflows</li>
+              <li>Input-output contract and logic design</li>
+              <li>QA, edge cases, and handoff docs</li>
+            </ul>
+            <Link
+              href="/pricing"
+              className="focus-ring mt-6 inline-flex border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white"
+            >
+              View workflow package
+            </Link>
+          </article>
+
+          <article className="card">
+            <p className="eyebrow">Package B</p>
+            <h3 className="heading-serif text-xl text-white">Content OS install</h3>
+            <p className="mt-2 text-slate-300">Code-first system where AI can operate on content safely.</p>
+            <p className="mt-4 text-white">From $50,000</p>
+            <p className="text-sm text-slate-400">Typical timeline: 4-6 weeks</p>
+            <ul className="mt-4 list-disc pl-5 text-slate-300">
+              <li>Markdown and git source of truth</li>
+              <li>Schemas, guardrails, and safe execution paths</li>
+              <li>Documented AI hooks for your operating stack</li>
+            </ul>
+            <Link
+              href="/pricing"
+              className="focus-ring mt-6 inline-flex border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white"
+            >
+              View content OS package
+            </Link>
+          </article>
         </div>
       </section>
 
@@ -71,85 +103,88 @@ export default function HomePage() {
       </section>
 
       <section className="section">
-        <div className="grid-structure">
-          <div>
-            <h2 className="heading-serif text-2xl">What is a content OS?</h2>
-            <p className="mt-4 text-slate-300">
-              A Content OS is an AI-first, AI-native content system designed to be fully usable by agents—not just humans.
-            </p>
-            <div className="mt-6 grid gap-4 text-slate-300">
-              <p>Structured for maximum context, not maximum clicks.</p>
-              <p>Written in formats machines can reason over—markdown, schemas, graphs.</p>
-              <p>Continuously expandable by AI using its own internal understanding.</p>
-              <p>Operational, not editorial—content that powers workflows, not pages.</p>
-              <p>Think less "website." More "living system."</p>
-              <p className="text-white">A Content OS doesn't just answer questions. It runs things.</p>
-            </div>
-          </div>
-          <div className="border border-ink-800 p-4">
-            <SedimentLayers className="h-auto w-full text-white/70" />
-          </div>
-        </div>
+        <h2 className="heading-serif text-2xl">Content OS philosophy</h2>
+        <PhilosophyBlocks
+          items={[
+            {
+              title: "AI is here to stay",
+              icon: <RobotBrainIcon />,
+              body: <p>Treat AI as an operating layer, not a sidecar tool.</p>
+            },
+            {
+              title: "Growth content sucks",
+              icon: <TrashCanIcon />,
+              body: <p>Systematize repetitive production so humans stop grinding low-leverage work.</p>
+            },
+            {
+              title: "Humans deserve humans",
+              icon: <HandshakeIcon />,
+              body: <p>Move human energy to strategy, POV, and conversion-critical communication.</p>
+            }
+          ]}
+        />
       </section>
 
       <section className="section">
-        <h2 className="heading-serif text-2xl">What it looks like in practice</h2>
-        <div className="mt-6 grid gap-6 text-slate-300">
-          <div className="card">
-            <h3 className="heading-serif text-xl text-white">AI-native content foundations</h3>
-            <p className="mt-3">
-              Markdown-based knowledge systems that agents can read, traverse, and extend. Content is modular, versioned,
-              and intentionally designed for reuse by humans and machines alike.
-            </p>
-          </div>
-          <div className="card">
-            <h3 className="heading-serif text-xl text-white">Agent-driven content creation</h3>
-            <p className="mt-3">
-              Using models like Codex to generate new pages, summaries, and derivatives directly from existing context—no
-              prompts duct-taped together, no human in the loop unless you want one.
-            </p>
-          </div>
-          <div className="card">
-            <h3 className="heading-serif text-xl text-white">Zero-touch knowledge operations</h3>
-            <p className="mt-3">
-              AI-powered workflows that ingest, normalize, connect, and maintain knowledge automatically. Your
-              documentation updates itself. Your playbooks evolve. Your systems stay coherent.
-            </p>
-          </div>
-          <div className="card">
-            <h3 className="heading-serif text-xl text-white">Smart websites that think</h3>
-            <p className="mt-3">
-              Sites that don't just render content—but reason over it. Websites that can answer, adapt, personalize, and
-              act because they're backed by a real Content OS, not a CMS pretending to be one.
-            </p>
-          </div>
-        </div>
+        <h2 className="heading-serif text-2xl">How reliability is built</h2>
+        <p className="mt-4 text-slate-300">
+          A Content OS is not a CMS plus prompts. It is structured context, contracts, guardrails, and execution
+          semantics running in your environment.
+        </p>
+        <ContentOsAnatomyMap />
       </section>
 
       <div className="section-tight">
         <FaultLineDivider className="mx-auto h-20 w-full max-w-3xl text-white/70" />
       </div>
 
-      <ContentDraftWorkbench />
-
       <section className="section">
-        <h2 className="heading-serif text-2xl">What we actually help with</h2>
-        <ul className="mt-6 grid gap-2 list-disc pl-5 text-slate-300">
-          <li>AI ops and workflows.</li>
-          <li>Knowledge base architecture that powers all business functions.</li>
-          <li>AI content production at scale.</li>
-          <li>Freeing your marketers to focus on human and brand content.</li>
-          <li>SEO and product marketing on autopilot.</li>
-          <li>Smart AI workflows and websites.</li>
-        </ul>
+        <h2 className="heading-serif text-2xl">From prompt glue to operating system</h2>
+        <div className="mt-6 grid gap-4 text-slate-300">
+          <div className="border border-ink-800 bg-ink-900/40 p-5">
+            <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Problem</p>
+            <p className="mt-2">Prompt glue, drift, brittle outputs, and teams babysitting automations.</p>
+          </div>
+          <div className="border border-ink-800 bg-ink-900/40 p-5">
+            <p className="text-xs uppercase tracking-[0.28em] text-slate-500">System fix</p>
+            <p className="mt-2">Shared context modules, explicit contracts, and guardrails that fail loudly.</p>
+          </div>
+          <div className="border border-ink-800 bg-ink-900/40 p-5">
+            <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Business result</p>
+            <p className="mt-2">Higher velocity, stable quality, and leverage that compounds with each workflow.</p>
+          </div>
+        </div>
       </section>
 
       <section className="section">
-        <h2 className="heading-serif text-2xl">Why Deadwater</h2>
-        <p className="mt-4 text-slate-300">
-          Deadwater Content OSs are the next evolution of human&lt;&gt;AI interaction. We're all familiar with LLM parlor tricks,
-          Moltbook, and automation steps. We enable brands to use AI to its full potential, delivering maximum impact.
-        </p>
+        <div className="grid-structure">
+          <div className="grid gap-4 text-slate-300">
+            <h2 className="heading-serif text-2xl text-white">Built for your stack</h2>
+            <p>
+              We scope around your current tools, docs, and content systems. If a system holds real context, we integrate
+              it. If it blocks reliable execution, we replace it with code-first ownership.
+            </p>
+            <p>
+              Deadwater deployments are stack-aware and outcome-scoped, from targeted AI workflows to full Content OS
+              installs.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white"
+              >
+                Book a scoping call
+              </Link>
+              <Link
+                href="/pricing"
+                className="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white"
+              >
+                View pricing
+              </Link>
+            </div>
+          </div>
+          <div className="side-note">Stack-aware consulting</div>
+        </div>
       </section>
     </div>
   );
