@@ -318,6 +318,14 @@ a:hover {
   @apply my-8 h-auto w-full rounded-xl border border-ink-800;
 }
 
+.prose-deadwater img[src*="/tool-logos/"] {
+  width: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .prose-deadwater figure {
   @apply my-10;
 }

@@ -124,3 +124,15 @@ Depth QA before final submit:
 - style aligns with Jack guide and Deadwater punctuation rules
 - heading capitalization matches sentence case used in paragraph text (capitalize first word and proper nouns only; no title case and no forced all-lowercase)
 - CTA is practical and context-appropriate
+
+## Session preferences to preserve
+
+Observed user preferences from recent Deadwater comparison-post work:
+
+- Prefer clearer inline link phrasing over ambiguous anchors in running sentences.
+- For comparison posts, structure by tool type at H2 level.
+- Under each type, use one H3 per company/tool with the tool name as the heading.
+- Under each tool H3, include a quick overview in a few short paragraphs.
+- Represent each tool fairly using a mix of official pages, review sources (for example G2), and community signals (for example Reddit), with links.
+- Keep existing strong sections where possible; restructure/move content instead of deleting unless necessary.
+- Use comparison tables when they improve scanability and decision speed.
