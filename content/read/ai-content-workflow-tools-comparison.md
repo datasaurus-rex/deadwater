@@ -3,7 +3,7 @@ title: "AI content workflow tools comparison: pricing, features, and fit"
 description: "A practical comparison of AI workflow and content tools across pricing, feature depth, governance, and system fit."
 date: "2026-03-10"
 tags: ["ai-tools", "content-ops", "workflows", "content-os"]
-image: "/blog/blog-image.jpg"
+image: "/blog/logo scatter.jpg"
 draft: false
 ---
 
