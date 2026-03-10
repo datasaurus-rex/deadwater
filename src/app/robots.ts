@@ -5,9 +5,11 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/"
+        allow: "/",
+        disallow: ["/api/"]
       }
     ],
+    host: "https://deadwater.ai",
     sitemap: "https://deadwater.ai/sitemap.xml"
   };
 }
