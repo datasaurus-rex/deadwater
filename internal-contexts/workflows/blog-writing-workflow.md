@@ -7,6 +7,50 @@ Use this workflow when drafting a net-new article from a brief with:
 - angle
 - context
 
+## Locked writing rules (v1 default)
+
+These rules are now default and mandatory unless the user explicitly overrides them.
+
+### Preload order (must run in order)
+
+1. `internal-contexts/README.md`
+2. `internal-contexts/writing style guides/jack-writing-style-guide.md`
+3. `internal-contexts/writing style guides/deadwater-blog-style-guide.md`
+4. `internal-contexts/product briefs/deadwater-product-offerings.md`
+5. `internal-contexts/workflows/blog-writing-workflow.md`
+6. `internal-contexts/workflows/blog-input-template.md`
+7. 1-3 relevant `content/read/*.md` examples for pattern matching and internal link planning
+
+### Style and voice defaults
+
+- Tone: sharp, direct, analytical, practical, non-fluffy
+- Avoid generic SaaS thought leadership language
+- Keep paragraphs short and readable
+- Prefer concrete operational examples over abstractions
+- Use sentence case for all headings and subheadings
+- Final section must be forward-looking, never "In conclusion"
+
+### Structure defaults
+
+- 3-5 H2 sections (unless user requests otherwise)
+- 1-4 H3 subsections under each H2 (unless clearly unnecessary)
+- H2s should advance one argument thread, not parallel filler modules
+
+### Evidence and linking defaults
+
+- Claims must be source-backed or explicitly framed as inference
+- Target 8-16 total links
+- Minimum 3 internal links and 3 external links
+- Distribute links naturally across the post
+- Prefer primary external sources over listicles
+
+### Product and positioning safety
+
+- Position Deadwater as system-first and code-first
+- Keep framing aligned to Workflow build / Content OS install / optional support
+- Avoid unsourced performance claims and guaranteed outcomes
+- Do not reintroduce Before.dev/Reforge language or assumptions
+
 ## 1) Intake and framing
 
 - Extract and restate the four inputs.
@@ -17,6 +61,37 @@ Use this workflow when drafting a net-new article from a brief with:
 - consideration
 - decision
 - If any input is missing, infer assumptions explicitly and continue.
+
+### Intake interaction protocol (default UX)
+
+When the user asks in prose to "write a blog post," use this interaction sequence by default:
+
+1. Ask for missing required inputs before drafting:
+- title
+- keyword
+- context/angle
+- target audience
+- business intent (awareness, consideration, decision)
+
+2. Ask optional execution controls only if not already implied:
+- external research scope (web, Reddit, HN)
+- linking requirements (internal/external minimums)
+- export target (markdown, CMS JSON)
+
+3. After user replies with inputs, restate the normalized brief in 3-6 bullets and begin execution immediately.
+
+4. Execute the full skill chain in this order:
+- deadwater_intake_normalizer
+- deadwater_research_collector
+- deadwater_outline_generator
+- deadwater_section_briefer
+- deadwater_section_drafter (loop)
+- deadwater_intro_writer
+- deadwater_closing_writer
+- deadwater_editorial_qa
+- deadwater_export_formatter
+
+5. Do not ask the user to name skills explicitly; infer and run them from intent.
 
 ## 2) Research pass one (market pulse)
 
