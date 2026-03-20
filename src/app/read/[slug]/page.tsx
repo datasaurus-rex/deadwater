@@ -3,9 +3,11 @@ import Image from "next/image";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { CallToActionBlock, type CallToActionContent } from "@/components/CallToActionBlock";
+import { AirOpsWorkflowMap } from "@/components/AirOpsWorkflowMap";
 import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { ContentOsAnatomyMap } from "@/components/ContentOsAnatomyMap";
 import { TangentPost } from "@/components/TangentPost";
+import { ToolFitWorkbench } from "@/components/ToolFitWorkbench";
 import { ctaContentByType, inlineBlogPostCta } from "@/lib/cta-content";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
 
@@ -167,15 +169,21 @@ export default async function ReadPostPage({ params }: Props) {
 
   const showDraftWorkbench = post.slug === "content-draft-workbench";
   const showAnatomyMap = post.slug === "overview-how-content-operating-systems-work";
+  const showToolFitWorkbench = post.slug === "ai-content-workflow-tools-comparison";
+  const showAirOpsWorkflowMap =
+    post.slug === "how-to-build-an-airops-content-writing-workflow-that-can-research-critique-and-stay-on-brand";
   const showInlineContentOsCta = Boolean(post.image && post.image !== "/blog/blog-image.jpg");
   const inlineToken = "__INLINE_CTA_TOKEN__";
   const anatomyMarker = "ANATOMY_MAP";
+  const toolWorkbenchMarker = "<p>TOOL_FIT_WORKBENCH</p>";
   const tangentHtml = injectTangents(post.html);
   const htmlWithInlineToken = showInlineContentOsCta
     ? insertTokenBeforeSecondToLastH2(tangentHtml, inlineToken)
     : tangentHtml;
-  const anatomySplit = showAnatomyMap ? splitOnce(htmlWithInlineToken, anatomyMarker) : null;
-  const anatomyBefore = anatomySplit?.before ?? htmlWithInlineToken;
+  const toolWorkbenchSplit = showToolFitWorkbench ? splitOnce(htmlWithInlineToken, toolWorkbenchMarker) : null;
+  const htmlAfterToolWorkbench = toolWorkbenchSplit?.after ?? htmlWithInlineToken;
+  const anatomySplit = showAnatomyMap ? splitOnce(htmlAfterToolWorkbench, anatomyMarker) : null;
+  const anatomyBefore = anatomySplit?.before ?? htmlAfterToolWorkbench;
   const anatomyAfter = anatomySplit?.after ?? "";
   const siteUrl = "https://deadwater.ai";
   const canonicalUrl = `${siteUrl}/read/${post.slug}`;
@@ -260,13 +268,23 @@ export default async function ReadPostPage({ params }: Props) {
 
       <div className="divider" />
 
+      {showAirOpsWorkflowMap ? <AirOpsWorkflowMap /> : null}
+
       {showAnatomyMap ? (
         <>
           {renderSegmentWithInlineCta({
-            html: anatomyBefore,
+            html: toolWorkbenchSplit?.before ?? anatomyBefore,
             inlineToken,
             ctaContent: inlineBlogPostCta
           })}
+          {showToolFitWorkbench ? <ToolFitWorkbench /> : null}
+          {toolWorkbenchSplit && !showAnatomyMap ? (
+            renderSegmentWithInlineCta({
+              html: toolWorkbenchSplit.after,
+              inlineToken,
+              ctaContent: inlineBlogPostCta
+            })
+          ) : null}
           <ContentOsAnatomyMap />
           {renderSegmentWithInlineCta({
             html: anatomyAfter,
@@ -275,11 +293,21 @@ export default async function ReadPostPage({ params }: Props) {
           })}
         </>
       ) : (
-        renderSegmentWithInlineCta({
-          html: htmlWithInlineToken,
-          inlineToken,
-          ctaContent: inlineBlogPostCta
-        })
+        <>
+          {renderSegmentWithInlineCta({
+            html: toolWorkbenchSplit?.before ?? htmlWithInlineToken,
+            inlineToken,
+            ctaContent: inlineBlogPostCta
+          })}
+          {showToolFitWorkbench ? <ToolFitWorkbench /> : null}
+          {toolWorkbenchSplit
+            ? renderSegmentWithInlineCta({
+                html: toolWorkbenchSplit.after,
+                inlineToken,
+                ctaContent: inlineBlogPostCta
+              })
+            : null}
+        </>
       )}
 
       {showDraftWorkbench ? <ContentDraftWorkbench /> : null}
