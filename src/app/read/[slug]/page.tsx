@@ -169,7 +169,7 @@ export default async function ReadPostPage({ params }: Props) {
   const showDraftWorkbench = post.slug === "content-draft-workbench";
   const showAnatomyMap = post.slug === "overview-how-content-operating-systems-work";
   const showAirOpsWorkflowMap =
-    post.slug === "how-to-build-an-airops-content-writing-workflow-that-can-research-critique-and-stay-on-brand";
+    post.slug === "how-to-build-airops-content-writing-workflow";
   const showInlineContentOsCta = Boolean(post.image && post.image !== "/blog/blog-image.jpg");
   const inlineToken = "__INLINE_CTA_TOKEN__";
   const anatomyMarker = "ANATOMY_MAP";
