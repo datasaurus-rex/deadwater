@@ -6,6 +6,7 @@ import { CallToActionBlock, type CallToActionContent } from "@/components/CallTo
 import { AirOpsWorkflowMap } from "@/components/AirOpsWorkflowMap";
 import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { ContentOsAnatomyMap } from "@/components/ContentOsAnatomyMap";
+import { MantisShrimpFieldGuide } from "@/components/MantisShrimpFieldGuide";
 import { TangentPost } from "@/components/TangentPost";
 import { ctaContentByType, inlineBlogPostCta } from "@/lib/cta-content";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
@@ -170,15 +171,19 @@ export default async function ReadPostPage({ params }: Props) {
   const showAnatomyMap = post.slug === "overview-how-content-operating-systems-work";
   const showAirOpsWorkflowMap =
     post.slug === "how-to-build-airops-content-writing-workflow";
+  const showMantisShrimpEmbed = post.slug === "why-mantis-shrimp-feel-like-science-fiction";
   const showInlineContentOsCta = Boolean(post.image && post.image !== "/blog/blog-image.jpg");
   const inlineToken = "__INLINE_CTA_TOKEN__";
   const anatomyMarker = "ANATOMY_MAP";
+  const mantisMarker = "<p>MANTIS_SHRIMP_EMBED</p>";
   const tangentHtml = injectTangents(post.html);
   const htmlWithInlineToken = showInlineContentOsCta
     ? insertTokenBeforeSecondToLastH2(tangentHtml, inlineToken)
     : tangentHtml;
-  const anatomySplit = showAnatomyMap ? splitOnce(htmlWithInlineToken, anatomyMarker) : null;
-  const anatomyBefore = anatomySplit?.before ?? htmlWithInlineToken;
+  const mantisSplit = showMantisShrimpEmbed ? splitOnce(htmlWithInlineToken, mantisMarker) : null;
+  const htmlAfterMantis = mantisSplit?.after ?? htmlWithInlineToken;
+  const anatomySplit = showAnatomyMap ? splitOnce(htmlAfterMantis, anatomyMarker) : null;
+  const anatomyBefore = anatomySplit?.before ?? htmlAfterMantis;
   const anatomyAfter = anatomySplit?.after ?? "";
   const siteUrl = "https://deadwater.ai";
   const canonicalUrl = `${siteUrl}/read/${post.slug}`;
@@ -265,6 +270,22 @@ export default async function ReadPostPage({ params }: Props) {
 
       {showAirOpsWorkflowMap ? <AirOpsWorkflowMap /> : null}
 
+      {showMantisShrimpEmbed && mantisSplit ? (
+        <>
+          {renderSegmentWithInlineCta({
+            html: mantisSplit.before,
+            inlineToken,
+            ctaContent: inlineBlogPostCta
+          })}
+          <MantisShrimpFieldGuide />
+          {showAnatomyMap ? null : renderSegmentWithInlineCta({
+            html: mantisSplit.after,
+            inlineToken,
+            ctaContent: inlineBlogPostCta
+          })}
+        </>
+      ) : null}
+
       {showAnatomyMap ? (
         <>
           {renderSegmentWithInlineCta({
@@ -280,6 +301,7 @@ export default async function ReadPostPage({ params }: Props) {
           })}
         </>
       ) : (
+        showMantisShrimpEmbed && mantisSplit ? null : (
         <>
           {renderSegmentWithInlineCta({
             html: htmlWithInlineToken,
@@ -287,6 +309,7 @@ export default async function ReadPostPage({ params }: Props) {
             ctaContent: inlineBlogPostCta
           })}
         </>
+        )
       )}
 
       {showDraftWorkbench ? <ContentDraftWorkbench /> : null}
