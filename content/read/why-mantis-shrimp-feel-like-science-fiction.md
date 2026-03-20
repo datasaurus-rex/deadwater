@@ -9,6 +9,8 @@ draft: false
 
 # Why mantis shrimp feel like science fiction
 
+*This post is a test for my friend Joe, who loves mantis shrimp.*
+
 #### Mantis shrimp are what happens when evolution stops trying to be tasteful.
 
 They look like someone smashed a shrimp, a praying mantis, a boxer, a sniper scope, and a nightclub laser into one animal, then forgot to remove any of the features that seemed excessive.
