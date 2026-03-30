@@ -11,6 +11,7 @@ import { EditorialFeedbackWorkbench } from "@/components/EditorialFeedbackWorkbe
 import { MantisShrimpFieldGuide } from "@/components/MantisShrimpFieldGuide";
 import { QuarterlyAuditWorkbench } from "@/components/QuarterlyAuditWorkbench";
 import { TangentPost } from "@/components/TangentPost";
+import { ToolFitWorkbench } from "@/components/ToolFitWorkbench";
 import { ctaContentByType, inlineBlogPostCta } from "@/lib/cta-content";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
 
@@ -181,6 +182,8 @@ export default async function ReadPostPage({ params }: Props) {
     post.slug === "how-to-set-up-a-brand-kit-in-airops-to-guide-content-creation";
   const showQuarterlyAuditWorkbench =
     post.slug === "how-airops-workflows-improve-quarterly-content-audits";
+  const showToolFitWorkbench =
+    post.slug === "ai-content-workflow-tools-comparison";
   const showInlineContentOsCta = Boolean(post.image && post.image !== "/blog/blog-image.jpg");
   const inlineToken = "__INLINE_CTA_TOKEN__";
   const anatomyMarker = "ANATOMY_MAP";
@@ -188,6 +191,7 @@ export default async function ReadPostPage({ params }: Props) {
   const editorialMarker = "<p>EDITORIAL_FEEDBACK_WORKBENCH</p>";
   const brandKitMarker = "<p>BRAND_KIT_LAYER_WORKBENCH</p>";
   const auditMarker = "<p>QUARTERLY_AUDIT_WORKBENCH</p>";
+  const toolFitMarker = "<p>TOOL_FIT_WORKBENCH</p>";
   const tangentHtml = injectTangents(post.html);
   const htmlWithInlineToken = showInlineContentOsCta
     ? insertTokenBeforeSecondToLastH2(tangentHtml, inlineToken)
@@ -204,6 +208,8 @@ export default async function ReadPostPage({ params }: Props) {
         ? brandKitMarker
         : showQuarterlyAuditWorkbench
           ? auditMarker
+          : showToolFitWorkbench
+            ? toolFitMarker
           : null;
   const interactiveSplit =
     interactiveMarker && !showAnatomyMap && !showMantisShrimpEmbed
@@ -335,6 +341,7 @@ export default async function ReadPostPage({ params }: Props) {
           {showEditorialFeedbackWorkbench && interactiveSplit ? <EditorialFeedbackWorkbench /> : null}
           {showBrandKitLayerWorkbench && interactiveSplit ? <BrandKitLayerWorkbench /> : null}
           {showQuarterlyAuditWorkbench && interactiveSplit ? <QuarterlyAuditWorkbench /> : null}
+          {showToolFitWorkbench && interactiveSplit ? <ToolFitWorkbench /> : null}
           {interactiveSplit ? renderSegmentWithInlineCta({
             html: interactiveSplit.after,
             inlineToken,
