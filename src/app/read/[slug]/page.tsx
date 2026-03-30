@@ -4,9 +4,12 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 import { CallToActionBlock, type CallToActionContent } from "@/components/CallToActionBlock";
 import { AirOpsWorkflowMap } from "@/components/AirOpsWorkflowMap";
+import { BrandKitLayerWorkbench } from "@/components/BrandKitLayerWorkbench";
 import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { ContentOsAnatomyMap } from "@/components/ContentOsAnatomyMap";
+import { EditorialFeedbackWorkbench } from "@/components/EditorialFeedbackWorkbench";
 import { MantisShrimpFieldGuide } from "@/components/MantisShrimpFieldGuide";
+import { QuarterlyAuditWorkbench } from "@/components/QuarterlyAuditWorkbench";
 import { TangentPost } from "@/components/TangentPost";
 import { ctaContentByType, inlineBlogPostCta } from "@/lib/cta-content";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
@@ -172,10 +175,19 @@ export default async function ReadPostPage({ params }: Props) {
   const showAirOpsWorkflowMap =
     post.slug === "how-to-build-airops-content-writing-workflow";
   const showMantisShrimpEmbed = post.slug === "why-mantis-shrimp-feel-like-science-fiction";
+  const showEditorialFeedbackWorkbench =
+    post.slug === "how-to-incorporate-editorial-review-feedback-into-airops-workflows";
+  const showBrandKitLayerWorkbench =
+    post.slug === "how-to-set-up-a-brand-kit-in-airops-to-guide-content-creation";
+  const showQuarterlyAuditWorkbench =
+    post.slug === "how-airops-workflows-improve-quarterly-content-audits";
   const showInlineContentOsCta = Boolean(post.image && post.image !== "/blog/blog-image.jpg");
   const inlineToken = "__INLINE_CTA_TOKEN__";
   const anatomyMarker = "ANATOMY_MAP";
   const mantisMarker = "<p>MANTIS_SHRIMP_EMBED</p>";
+  const editorialMarker = "<p>EDITORIAL_FEEDBACK_WORKBENCH</p>";
+  const brandKitMarker = "<p>BRAND_KIT_LAYER_WORKBENCH</p>";
+  const auditMarker = "<p>QUARTERLY_AUDIT_WORKBENCH</p>";
   const tangentHtml = injectTangents(post.html);
   const htmlWithInlineToken = showInlineContentOsCta
     ? insertTokenBeforeSecondToLastH2(tangentHtml, inlineToken)
@@ -185,6 +197,18 @@ export default async function ReadPostPage({ params }: Props) {
   const anatomySplit = showAnatomyMap ? splitOnce(htmlAfterMantis, anatomyMarker) : null;
   const anatomyBefore = anatomySplit?.before ?? htmlAfterMantis;
   const anatomyAfter = anatomySplit?.after ?? "";
+  const interactiveMarker =
+    showEditorialFeedbackWorkbench
+      ? editorialMarker
+      : showBrandKitLayerWorkbench
+        ? brandKitMarker
+        : showQuarterlyAuditWorkbench
+          ? auditMarker
+          : null;
+  const interactiveSplit =
+    interactiveMarker && !showAnatomyMap && !showMantisShrimpEmbed
+      ? splitOnce(htmlWithInlineToken, interactiveMarker)
+      : null;
   const siteUrl = "https://deadwater.ai";
   const canonicalUrl = `${siteUrl}/read/${post.slug}`;
   const heroImageUrl = post.image ?? "/blog/blog-image.jpg";
@@ -304,10 +328,18 @@ export default async function ReadPostPage({ params }: Props) {
         showMantisShrimpEmbed && mantisSplit ? null : (
         <>
           {renderSegmentWithInlineCta({
-            html: htmlWithInlineToken,
+            html: interactiveSplit?.before ?? htmlWithInlineToken,
             inlineToken,
             ctaContent: inlineBlogPostCta
           })}
+          {showEditorialFeedbackWorkbench && interactiveSplit ? <EditorialFeedbackWorkbench /> : null}
+          {showBrandKitLayerWorkbench && interactiveSplit ? <BrandKitLayerWorkbench /> : null}
+          {showQuarterlyAuditWorkbench && interactiveSplit ? <QuarterlyAuditWorkbench /> : null}
+          {interactiveSplit ? renderSegmentWithInlineCta({
+            html: interactiveSplit.after,
+            inlineToken,
+            ctaContent: inlineBlogPostCta
+          }) : null}
         </>
         )
       )}
