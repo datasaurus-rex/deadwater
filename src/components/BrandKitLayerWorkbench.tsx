@@ -102,7 +102,7 @@ export function BrandKitLayerWorkbench() {
   );
 
   return (
-    <section className="relative left-1/2 my-10 w-[min(100vw-24px,1100px)] -translate-x-1/2 px-[12px] sm:w-[min(100vw-40px,1100px)] sm:px-0">
+    <section className="container-post my-10 lg:relative lg:left-1/2 lg:w-[min(100vw-40px,1100px)] lg:max-w-none lg:-translate-x-1/2 lg:px-0">
       <div className="overflow-hidden rounded-2xl border border-ink-800 bg-ink-900/80">
         <div className="border-b border-ink-800 px-5 py-4 sm:px-6">
           <p className="eyebrow">Interactive layer map</p>
