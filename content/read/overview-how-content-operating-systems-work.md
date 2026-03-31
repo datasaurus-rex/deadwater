@@ -17,7 +17,7 @@ The failure mode is consistent. Teams try to scale AI on top of content systems 
 
 That is the gap a [content OS](/read/what-is-a-content-os) exists to fill.
 
-If you want a neutral breakdown of tool-first alternatives, see [other options](/other-options), including [Contentful vs Deadwater](/other-options/contentful) and [Sanity vs Deadwater](/other-options/sanity).
+If you want a neutral breakdown of tool-first alternatives, see [AI content workflow tools comparison](/read/ai-content-workflow-tools-comparison), including [Contentful vs Deadwater](/other-options/contentful) and [Sanity vs Deadwater](/other-options/sanity).
 
 ANATOMY_MAP
 

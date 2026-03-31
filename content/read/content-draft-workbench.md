@@ -21,4 +21,4 @@ The interactive workbench below lets you toggle the knowledge layers that power 
 
 Content without structure decays. It becomes inconsistent, hard to update, and brittle for [agents](https://en.wikipedia.org/wiki/Intelligent_agent) to use. A [Content OS](/read/what-is-a-content-os) makes the structure visible and operational. That is the difference between a site that looks good and a system that [[tangent:keeps working|Survives new launches, new models, and new contributors without breaking.]].
 
-Scroll down and turn the layers on and off. Watch the draft change. That is the core promise of a [Content OS](/read/what-is-a-content-os) in miniature.
+Scroll down and turn the layers on and off. Watch the draft change. That is the core promise of a [Content OS](/content-os) in miniature.

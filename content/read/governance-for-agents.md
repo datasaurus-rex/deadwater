@@ -41,7 +41,7 @@ If any are missing, the update is rejected. This is simple and effective.
 
 ## Build a review loop
 
-Governance does not mean humans in the loop for every action. It means a [review loop](/read/operational-docs-as-systems) for the actions that matter. You can implement a lightweight queue:
+Governance does not mean humans in the loop for every action. It means an [editorial review loop](/read/how-to-incorporate-editorial-review-feedback-into-airops-workflows) for the actions that matter. You can implement a lightweight queue:
 
 1. Agent proposes a change.
 2. Change is tagged with `status: review`.
@@ -59,7 +59,7 @@ This creates a clear path for escalation and keeps governance from becoming abst
 
 ## Make audits routine
 
-Governance is only real if you can audit it. Keep a log of every agent action, including the module affected, the reason, and the authority tier. This does not need to be complex. A simple [changelog](https://en.wikipedia.org/wiki/Changelog) file or audit table is enough.
+Governance is only real if you can audit it. Keep a log of every agent action, including the module affected, the reason, and the authority tier. This does not need to be complex. A simple [audit log](/read/how-airops-workflows-improve-quarterly-content-audits) file or audit table is enough.
 
 Once the data exists, review it regularly. Patterns will show you where agents are overstepping and where workflows are too restrictive. That feedback is how governance stays lightweight instead of becoming rigid.
 

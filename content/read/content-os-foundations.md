@@ -66,7 +66,7 @@ It is the opposite of marketing copy. It is operational knowledge. In a Content 
 
 When content lacks structure, you start paying an invisible tax. You need more prompts. You need more retries. You need more human review. Your agents become unreliable because they are operating on unstable input.
 
-Think of it like code: you can paste a script into a random doc, or you can turn it into a library. A Content OS is the [[tangent:library version of knowledge|Reusable, testable primitives that other [workflows](/read/agent-workflows-that-stick) can depend on.]]. And like code, libraries require maintenance. The system needs linting, validation, and change review. This is not optional overhead. It is the price of reliability.
+Think of it like code: you can paste a script into a random doc, or you can turn it into a library. A Content OS is the [[tangent:library version of knowledge|Reusable, testable primitives that other [AirOps workflows](/read/how-to-build-airops-content-writing-workflow) can depend on.]]. And like code, libraries require maintenance. The system needs linting, validation, and change review. This is not optional overhead. It is the price of reliability.
 
 > If your AI needs a prompt to interpret every paragraph, the system is not doing its job.
 

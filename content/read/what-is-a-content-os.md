@@ -13,7 +13,7 @@ draft: false
 
 If you are evaluating tool-first paths first, see [other options](/other-options), including [AirOps vs Deadwater](/other-options/airops).
 
-A content OS is a system—usually designed directly inside your coded website—wherein your [context strategy](/read/context-strategy) is exposed to [[tangent:AI systems|AI systems can include Codex, Claude Code, or any AI workflow steps like AirOps.]] giving them knowledge about your business and allowing them to take precise action.
+A content OS is a system—usually designed directly inside your coded website—wherein your [brand context](/read/how-to-set-up-a-brand-kit-in-airops-to-guide-content-creation) is exposed to [[tangent:AI systems|AI systems can include Codex, Claude Code, or any AI workflow steps like AirOps.]] giving them knowledge about your business and allowing them to take precise action.
 
 Your context doesn’t necessarily have to be [[tangent:published|Published context includes any public-facing pages that live on your domain and can be crawled.]]. Your AI likely already has access to it.
 
