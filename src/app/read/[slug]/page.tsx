@@ -5,11 +5,14 @@ import { notFound } from "next/navigation";
 import { CallToActionBlock, type CallToActionContent } from "@/components/CallToActionBlock";
 import { AirOpsWorkflowMap } from "@/components/AirOpsWorkflowMap";
 import { BrandKitLayerWorkbench } from "@/components/BrandKitLayerWorkbench";
+import { ContextLayerWorkbench } from "@/components/ContextLayerWorkbench";
 import { ContentDraftWorkbench } from "@/components/ContentDraftWorkbench";
 import { ContentOsAnatomyMap } from "@/components/ContentOsAnatomyMap";
 import { EditorialFeedbackWorkbench } from "@/components/EditorialFeedbackWorkbench";
 import { MantisShrimpFieldGuide } from "@/components/MantisShrimpFieldGuide";
+import { OwlModelWorkbench } from "@/components/OwlModelWorkbench";
 import { QuarterlyAuditWorkbench } from "@/components/QuarterlyAuditWorkbench";
+import { SemanticLayerOwlWorkbench } from "@/components/SemanticLayerOwlWorkbench";
 import { TangentPost } from "@/components/TangentPost";
 import { ToolFitWorkbench } from "@/components/ToolFitWorkbench";
 import { ctaContentByType, inlineBlogPostCta } from "@/lib/cta-content";
@@ -184,6 +187,12 @@ export default async function ReadPostPage({ params }: Props) {
     post.slug === "how-airops-workflows-improve-quarterly-content-audits";
   const showToolFitWorkbench =
     post.slug === "ai-content-workflow-tools-comparison";
+  const showContextLayerWorkbench =
+    post.slug === "why-every-serious-ai-team-is-building-a-context-layer";
+  const showSemanticLayerOwlWorkbench =
+    post.slug === "semantic-layer-vs-owl-for-ai-systems";
+  const showOwlModelWorkbench =
+    post.slug === "what-owl-is-actually-for-in-ai-systems";
   const showInlineContentOsCta = Boolean(post.image && post.image !== "/blog/blog-image.jpg");
   const inlineToken = "__INLINE_CTA_TOKEN__";
   const anatomyMarker = "ANATOMY_MAP";
@@ -192,6 +201,9 @@ export default async function ReadPostPage({ params }: Props) {
   const brandKitMarker = "<p>BRAND_KIT_LAYER_WORKBENCH</p>";
   const auditMarker = "<p>QUARTERLY_AUDIT_WORKBENCH</p>";
   const toolFitMarker = "<p>TOOL_FIT_WORKBENCH</p>";
+  const contextLayerMarker = "<p>CONTEXT_LAYER_WORKBENCH</p>";
+  const semanticLayerOwlMarker = "<p>SEMANTIC_LAYER_OWL_WORKBENCH</p>";
+  const owlModelMarker = "<p>OWL_MODEL_WORKBENCH</p>";
   const tangentHtml = injectTangents(post.html);
   const htmlWithInlineToken = showInlineContentOsCta
     ? insertTokenBeforeSecondToLastH2(tangentHtml, inlineToken)
@@ -210,6 +222,12 @@ export default async function ReadPostPage({ params }: Props) {
           ? auditMarker
           : showToolFitWorkbench
             ? toolFitMarker
+            : showContextLayerWorkbench
+              ? contextLayerMarker
+              : showSemanticLayerOwlWorkbench
+                ? semanticLayerOwlMarker
+                : showOwlModelWorkbench
+                  ? owlModelMarker
           : null;
   const interactiveSplit =
     interactiveMarker && !showAnatomyMap && !showMantisShrimpEmbed
@@ -342,6 +360,9 @@ export default async function ReadPostPage({ params }: Props) {
           {showBrandKitLayerWorkbench && interactiveSplit ? <BrandKitLayerWorkbench /> : null}
           {showQuarterlyAuditWorkbench && interactiveSplit ? <QuarterlyAuditWorkbench /> : null}
           {showToolFitWorkbench && interactiveSplit ? <ToolFitWorkbench /> : null}
+          {showContextLayerWorkbench && interactiveSplit ? <ContextLayerWorkbench /> : null}
+          {showSemanticLayerOwlWorkbench && interactiveSplit ? <SemanticLayerOwlWorkbench /> : null}
+          {showOwlModelWorkbench && interactiveSplit ? <OwlModelWorkbench /> : null}
           {interactiveSplit ? renderSegmentWithInlineCta({
             html: interactiveSplit.after,
             inlineToken,
