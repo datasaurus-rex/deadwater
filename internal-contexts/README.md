@@ -16,6 +16,13 @@ Secondary reference:
 
 - `internal-contexts/product briefs/deadwater-product-offerings.md` (internal product truth, packaging, and blog-safe claims)
 
+## Design references
+
+For page design, section styling, and visual direction, use:
+
+- `internal-contexts/design/deadwater-visual-style-guide.md` (default visual system for commercial pages)
+- `internal-contexts/design/deadwater-image-direction-guide.md` (image and art direction aligned to the current site)
+
 ## Workflow references
 
 - `internal-contexts/workflows/blog-writing-workflow.md` (research-first drafting workflow from inputs to final edit/link pass)
