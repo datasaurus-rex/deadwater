@@ -78,11 +78,11 @@ export default function HomePage() {
             <div>
               <p className="text-xs uppercase tracking-[0.38em] text-accent-sea">AI systems for content operators</p>
               <h1 className="heading-serif mt-5 max-w-3xl text-5xl leading-none text-white sm:text-6xl lg:text-7xl">
-                Bots that work for you
+                Deadwater AI
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-                Deadwater builds context layers and AIs that run on them, giving you unparalleled AI execution for
-                content, operations, and beyond.
+                AI that runs on powerful context layers, giving you agentic execution across research, content,
+                operations, and beyond.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -143,7 +143,7 @@ export default function HomePage() {
               </div>
               <div className="relative min-h-[320px] border-t border-white/10 lg:border-l lg:border-t-0">
                 <Image
-                  src="/hero/hero.png"
+                  src="/blog/quarterly content audits.jpg"
                   alt="Submerged structure under a flat waterline"
                   fill
                   priority
