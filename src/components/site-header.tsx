@@ -48,18 +48,22 @@ export function SiteHeader() {
       </div>
       {open ? (
         <div className="border-t border-ink-800/80 md:hidden">
-          <div className="container-narrow flex flex-col gap-4 py-4 text-xs uppercase tracking-[0.35em] text-slate-300">
+          <div className="container-narrow py-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="focus-ring transition-colors hover:text-white"
+                className="focus-ring block border-b border-ink-800/80 px-2 py-4 text-center text-sm uppercase tracking-[0.3em] text-slate-200 transition-colors hover:text-white"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="focus-ring transition-colors hover:text-white" onClick={() => setOpen(false)}>
+            <Link
+              href="/contact"
+              className="focus-ring block px-2 py-4 text-center text-sm uppercase tracking-[0.3em] text-slate-200 transition-colors hover:text-white"
+              onClick={() => setOpen(false)}
+            >
               Contact
             </Link>
           </div>
