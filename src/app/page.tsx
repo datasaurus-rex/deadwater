@@ -76,13 +76,15 @@ export default function HomePage() {
         <div className="container-narrow py-14 sm:py-20">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
             <div>
-              <p className="text-xs uppercase tracking-[0.38em] text-accent-sea">AI systems for content operators</p>
+              <p className="text-xs uppercase tracking-[0.38em] text-accent-sea">Context-based AI systems</p>
               <h1 className="heading-serif mt-5 max-w-3xl text-5xl leading-none text-white sm:text-6xl lg:text-7xl">
                 Deadwater AI
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-                AI that runs on powerful context layers, giving you agentic execution across research, content,
-                operations, and beyond.
+                What if your website could think?
+              </p>
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+                What if it could research, strategize, and execute all by itself?
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
