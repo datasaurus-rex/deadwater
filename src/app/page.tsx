@@ -33,37 +33,46 @@ const shiftCards = [
 
 const paths = [
   {
-    name: "Workflow build",
+    name: "Workflow Build",
     price: "From $22,000",
     timing: "Typical timeline: 2-3 weeks",
-    description: "Fix one painful bottleneck fast with a scoped automation system.",
-    points: ["Two production-ready workflows", "Defined input-output contracts", "QA, edge cases, and handoff docs"],
+    description: "Fix one painful content or research bottleneck with a focused production workflow.",
+    points: ["Targeted automation for a high-impact job", "Defined contracts and logic design", "Fastest path to a clear operational win"],
     href: "/pricing",
-    cta: "See workflow package"
+    cta: "See workflow build"
   },
   {
-    name: "Content OS install",
+    name: "Context Layer Build",
+    price: "From $25,000",
+    timing: "Typical timeline: 2-4 weeks",
+    description: "Turn scattered company knowledge into an owned markdown system that agents can actually use.",
+    points: ["Knowledge extraction from Notion and internal workspaces", "Markdown and git-backed handoff", "Packaged skills for team-wide agent use"],
+    href: "/context-layer",
+    cta: "Explore context layer"
+  },
+  {
+    name: "Content OS Install",
     price: "From $50,000",
     timing: "Typical timeline: 4-6 weeks",
     description: "Install the deeper operating layer that lets multiple AI workflows run reliably.",
     points: ["Git-backed source of truth", "Schemas, guardrails, and safe execution paths", "Documented hooks for your team and agents"],
-    href: "/pricing",
-    cta: "See Content OS package"
+    href: "/content-os",
+    cta: "Explore Content OS"
   }
 ];
 
 export const metadata: Metadata = {
   title: "Deadwater.ai",
-  description: "Let your bots handle the tough stuff. Deadwater installs AI systems for content and growth teams that need reliable execution, not prompt glue.",
+  description: "Deadwater builds context layers and Content OS systems that turn company knowledge into reliable AI execution.",
   openGraph: {
     title: "Deadwater.ai",
-    description: "Let your bots handle the tough stuff. Deadwater installs AI systems for content and growth teams that need reliable execution, not prompt glue.",
+    description: "Deadwater builds context layers and Content OS systems that turn company knowledge into reliable AI execution.",
     images: [{ url: ogImage, alt: "Deadwater.ai - AI systems for content operations" }]
   },
   twitter: {
     card: "summary_large_image",
     title: "Deadwater.ai",
-    description: "Let your bots handle the tough stuff. Deadwater installs AI systems for content and growth teams that need reliable execution, not prompt glue.",
+    description: "Deadwater builds context layers and Content OS systems that turn company knowledge into reliable AI execution.",
     images: [ogImage]
   }
 };
@@ -146,7 +155,7 @@ export default function HomePage() {
               <div className="relative min-h-[320px] border-t border-white/10 lg:border-l lg:border-t-0">
                 <Image
                   src="/blog/quarterly content audits.jpg"
-                  alt="Submerged structure under a flat waterline"
+                  alt="Quarterly content audit visual"
                   fill
                   priority
                   className="object-cover object-center opacity-80"
@@ -164,8 +173,8 @@ export default function HomePage() {
           <p className="text-xs uppercase tracking-[0.36em] text-slate-500">Why teams buy</p>
           <h2 className="heading-serif mt-4 text-3xl text-white sm:text-4xl">What changes after Deadwater is installed</h2>
           <p className="mt-5 text-lg leading-8 text-slate-300">
-            The work that burns your team out gets systematized. The work that actually moves deals, shapes perception,
-            and sharpens your position stays with humans.
+            Deadwater makes your company legible to AI, then turns that structure into execution. Repetitive work gets
+            systematized. Strategic work stays with humans.
           </p>
         </div>
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
@@ -188,7 +197,8 @@ export default function HomePage() {
               <p className="text-xs uppercase tracking-[0.36em] text-accent-sea">The shift</p>
               <h2 className="heading-serif mt-4 text-3xl text-white sm:text-4xl">Cut editing time down to zero</h2>
               <p className="mt-5 text-lg leading-8 text-slate-300">
-                Teams need a reliable system to handle the repetitive work, not more random automation and agency slop.
+                Teams need more than random automation. They need context layers that make AI useful and systems that
+                make execution reliable.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-3">
@@ -198,7 +208,7 @@ export default function HomePage() {
               </article>
               <article className="rounded-[28px] border border-ink-800 bg-black/30 p-5">
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-500">System fix</p>
-                <p className="mt-4 text-lg text-slate-200">Integrated AI, masterful context</p>
+                <p className="mt-4 text-lg text-slate-200">Context layer plus governed execution</p>
               </article>
               <article className="rounded-[28px] border border-accent-blue/30 bg-accent-blue/10 p-5">
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-300">After</p>
@@ -213,13 +223,13 @@ export default function HomePage() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.36em] text-slate-500">Ways in</p>
-            <h2 className="heading-serif mt-4 text-3xl text-white sm:text-4xl">Start with one bottleneck or install the whole operating layer</h2>
+            <h2 className="heading-serif mt-4 text-3xl text-white sm:text-4xl">Start with one workflow, your context layer, or the whole operating layer</h2>
           </div>
           <Link href="/pricing" className="focus-ring text-sm uppercase tracking-[0.28em] text-slate-300 hover:text-white">
             Compare packages
           </Link>
         </div>
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
           {paths.map((path) => (
             <article
               key={path.name}

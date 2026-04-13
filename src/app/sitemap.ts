@@ -30,6 +30,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1
     },
     {
+      url: `${siteUrl}/context-layer`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95
+    },
+    {
       url: `${siteUrl}/content-os`,
       lastModified: now,
       changeFrequency: "weekly",

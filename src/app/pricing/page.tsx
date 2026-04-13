@@ -5,19 +5,88 @@ const ogImage = "/og/og.png";
 
 export const metadata: Metadata = {
   title: "Pricing - deadwater.ai",
-  description: "Two ways to work together: production workflows or an all-in content OS that compounds.",
+  description: "Three ways to work together: workflow builds, context layer builds, or a full Content OS install.",
   openGraph: {
     title: "Pricing - deadwater.ai",
-    description: "Two ways to work together: production workflows or an all-in content OS that compounds.",
-    images: [{ url: ogImage, alt: "Deadwater.ai - Content OS for an AI-first world" }]
+    description: "Three ways to work together: workflow builds, context layer builds, or a full Content OS install.",
+    images: [{ url: ogImage, alt: "Deadwater.ai - Context layers and Content OS installs" }]
   },
   twitter: {
     card: "summary_large_image",
     title: "Pricing - deadwater.ai",
-    description: "Two ways to work together: production workflows or an all-in content OS that compounds.",
+    description: "Three ways to work together: workflow builds, context layer builds, or a full Content OS install.",
     images: [ogImage]
   }
 };
+
+const packages = [
+  {
+    label: "Package A",
+    title: "Workflow Build",
+    href: "/pricing",
+    cta: "Choose workflow build",
+    price: "From $22,000",
+    timing: "Typical timeline: 2-3 weeks",
+    description:
+      "Automate a specific growth or content bottleneck with a focused production workflow designed to do one job well.",
+    includes: [
+      "Two production-ready workflows",
+      "Defined input-output contracts",
+      "Prompt and logic design",
+      "QA, edge cases, and handoff docs",
+      "Walkthrough for internal use"
+    ],
+    bestFor: [
+      "Competitive content and SEO workflows",
+      "Research synthesis and draft generation",
+      "Teams that want a fast, targeted automation win"
+    ]
+  },
+  {
+    label: "Package B",
+    title: "Context Layer Build",
+    href: "/context-layer",
+    cta: "Explore context layer",
+    price: "From $25,000",
+    timing: "Typical timeline: 2-4 weeks",
+    description:
+      "Turn scattered internal knowledge into an owned, agent-ready markdown system your whole team can use with Codex, Claude Code, and other AI tools.",
+    includes: [
+      "Extraction from sources like Notion, workspace exports, docs, and internal files",
+      "Normalization into a markdown and git-backed repository",
+      "Folder structure, conventions, and operating docs for agent use",
+      "Packaged skills so the system works like an executive command center",
+      "Handoff for internal use across teams"
+    ],
+    bestFor: [
+      "Teams drowning in Notion sprawl and scattered docs",
+      "Operators already using coding agents and wanting better context",
+      "Companies that want owned AI infrastructure before a full site rebuild"
+    ]
+  },
+  {
+    label: "Package C",
+    title: "Content OS Install",
+    href: "/content-os",
+    cta: "Explore Content OS",
+    price: "From $50,000",
+    timing: "Typical timeline: 4-6 weeks",
+    description:
+      "Install the deeper operating layer that governs content production, publishing, and execution so multiple AI workflows can run safely.",
+    includes: [
+      "Code-based site or docs hub with markdown as the source of truth",
+      "Schemas, folder conventions, and publishing structure",
+      "Guardrails: validation, linting, and safe execution patterns",
+      "Documented execution hooks for Codex, Claude Code, and similar agents",
+      "Examples for SEO, competitive, and internal context workflows"
+    ],
+    bestFor: [
+      "Teams that want compounding leverage across the whole content system",
+      "Teams replacing brittle CMS and prompt-driven processes",
+      "Companies ready for a full operating-layer install"
+    ]
+  }
+];
 
 export default function PricingPage() {
   return (
@@ -25,12 +94,12 @@ export default function PricingPage() {
       <section className="section-tight">
         <h1 className="heading-serif text-4xl">Pricing</h1>
         <p className="mt-6 text-lg text-slate-300">
-          You are not outsourcing tasks. You are installing leverage that compounds. We build code-first systems that make
-          AI reliable, repeatable, and safe to run at scale.
+          Deadwater sells owned AI infrastructure, not outsourced content labor. Start with a focused workflow, build
+          an agent-ready context layer, or go all the way to a full Content OS install.
         </p>
         <p className="mt-3 text-lg text-slate-300">
-          Choose a focused workflow build or a full Content OS install. Both start with a scope definition and a fixed
-          price proposal.
+          Both offers begin with a scoping call and end with systems your team can run without renting your intelligence
+          back from a vendor.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <Link href="/contact" className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
@@ -40,106 +109,74 @@ export default function PricingPage() {
             Email me
           </Link>
         </div>
-        <p className="mt-4 text-sm text-slate-400">
-          Built from the same playbook that powered Statsig’s marketing engine.
-        </p>
       </section>
 
       <div className="divider" />
 
       <section className="section">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="card">
-            <p className="eyebrow">Package A</p>
-            <h2 className="heading-serif text-2xl text-white">Workflow build</h2>
-            <p className="mt-2 text-slate-300">Automate a specific growth or content bottleneck.</p>
-            <div className="mt-6 flex flex-col gap-2 text-slate-300">
-            <p className="text-xl text-white">From $22,000</p>
-            <p className="text-sm text-slate-400">Typical timeline: 2–3 weeks</p>
-          </div>
-          <div className="mt-6 grid gap-2 text-slate-300">
-            <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Includes</p>
-            <ul className="list-disc pl-5">
-                <li>2 production-ready workflows (AirOps)</li>
-                <li>Input→output contract defined up front</li>
-                <li>Prompt + logic design (not templates)</li>
-                <li>QA pass + edge-case handling</li>
-                <li>Handoff docs + walkthrough</li>
-            </ul>
-            </div>
-            <div className="mt-6 grid gap-2 text-slate-300">
-              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Best for</p>
-              <ul className="list-disc pl-5">
-                <li>Competitive content</li>
-                <li>SEO briefs/drafts</li>
-                <li>Research synthesis</li>
-                <li>Transcript→publishable output</li>
-              </ul>
-            </div>
-            <Link href="/contact" className="focus-ring mt-6 inline-flex border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
-              Choose workflow build
-            </Link>
-          </div>
-
-          <div className="card">
-            <p className="eyebrow">Package B</p>
-            <h2 className="heading-serif text-2xl text-white">Content OS install</h2>
-            <p className="mt-2 text-slate-300">A code-first content system that AI can safely execute.</p>
-            <div className="mt-6 flex flex-col gap-2 text-slate-300">
-              <p className="text-xl text-white">From $50,000</p>
-              <p className="text-sm text-slate-400">Typical timeline: 4–6 weeks</p>
-            </div>
-            <div className="mt-6 grid gap-2 text-slate-300">
-              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Includes</p>
-              <ul className="list-disc pl-5">
-                <li>Code-based site or docs hub (no CMS)</li>
-                <li>Markdown as the source of truth (git-backed)</li>
-                <li>Content schemas + folder conventions</li>
-                <li>Guardrails: validation, linting, and safe execution patterns</li>
-                <li>AI execution hooks for Codex/Claude Code (documented)</li>
-                <li>Example modules for SEO + competitive + internal context</li>
-              </ul>
-              <p className="text-sm text-slate-400">Note: Content OS replaces your website.</p>
-            </div>
-            <div className="mt-6 grid gap-2 text-slate-300">
-              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Best for</p>
-              <ul className="list-disc pl-5">
-                <li>Teams that want compounding leverage</li>
-                <li>Teams avoiding tool lock-in</li>
-                <li>Teams with lots of institutional knowledge</li>
-              </ul>
-            </div>
-            <Link href="/contact" className="focus-ring mt-6 inline-flex border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
-              Choose content OS
-            </Link>
-          </div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {packages.map((pkg) => (
+            <article key={pkg.title} className="card">
+              <p className="eyebrow">{pkg.label}</p>
+              <h2 className="heading-serif text-2xl text-white">{pkg.title}</h2>
+              <p className="mt-2 text-slate-300">{pkg.description}</p>
+              <div className="mt-6 flex flex-col gap-2 text-slate-300">
+                <p className="text-xl text-white">{pkg.price}</p>
+                <p className="text-sm text-slate-400">{pkg.timing}</p>
+              </div>
+              <div className="mt-6 grid gap-2 text-slate-300">
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Includes</p>
+                <ul className="list-disc pl-5">
+                  {pkg.includes.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-6 grid gap-2 text-slate-300">
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Best for</p>
+                <ul className="list-disc pl-5">
+                  {pkg.bestFor.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <Link href={pkg.href} className="focus-ring mt-6 inline-flex border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
+                {pkg.cta}
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className="section">
         <h2 className="heading-serif text-2xl">Which option should I choose?</h2>
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+        <div className="mt-6 grid gap-6 lg:grid-cols-3">
           <div className="border border-ink-800 p-4">
-            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-400">If you want…</h3>
+            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-400">Choose Workflow Build if you want</h3>
             <div className="mt-4 grid gap-3 text-slate-300">
-              <p>Fix one bottleneck fast</p>
-              <p>Minimal internal change</p>
-              <p>Tool-centric automation</p>
-              <p>Targeted workflow outcomes</p>
-              <p>Short-term speed with clear ROI</p>
+              <p>To fix one painful bottleneck fast</p>
+              <p>To automate a specific content or research job</p>
+              <p>A faster, narrower engagement with clear ROI</p>
+              <p>Execution without changing the whole system yet</p>
             </div>
-            <p className="mt-6 text-sm uppercase tracking-[0.3em] text-white">Choose workflow build</p>
           </div>
           <div className="border border-ink-800 p-4">
-            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-400">If you want…</h3>
+            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-400">Choose Context Layer Build if you want</h3>
             <div className="mt-4 grid gap-3 text-slate-300">
-              <p>Build a reusable foundation</p>
-              <p>Standardize the whole content pipeline</p>
-              <p>System-centric operations</p>
-              <p>Compounding leverage over time</p>
-              <p>Long-term operational control</p>
+              <p>To turn scattered company knowledge into something agents can actually use</p>
+              <p>To make Codex or Claude Code dramatically more useful inside your business</p>
+              <p>To own a markdown-based command center instead of another hosted knowledge tool</p>
+              <p>A strong first infrastructure step before a bigger system install</p>
             </div>
-            <p className="mt-6 text-sm uppercase tracking-[0.3em] text-white">Choose content OS install</p>
+          </div>
+          <div className="border border-ink-800 p-4">
+            <h3 className="text-sm uppercase tracking-[0.3em] text-slate-400">Choose Content OS Install if you want</h3>
+            <div className="mt-4 grid gap-3 text-slate-300">
+              <p>To rebuild the actual content operating layer</p>
+              <p>To standardize publishing, schemas, and execution across the whole system</p>
+              <p>To replace brittle CMS and prompt workflows with governed infrastructure</p>
+              <p>Compounding leverage across content production, not just internal knowledge access</p>
+            </div>
           </div>
         </div>
       </section>
@@ -147,15 +184,15 @@ export default function PricingPage() {
       <section className="section">
         <h2 className="heading-serif text-2xl">Ongoing support</h2>
         <p className="mt-4 text-slate-300">For teams that want iteration after launch.</p>
-        <p className="mt-4 text-xl text-white">$6,000–$12,000 / month</p>
-        <ul className="mt-4 grid gap-2 list-disc pl-5 text-slate-300">
-          <li>New workflows/content types</li>
-          <li>Prompt and schema iteration</li>
-          <li>Model/tooling/integration upgrades</li>
-          <li>Quarterly system cleanup and refactors</li>
+        <p className="mt-4 text-xl text-white">$6,000-$12,000 / month</p>
+        <ul className="mt-4 grid list-disc gap-2 pl-5 text-slate-300">
+          <li>New skills, workflows, and content types</li>
+          <li>Prompt, schema, and structure iteration</li>
+          <li>Model, tooling, and integration upgrades</li>
+          <li>Quarterly cleanup and refactors</li>
         </ul>
         <p className="mt-4 text-sm text-slate-400">
-          Not required—most teams start with a build, then add support once it’s live.
+          Not required. Most teams start with one build, then add support once the system is live.
         </p>
       </section>
 
@@ -163,78 +200,66 @@ export default function PricingPage() {
         <h2 className="heading-serif text-2xl">FAQ</h2>
         <div className="mt-6 grid gap-6 text-slate-300">
           <div>
-            <h3 className="text-white">What’s the difference between a workflow and a content OS?</h3>
+            <h3 className="text-white">What is the difference between a workflow, a context layer, and a Content OS?</h3>
             <p className="mt-2">
-              A workflow build transforms your growth content creation workflow into an automated, AI-powered system. A
-              Content OS install changes how content is stored, governed, and executed so multiple workflows can run
-              safely. One is a sharp tool. The other is the system that makes tools compounding.
+              A workflow build automates one defined job. A context layer makes your company legible to agents by
+              structuring internal knowledge. A Content OS adds the full operating layer for content execution,
+              governance, and publishing. They solve different depths of the same problem.
             </p>
           </div>
           <div>
-            <h3 className="text-white">Do you work with existing tools like Notion, GA4, Search Console, HubSpot?</h3>
+            <h3 className="text-white">What is the difference between a context layer and a Content OS?</h3>
             <p className="mt-2">
-              Yes, as inputs or reporting surfaces. We prioritize code-first sources of truth, but we can integrate
-              common tools where they already hold real data. We’ll map the workflow boundaries during the scoping call.
+              A context layer makes your company legible to agents. It extracts and structures internal knowledge so AI
+              can reason with it. A Content OS goes further by governing how content is stored, executed, validated, and
+              published. One is the knowledge foundation. The other is the operating system running on top of it.
             </p>
           </div>
           <div>
-            <h3 className="text-white">What do you need from us to start?</h3>
+            <h3 className="text-white">Do you work with Notion and other existing tools?</h3>
             <p className="mt-2">
-              A point person, access to the relevant source content, and a clear business outcome. We start with a
-              scoping call and leave you with a written scope + fixed price proposal.
+              Yes. The context layer offer exists specifically because most companies already have valuable knowledge
+              trapped inside tools like Notion, docs hubs, workspace exports, and scattered internal files.
             </p>
           </div>
           <div>
-            <h3 className="text-white">Who owns the system?</h3>
+            <h3 className="text-white">Who owns the system after handoff?</h3>
             <p className="mt-2">
-              You do. The code, content, and documentation live in your repo and your tooling. Our job is to leave you
-              with a system you can run without us. As much as we love the collaboration, we set your team up to be
-              self-sufficient experts.
+              You do. The point is to leave you with an owned markdown-based asset, not lock your intelligence inside a
+              vendor platform.
             </p>
           </div>
           <div>
-            <h3 className="text-white">Can my team maintain this after handoff?</h3>
+            <h3 className="text-white">Can every employee use the context layer?</h3>
             <p className="mt-2">
-              Yes. We provide documentation, conventions, and a walkthrough. If you want ongoing support, we can stay
-              involved, but the system is designed for self-sufficiency.
+              Yes. We package the system with skills, structure, and operating guidance so it can function like an
+              internal command center, not just a developer toy.
             </p>
           </div>
           <div>
-            <h3 className="text-white">What if we don’t know the exact scope yet?</h3>
+            <h3 className="text-white">What if we are not ready for the full Content OS yet?</h3>
             <p className="mt-2">
-              That is normal. The scoping call exists to clarify the inputs, outputs, and constraints. You will receive a
-              written scope and fixed price proposal before any build starts.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-white">Do you do hourly work?</h3>
-            <p className="mt-2">
-              No. We work on fixed scopes with outcome-oriented pricing. That keeps incentives aligned and delivery
-              predictable.
+              That is exactly why the context layer offer exists. It is a strong standalone deliverable and a natural
+              precursor to a deeper install later.
             </p>
           </div>
         </div>
       </section>
 
       <section className="section">
-        <h2 className="heading-serif text-2xl">Install leverage</h2>
+        <h2 className="heading-serif text-2xl">Build owned leverage</h2>
         <p className="mt-4 text-slate-300">
-          If your bottleneck is speed or consistency, this is designed for you.
+          If your bottleneck is speed, context, or full-system execution, there is now a clean entry point for each.
         </p>
         <div className="mt-6 flex flex-wrap gap-4">
           <Link href="/contact" className="focus-ring border border-accent-blue bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-white">
             Book a scoping call
           </Link>
-          <Link href="mailto:hello@deadwater.ai" className="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
-            Email me
+          <Link href="/context-layer" className="focus-ring border border-ink-700 bg-black px-6 py-3 text-xs uppercase tracking-[0.3em] text-slate-300 hover:text-white">
+            Explore context layer
           </Link>
         </div>
-        <p className="mt-4 text-sm text-slate-400">
-          Most builds start within 2–3 weeks depending on availability.
-        </p>
       </section>
     </div>
   );
 }
-
-

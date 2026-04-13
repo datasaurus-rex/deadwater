@@ -13,8 +13,11 @@ export function SiteFooter() {
         sizes="100vw"
       />
       <div className="container-narrow relative z-10 flex flex-col gap-6 py-10 text-sm text-slate-300">
-        <p>Deadwater.ai — Content OS for an AI-first world.</p>
+        <p>Deadwater.ai - Context layers and Content OS for an AI-first world.</p>
         <div className="flex flex-wrap gap-6 uppercase tracking-[0.2em]">
+          <Link href="/context-layer" className="focus-ring transition-colors hover:text-white">
+            Context Layer
+          </Link>
           <Link href="/content-os" className="focus-ring transition-colors hover:text-white">
             Content OS
           </Link>
